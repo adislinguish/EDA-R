@@ -1,0 +1,252 @@
+---
+title: "Five Thirty Eight Project"
+author: "...."
+date: "09/22/2025"
+format: docx
+---
+
+Your goal for this project is to make some graphs from the five thirty eight data you choose.
+
+Use the vignettes in the package to get you started. Then find one of the data sets that was not used in a vignette in the package that interests you.
+
+Articles and data can be found by going to the fivethirtyeight package and clicking on the help tab. Choose an article with at least one categorical variable and one quantitative variable and at least one graph.
+
+Read the article associated with your data to help you understand the data.
+
+10 points
+
+1.) What data set did you choose? Give the article name, a link to the article and the data set name. Briefly summarize the article.
+
+Article: The Ultimate Halloween Candy Power Ranking Dataset Name: candy_rankings link: https://fivethirtyeight.com/videos/the-ultimate-halloween-candy-power-ranking/
+
+Article Summary: The article uses a popularity comparison format, where participants choose between candies in each matchup to determine which is more popular.
+
+-   There were about 269,000 matchups collected, from 8,371 different IP addresses.
+
+-   For each candy, there are binary features (True/False) for things like whether it contains chocolate, fruity flavor, caramel, nuts/almonds, nougat, crisped rice or wafer components, whether it's a hard candy, whether it's a candy bar, and whether it comes as multiple items in a bag. Also numerical percentiles for sugar content, price, and a “win percentage” meaning how often it won in matchups.
+
+-   Resulting in candies with chocolate, nuts/almonds, crisp/wafer or rice components tend to do much better. Caramel and nougat are positives, but smaller effects. Hard candy tends to do worse. Price and sugar content are less predictive than the ingredient/texture features.
+
+```{r}
+data("candy_rankings", package = "fivethirtyeight")
+head(candy_rankings, 5)
+
+colors <- c(
+  "chocolate","#FFF5E1"
+)
+```
+
+Summary Statistics
+
+```{r}
+summary(candy_rankings)
+```
+
+Library load
+
+```{r}
+library(tidyverse)
+library(fivethirtyeight)
+library(knitr)
+library(scales)
+```
+
+Now to make some graphs.
+
+10 points
+
+2.) What variables are in your data set? Give the type and a brief but descriptive definition for each of the variables you use in this project.
+
+Categorical: competitorname,
+
+Categorical, Binary: chocolate, fruity, caramel, peanutalmondy, nougat, crispedricewafer, hard, bar, pluribus
+
+Numerical: sugarpercent, pricepercent, winpercent
+
+```{r}
+glimpse(candy_rankings)
+```
+
+```{r}
+candy_variables <- data.frame(
+  Header = c("competitorname", "chocolate", "fruity", "caramel", "peanutalmondy", "nougat",
+             "crispedricewafer", "hard", "bar", "pluribus",
+             "sugarpercent", "pricepercent", "winpercent"),
+  Description = c(
+    "The name of the Halloween candy.",
+    "Does it contain chocolate?",
+    "Is it fruit flavored?",
+    "Is there caramel in the candy?",
+    "Does it contain peanuts, peanut butter or almonds?",
+    "Does it contain nougat?",
+    "Does it contain crisped rice, wafers, or a cookie component?",
+    "Is it a hard candy?",
+    "Is it a candy bar?",
+    "Is it one of many candies in a bag or box?",
+    "The percentile of sugar it falls under within the data set.",
+    "The unit price percentile compared to the rest of the set.",
+    "The overall win percentage according to 269,000 matchups."
+  )
+)
+
+kable(candy_variables, caption = "Candy Dataset Variable Descriptions")
+```
+
+15 points
+
+3a.)Make a graph with one variable and describe the graph in context.
+
+A histogram of the distribution of win percentages among Halloween candies. The x-axis represents the win percentage ranging from 20% to 90%, while the y-axis shows the number of candies falling into each win percentage interval. A bin width of 1.5% is used to group the data.
+
+-   The distribution is bimodal, with noticeable peaks around the 39% and 45% marks. This suggests that many candies are clustered in the lower-to-mid popularity range.
+
+-   Some candies do achieve significantly higher win rates, with the highest at 84.18%. The median win percentage of 47.83% closely aligns with the density peaks.
+
+```{r}
+#| label: chocolate-by-candybar
+
+ggplot(candy_rankings, aes(x= winpercent)) +
+  geom_histogram(binwidth = 1.5, fill = "chocolate", alpha = 0.8, color= "black", na.rm = TRUE) +
+  scale_fill_manual(values = colors) + 
+  scale_x_continuous(limits = c(20, 90)) +
+  labs(
+    title = "Distribution of Halloween Candy Popularity",
+    x = "Win Percentage (%)",
+    y = "Number of Candies"
+  ) +
+  theme_minimal()
+```
+
+5 points 3b.) Explain why you chose the type of graph that you chose.
+
+I chose the histogram because it is the most effective way to visualize the distribution of a single continuous variable like the win percentage of Halloween candies. The goal was to understand how candy popularity is spread out across all items in the dataset since using a histogram you can see how frequently different ranges of win percentages occur, detect the shape of the distribution in this case bimodal, and detect outliers or unusually popular candies.
+
+15 points 4a.) Make a graph with two variables and describe the graph in context.
+
+The boxplot visualizes the distribution of sugar percentage across different candy traits. The x-axis displays candy traits as categorical variables, ordered by their median sugar percentage. The y-axis shows sugar percentage values ranging from 0 to 1.0, representing the proportion of sugar content in each candy. Each box represents the interquartile range (IQR) of sugar percentages for candies with a given trait, with a bold horizontal line marking the median. Mean values are shown as black diamonds.
+
+-   The median sugar percentages for most candy traits fall between 0.48 and 0.60.
+
+-   Traits like caramel, hard, and nougat have the highest medians above 0.60, indicating that candies with these traits tend to be sweeter.
+
+-   Traits such as fruity and pluribus have lower medians, around 0.465, suggesting less sugar dense candies.
+
+-   Pluribus and hard candies show the widest spread in sugar content where IQR is greater than 0.50, while Nougat and bar have narrower IQRs.
+
+-   High outliers are present in peanutyalmondy, bar, and nougat candies with exceptionally high sugar content. Low outliers appear in peanutyalmondy, caramel, and nougat.
+
+```{r}
+#| label: sugar-by-candytrait
+
+candy_rankings_count <- candy_rankings |>
+  pivot_longer(cols = chocolate:pluribus,
+               names_to = "CandyType",
+               values_to = "value") |>
+  filter(value == TRUE)
+
+candy_rankings_count |>
+  group_by(CandyType) |>
+  summarise(
+    average = median(sugarpercent, na.rm=TRUE),
+    mean = mean(sugarpercent, na.rm=TRUE),
+    sd = sd(sugarpercent, na.rm=TRUE),
+    min = min(sugarpercent, na.rm=TRUE),
+    max = max(sugarpercent, na.rm=TRUE),
+    iqr = IQR(sugarpercent, na.rm=TRUE)
+  )
+ 
+ggplot(candy_rankings_count, aes(x = reorder(CandyType, sugarpercent, median), y = sugarpercent)) +
+  geom_boxplot(fill = "chocolate", alpha = 0.8, outlier.fill = "black", outlier.size = 2, na.rm = TRUE) +
+  stat_summary(fun = mean, geom = "point", shape = 18, size = 3, color = "black") +
+  labs(
+    title = "Sugar Percent Distribution by Candy Trait",
+    x = "Candy Trait",
+    y = "Sugar Percentage (%)"
+  ) +
+  theme_minimal() +
+  theme(axis.text.x = element_text(angle = 45, hjust = 1))
+```
+
+5 points 4b.) Explain why you chose the type of graph that you chose.
+
+I chose the boxplot graph because it is the most effective type of graph for comparing distribution shapes and variability across multiple groups of continuous variable like sugar percentage across multiple categories like candy trait. It also reveals not just the average sugar levels, but also the spread, consistency, and presence of outliers for each candy trait. By ordering the traits by median sugar percentage, the plot emphasizes the traits most associated with higher or lower sugar content.
+
+15 points 5.) Make a graph with three or more variables and describe the graph in context.
+
+The bar chart shows the average price percentile for different Halloween candy traits, split by whether the candy is a bar or non-bar. The plot is faceted into two panels bar = TRUE and bar = FALSE, allowing for a side-by-side comparison between bar-type candies and non-bar-type candies. The x-axis displays different candy traits, ordered by their average price percentile within each facet. The y-axis represents the average price percentile, ranging from 0% to 1%. Text labels above the bars show the exact average rounded to two decimal places.
+
+-   The highest price percentile is seen in crisped rice wafer, non-bar, with an average of 0.85, making it the most expensive trait on average.
+
+-   Non bar hard candies have the lowest average price percentile at 0.32, suggesting they are generally the least expensive.
+
+-   Candy traits such as caramel, chocolate, peanutyalmondy, and crisped rice wafer all show higher average prices all at or over 0.72 within bar-type candies.
+
+-   Both bar and non-bar candies show left-skewed tendencies in trait price averages.
+
+```{r}
+#| label: averageprice-candytrait
+#| fig-width: 8
+#| fig-height: 5
+
+candy_rankings_average <- candy_rankings |>
+  pivot_longer(cols = c(chocolate:hard, pluribus),
+               names_to = "CandyType",
+               values_to = "value") |>
+  filter(value == TRUE) |>
+  group_by(CandyType, bar) |>
+  summarise(
+    count = n(),
+    average = mean(pricepercent, na.rm = TRUE),
+    .groups = "drop"
+  )
+
+ggplot(candy_rankings_average, aes(x = reorder(CandyType, average), y = average, fill = bar)) +
+  geom_col(alpha = 0.8, color = "black", linewidth = 0.3) +
+  geom_text(aes(label = round(average, 2)), vjust = -0.5, size = 3) +
+  facet_grid(~ bar) +
+  scale_fill_manual(values = colors) +
+  scale_y_continuous(limits = c(0, 1)) +
+  labs(
+    title = "Average Price Percentage by Candy Trait and Bar Type",
+    x = "Candy Trait",
+    y = "Average Price Percentage (%)",
+    fill = "Bar Type"
+  ) +
+  theme_minimal() +
+  theme(axis.text.x = element_text(angle = 45, hjust = 1))
+```
+
+5 points 5b.) Explain why you chose the type of graph that you chose.
+
+I chose the facet bar plot because it compares groups like candy trait across two conditions the bar vs non-bar. Also using facets helps separate these categories visually, allowing for direct comparison of the same candy traits within each group. Finally, It highlights how candy types and form factor by as bar or non-bar relate to price percentile making it an ideal choice for highlighting pricing trends across multiple variables.
+
+15 points 6a.) Make a graph similar to one in the article. Describe how your graph resembles the one in the article and how it doesn't.
+
+My bar chart displays the top Halloween candy competitor names ranked by their win percentage, similar to the first table graph in the article. The difference is that I am only showing the top 20 competitors for better clarity and visual accommodation, whereas the article displays all competitor names from the dataset. Both graphs use horizontal bars with text labels beside each bar indicating the exact win percentage, and both are ordered by performance from highest to lowest.
+
+```{r}
+#| label: competitorname-winpercent
+
+candy_rankings |>
+  arrange(desc(winpercent)) |>
+  head(20) |>
+  ggplot(aes(x = reorder(competitorname, winpercent), y = winpercent)) +
+    geom_col(alpha = 0.8, color = "black", linewidth = 0.3, fill = "chocolate") +
+    geom_text(aes(label = round(winpercent, 2)), hjust = -0.1, size = 2.5, color = "black") +
+    scale_y_continuous(labels = label_percent(scale = 1), limits = c(0, 100)) +
+    coord_flip() +
+     labs(
+      title = "Top 20 Competitor Name by Win (%)",
+      x = "Competitor Name",
+      y = "Win Percentage"
+    ) +
+    theme_minimal()
+```
+
+5 points 6b).Describe what your graph shows in context.
+
+This bar chart displays the top 20 Halloween candies competitor name ranked by their win percentage. The x-axis shows the names of the candy competitors, ordered by performance. The y-axis represents the win percentage, ranging from 62% to 84%. The text labels beside the bars indicating the exact win percentage, rounded to two decimal place.
+
+-   Reese’s Peanut Butter Cup leads all candies with a win percentage of 84.2%, making it the most preferred candy in the dataset.
+
+-   The lowest-ranking candy in the top 20 is Hershey’s Krackel with 62.3%, still showing strong preference compared to the full dataset.
