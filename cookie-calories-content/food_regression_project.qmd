@@ -1,0 +1,692 @@
+---
+title: "A Regression Analysis of Nutrient in Branded Cookies"
+author: "......"
+date: "10/21/2025"
+format: docx
+editor: visual
+---
+
+## Description
+
+This dataset contains detailed nutritional and product information for branded cookie and biscuit products sold in the United States. Sourced from the USDA’s Branded Foods Database, the data represent real-world commercial products, making it particularly relevant for consumer nutrition analysis, food marketing research, or health-oriented product development studies. All nutrient values are standardized per 100 grams, enabling fair and consistent comparisons between products regardless of packaging or serving size.
+
+## Sources
+
+1.  Nutrition Resource. 2025. *USDA Branded Food Products Database*. Accessed October 6, 2025. <http://www.nutritionresource.com/>
+
+## Variables
+
+1.  name: categorical -\> The commercial name of the cookie or biscuit product.
+
+2.  brand_owner: categorical -\> The parent company or manufacturer that owns the brand.
+
+3.  brand: categorical -\> The specific brand under which the product is sold.
+
+4.  calories_serving: quantitative -\> Total calories provided per 100 grams of the product.
+
+5.  proteins: quantitative -\> Grams of protein per 100g.
+
+6.  carbohydrates: quantitative -\> Grams of carbohydrates per 100g.
+
+7.  fats: quantitative -\> Grams of total fat per 100g.
+
+8.  fibers: quantitative -\> Grams of dietary fiber per 100g.
+
+9.  total_sugars: quantitative -\> Grams of sugar per 100g, including both added and naturally occurring sugars.
+
+10. gain_type: categorical -\> Primary grain ingredient classification(e.g., wheat, oats, mixed, other)
+
+-   "Wheat" – if the ingredient list includes wheat flour, enriched flour, or whole wheat.
+
+-   "Oats" – if the main grain is oats (e.g., whole grain oats, oat flour), and no wheat is present.
+
+-   "Mixed" – if both wheat and oats are present.
+
+```{r}
+#| results: hide
+#| warning: FALSE
+#| message: FALSE
+#| error: FALSE
+#| include: false
+#| label: libraries
+
+library(tidyverse)
+library(stringr)
+library(scales)
+library(knitr)
+library(moderndive)
+```
+
+```{r}
+#| label: load-raw-data
+#| include: false
+
+cookie_food <- read_csv("cookie_food_regression_project.csv")
+```
+
+## Exploratory Data Analysis
+
+Before building statistical models, it’s essential to understand the structure and patterns within your data. **Exploratory Data Analysis (EDA)** is the process of investigating datasets to summarize their main characteristics, identify potential issues, and uncover insights that can guide further analysis.
+
+For the cookies dataset, which includes standardized nutritional and product information from the USDA’s Branded Foods Database, EDA allows us to:
+
+1.  Examine the raw data to get an overview of its structure and content
+
+2.  Compute summary statistics to understand distributions and relationships between variables
+
+3.  Create visualizations to reveal trends, outliers, or patterns not immediately visible from tables alone
+
+Let’s begin by taking a first look at the raw data using `glimpse()`.
+
+```{r}
+#| label: columns-rows-information
+#| echo: false
+
+print(paste("Number of rows:", nrow(cookie_food)))
+print(paste("Number of columns:", ncol(cookie_food)))
+
+glimpse(cookie_food)
+```
+
+At this point, we know that the following are numerical variables and can be used for statistical summaries, visualizations, and regression modeling:
+
+-   calories_serving
+
+-   proteins
+
+-   carbohydrates
+
+-   fats
+
+-   fibers
+
+-   total_sugars
+
+The categorical variables in the dataset are:
+
+-   name
+
+-   brand_owner
+
+-   brand
+
+-   grain_type
+
+We also display a random sample of 10 rows of the 37 rows corresponding to different cookies and biscuits. Remember due to the random nature of the sampling, you will likely end up with a different subset of 10 rows.
+
+```{r}
+#| label: sample-rows-information
+#| echo: false
+cookie_food |> 
+  sample_n(size = 10)
+```
+
+Let’s now perform the second step in an EDA: computing summary statistics displaying single numerical values that summarize a large number of values. Examples of summary statistics include the mean, the median, the standard deviation, and various percentiles. Let’s use the convenient tidy_summary().
+
+```{r}
+#| label: statistic-information
+#| echo: false
+
+cookie_food |> 
+  select(calories_serving, proteins, carbohydrates, total_sugars, fats, grain_type) |> 
+  tidy_summary()
+```
+
+The average calories per serving in cookies is around 448 kcal, with most items falling between 419 and 484 kcal. Carbohydrates have a high mean of about 62g and range widely from 21.4g to 80.6g, showing significant variation. Total sugars also vary, with an average of 26.8g and some items containing no sugar at all, while others reach up to 46.5g. Protein content is generally lower, averaging 6.1g, and ranges from 2.6g to 13.3g, indicating that most items are not high in protein. Fats have a moderate average of 21g, but with a maximum of 60.7g, a few items are much higher in fat than the rest. These patterns suggest that carbohydrates, sugars, and fats are likely the strongest contributors to calorie content, and the presence of outliers in fats and sugars may affect regression models. Normalization or transformation of skewed features could improve predictive performance.
+
+Let’s now perform the last of the three common steps in an exploratory data analysis: creating data visualizations. Let’s first create univariate visualizations. These are plots focusing on a single variable at a time.
+
+```{r}
+#| label: histogram-calories
+#| echo: false
+#| warning: false
+
+# Histogram of calories:
+ggplot(cookie_food, aes(x = calories_serving)) +
+  geom_histogram(bins = 15, fill = "chocolate", alpha = 0.8, color= "black", na.rm = TRUE) +
+  labs(
+    x = "Calories per Serving (kcal)", 
+    y = "Number of Items",
+    title = "Distribution of Calories per Serving"
+  )
+```
+
+The histogram of calories per serving shows that most items have between 350 and 550 kilocalories. The distribution is right-skewed, as indicated by the long tail on the higher end.
+
+```{r}
+#| label: histogram-fats
+#| echo: false
+#| warning: false
+# Histogram of fats:
+ggplot(cookie_food, aes(x = fats)) +
+  geom_histogram(bins = 15, fill = "chocolate", alpha = 0.8, color= "black", na.rm = TRUE) +
+  labs(
+    x = "Fats per 100g (grams)", 
+    y = "Number of Items",
+    title = "Distribution of Fats in Cookie Products"
+  )
+```
+
+The histogram of fats per 100g shows that most items contain between 0 and around 40 grams of fat. The x-axis extends beyond 60 due to a few items with exceptionally high fat content. The distribution appears symmetric, with peaks around 20 grams.
+
+```{r}
+#| label: histogram-proteins
+#| echo: false
+#| warning: false
+# Histogram of proteins:
+ggplot(cookie_food, aes(x = proteins)) +
+  geom_histogram(bins = 15, fill = "chocolate", alpha = 0.8, color= "black", na.rm = TRUE) +
+  labs(
+    x = "Proteins per 100g (grams)", 
+    y = "Number of Items",
+    title = "Distribution of Proteins in Cookie Products"
+  )
+```
+
+The histogram of proteins per 100g shows values spread across the x-axis, ranging from 0 to over 12 grams. The distribution appears bimodal, with noticeable peaks around 4 and 7 grams.
+
+```{r}
+#| label: histogram-carbohydrates
+#| echo: false
+#| warning: false
+# Histogram of carbohydrates:
+ggplot(cookie_food, aes(x = carbohydrates)) +
+  geom_histogram(bins = 15, fill = "chocolate", alpha = 0.8, color = "black", na.rm = TRUE) +
+  labs(
+    x = "Carbohydrates per 100g (grams)", 
+    y = "Number of Items",
+    title = "Distribution of Carbohydrates in Cookie Products"
+  )
+```
+
+The histogram of carbohydrates per 100g shows values ranging from around 20 to over 80 grams. The distribution appears roughly symmetric, with a slight left skew and a noticeable peak around 61 grams.
+
+```{r}
+#| label: histogram-totalsugars
+#| echo: false
+#| warning: false
+# Histogram of total sugars:
+ggplot(cookie_food, aes(x = total_sugars)) +
+  geom_histogram(bins = 15, fill = "chocolate", alpha = 0.8, color= "black", na.rm = TRUE) +
+  labs(
+    x = "Total Sugar per 100g (grams)", 
+    y = "Number of Items",
+    title = "Distribution of Total Sugars in Cookie Products"
+  )
+```
+
+The histogram of total sugars per 100g shows values spread across the x-axis, ranging from 0 to close to 50 grams. The distribution appears bimodal, with noticeable peaks around 24 and 36 grams.
+
+```{r}
+#| label: barchart-graintype
+#| echo: false
+#| warning: false
+cookie_food |>
+  ggplot(aes(x= grain_type)) +
+  geom_bar(fill = "chocolate", alpha = 0.8, color= "black", na.rm = TRUE) +
+  labs(
+    x = "Grain Type",
+    y = "Number of cookies", 
+    title = "Grain Type Content on Cookie"
+  )
+```
+
+Finally, in the last of the univariate visualizations, the bar plot of Grain Type shows that the majority of cookies are made from WHEAT, with a count of over 15. MIXED and OATS grain types follow closely behind, with similar but slightly lower counts.
+
+Let’s now continue our EDA by creating multivariate visualizations. Unlike the univariate histograms and barplot in the earlier, multivariate visualizations show relationships between more than one variable. This step is especially useful for identifying trends, correlations, or potential group differences in cookie characteristics.
+
+```{r}
+#| label: EDA-protein-calories
+#| echo: false
+#| warning: false
+cookie_food |>
+  ggplot(aes(x= proteins, y= calories_serving)) +
+  geom_point(position = "jitter", color = "chocolate", na.rm = TRUE) +
+  geom_smooth(method = "lm", se = FALSE, color = "black") +
+  labs(
+    x = "Proteins per 100g (grams)",
+    y = "Calories per Serving (kcal)", 
+    title = "Relationship Between Proteins and Calories per serving"
+  )
+```
+
+There appears to be a moderately negative linear relationship between protein content (per 100g) and calories per serving in the cookie dataset: as protein increases, calories per serving tend to decrease. Two clusters are noticeable, one around 3 grams of protein and another between 5 to 8 grams both with a wide spread of calories, mostly above 400 kcal. Additionally, there's a visible outlier around 4 grams of protein and under 300 calories, which may be influencing the overall trend.
+
+```{r}
+#| label: EDA-fats-calories
+#| echo: false
+#| warning: false
+
+cookie_food |>
+  ggplot(aes(x= fats, y= calories_serving)) +
+  geom_point(position = "jitter", color = "chocolate", na.rm = TRUE) +
+  geom_smooth(method = "lm", se = FALSE, color = "black") +
+  labs(
+    x = "Fats per 100g (grams)",
+    y = "Calories per Serving (kcal)", 
+    title = "Relationship Between Fats and Calories per serving"
+  )
+```
+
+Observe there is a strong positive linear relationship between fat content (per 100g) and calories per serving in the cookie dataset: as fat increases, calories per serving also tend to increase. Most data points cluster between 8 and 30 grams of fat, with corresponding calorie values generally between 350 and 500 kcal. There are also noticeable outliers one around 14 grams and another above 60 grams of fat that may be affecting the overall trend.
+
+```{r}
+#| label: EDA-carbohydrates-calories
+#| echo: false
+#| warning: false
+cookie_food |>
+  ggplot(aes(x= carbohydrates, y= calories_serving)) +
+  geom_point(position = "jitter", color = "chocolate", na.rm = TRUE) +
+  geom_smooth(method = "lm", se = FALSE, color = "black") +
+  labs(
+    x = "Carbohydrates per 100g (grams)",
+    y = "Calories per Serving (kcal)", 
+    title = "Relationship Between Carbohydrates and Calories per serving"
+  )
+```
+
+Also, there is a moderately positive linear relationship between carbohydrate content (per 100g) and calories per serving in the cookie dataset: as carbohydrates increase, calories per serving also tend to increase. Most data points are clustered toward the higher end of the x-axis, between 55 and 80 grams of carbohydrates, with calorie values generally ranging from 380 to 500 kcal. A few outliers are present, with the most notable one around 28 grams of carbohydrates and a lower calorie value.
+
+```{r}
+#| label: EDA-totalsugars-calories
+#| echo: false
+#| warning: false
+cookie_food |>
+  ggplot(aes(x= total_sugars, y= calories_serving)) +
+  geom_point(position = "jitter", color = "chocolate", na.rm = TRUE) +
+  geom_smooth(method = "lm", se = FALSE, color = "black") +
+  labs(
+    x = "Total Sugars per 100g (grams)",
+    y = "Calories per Serving (kcal)", 
+    title = "Relationship Between Totals Sugars and Caloris per serving"
+  )
+```
+
+There is a weak positive linear relationship between total sugar content (per 100g) and calories per serving in the cookie dataset: as total sugars increase, calories per serving also tend to increase. Most data points are clustered toward the higher end of the x-axis, between 20 and 40 grams of total sugars, with calorie values generally ranging from 350 to over 500 kcal. A few outliers are present, including a notable one with 0 grams of total sugars and a high calorie value of around 500 kcal.
+
+Overall, the scatterplots reveal that most nutrient components including fats, carbohydrates, and total sugars tend to have a positive relationship with calories per serving. In other words, as the quantity of these ingredients increases, so do the calories. An exception to this pattern is protein, which shows a moderate negative relationship, suggesting that higher protein content does not necessarily result in higher calorie values and may even be linked to slightly lower ones.
+
+Now, shifting our focus from continuous nutrients to a categorical ingredient, we’ll explore the relationship between grain type and calories per serving to understand how the type of grain used in cookies might influence their caloric content.
+
+```{r}
+#| label: EDA-graintype-calories
+#| echo: false
+#| warning: false
+cookie_food |>
+  ggplot(aes(x= grain_type, y= calories_serving)) +
+  geom_boxplot(fill = "chocolate", alpha = 0.8, color= "black", na.rm = TRUE) +
+  labs(
+    x = "Grain Type",
+    y = "Calories per Serving (kcal)", 
+    title = "Grain Type Content on Cookie calories"
+  )
+```
+
+The plot shows that cookies made with WHEAT grain are more frequent and tend to have a higher calorie content, with a median around 480 kcal, compared to the OATS and MIXED groups, which have lower medians of approximately 430 kcal and 460 kcal, respectively. The interquartile range for OATS is also notable, spanning from about 385 to 480 kcal. Additionally, there are visible outliers in both the MIXED and OATS categories.
+
+## Simple Linear Regression Models Using Calories per Serving as the Response Variable
+
+In this section, we explore the relationship between calories per serving and each of the key nutritional variables using simple linear regression models. Specifically, we use proteins, total sugars, fats, and carbohydrates all measured per 100g as explanatory variables, along with the categorical variable grain_type. For each model, calories per serving is treated as the response variable, and we assess how well each predictor explains variation in calorie content.
+
+We begin by fitting a model with protein content as the predictor. Then, we separately examine models using total sugars, fats, and carbohydrates. Lastly, each model is followed by an evaluation of the residual plots, and a discussion of how well the assumptions hold.
+
+```{r}
+#| label: simple-linearmodel-functions
+#| echo: false
+#| warning: false
+
+plot_residuals <- function(data, title = "Residuals vs Fitted Values") {
+  ggplot(data, aes(x = calories_serving_hat, y = residual)) +
+    geom_point(position = "jitter", color = "chocolate", na.rm = TRUE) +
+    geom_smooth(method = "lm", se = FALSE, color = "black") +
+    labs(
+      x = "Fitted Values of Calories per Serving",
+      y = "Residuals", 
+      title = title
+    )
+}
+
+plot_residuals_histogram <- function(data) {
+  ggplot(data, aes(residual)) +
+  geom_histogram(aes(y = after_stat(density)), bins = 10, fill = "chocolate", color = "black",  alpha = 0.8) +
+  geom_density(color = "black", size = 1.2)
+}
+```
+
+```{r}
+#| label: simple-linearmodel-proteins
+#| echo: false
+#| warning: false
+
+
+cookie_food_protein = lm(calories_serving ~ proteins, data = cookie_food)
+get_regression_table(cookie_food_protein)
+protein_square = summary(cookie_food_protein)
+protein_square$r.squared
+
+#correlation
+cookie_food |> 
+  get_correlation(formula = calories_serving ~ proteins)
+
+# Fit regression model and regression points
+cookie_food_protein_regression_points <- get_regression_points(cookie_food_protein)
+
+plot_residuals(
+  data = cookie_food_protein_regression_points, 
+  title = "Residuals vs Fitted Values for Proteins Regression Model"
+)
+
+plot_residuals_histogram(
+  data = cookie_food_protein_regression_points
+)
+```
+
+When cookies have more protein, they tend to have slightly fewer calories per serving, but the effect is weak and not statistically significant. The regression model using protein content as the predictor yields an R-squared value of 0.004, meaning that protein explains only 0.4% of the variation in calories.
+
+The slope is -1.453, indicating that for every additional gram of protein, the calories per serving decrease by about 1.45 kcal, on average. However, the p-value for the slope is 0.709, which is not statistically significant at any conventional level of 0.05. This means we do not have strong evidence to suggest a meaningful relationship between protein content and calories per serving.
+
+The residuals appear to be mostly almost all falling between -100 and 100, and generally supports all the LINE assumptions.
+
+-   Linearity: The residual plot shows a random scatter around zero with no clear pattern, suggesting that the linear model is appropriate for this data.
+
+-   Independence: While independence cannot be fully assessed from the residuals alone, there are no signs of autocorrelation or dependence. Since the data are not time-series or spatial, independence is reasonably assumed.
+
+-   Normality: The histogram of residuals appears approximately symmetric and bell-shaped, supporting the assumption that residuals are normally distributed.
+
+-   Equal Variance (Homoscedasticity): The spread of residuals across fitted values of 430 to 460 is not perfectly constant, but the variation is not extreme. This suggests mild heteroscedasticity, but not enough to invalidate the model.
+
+```{r}
+#| label: simple-linearmodel-fats
+#| echo: false
+#| warning: false
+
+cookie_food_fats = lm(calories_serving ~ fats, data = cookie_food)
+get_regression_table(cookie_food_fats)
+fat_square = summary(cookie_food_fats)
+fat_square$r.squared
+
+#correlation
+cookie_food |> 
+  get_correlation(formula = calories_serving ~ fats)
+
+# Fit regression model and regression points
+cookie_food_fats_regression_points <- get_regression_points(cookie_food_fats)
+
+plot_residuals(
+  data = cookie_food_fats_regression_points, 
+  title = "Residuals vs Fitted Values for Fats Regression Model"
+)
+
+plot_residuals_histogram(
+  data = cookie_food_fats_regression_points
+)
+```
+
+When cookies contain more fat, they tend to have higher calorie content per serving. The simple linear regression model using fat content (per 100g) as the explanatory variable produces an R-squared value of 0.22, meaning that fats explain approximately 22% of the variation in calories per serving.
+
+The slope estimate is 2.785, indicating that for each additional gram of fat, the number of calories per serving increases by an average of 2.79 kcal. The p-value for the slope is 0.003, which is statistically significant at the 0.05 level. This provides strong evidence of a meaningful linear relationship between fat content and calorie count in this dataset.
+
+The residuals appear to be mostly almost all falling between -50 and 50, and generally supports all the LINE assumptions.
+
+-   Linearity: The residuals are randomly scattered around zero in the residual plot, with no obvious curves or systematic patterns. This supports the assumption of a linear relationship between fat and calories.
+
+-   Independence: While independence cannot be confirmed solely from visual inspection, there are no signs of autocorrelation or grouping. Given the nature of the dataset (not time-series or spatial), independence is reasonably assumed.
+
+-   Normality: The histogram of residuals is approximately bell-shaped around zero, suggesting that the residuals are roughly normally distributed.
+
+-   Although the spread of residuals is not perfectly uniform across the range of fitted values (mostly between 430 and 480 kcal), and a few outliers are present, there is no strong evidence of heteroscedasticity.
+
+```{r}
+#| label: simple-linearmodel-carbohydrates
+#| echo: false
+#| warning: false
+
+cookie_food_carbohydrates = lm(calories_serving ~ carbohydrates, data = cookie_food)
+get_regression_table(cookie_food_carbohydrates)
+carbohydrates_square = summary(cookie_food_carbohydrates)
+carbohydrates_square$r.squared
+
+#correlation
+cookie_food |> 
+  get_correlation(formula = calories_serving ~ carbohydrates)
+
+# Fit regression model and regression points
+cookie_food_carbohydrates_regression_points <- get_regression_points(cookie_food_carbohydrates)
+
+plot_residuals(
+  data = cookie_food_carbohydrates_regression_points, 
+  title = "Residuals vs Fitted Values for Carbohydrates Regression Model"
+)
+
+plot_residuals_histogram(
+  data = cookie_food_carbohydrates_regression_points
+)
+```
+
+When cookies contain more carbohydrates, they tend to have higher calorie content per serving. The simple linear regression model using carbohydrates content (per 100g) as the explanatory variable produces an R-squared value of 0.061, meaning that fats only explain approximately 6.1% of the variation in calories per serving.
+
+The slope estimate is 1.089, indicating that for each additional gram of carbohydrates, the number of calories per serving increases by an average of 1.089 kcal. The p-value for the slope is 0.139, which is not statistically significant at the 0.05 level. This provides somehow evidence of a linear relationship between carbohydrates content and calorie count in this dataset.
+
+The residuals appear to be mostly almost all falling roughly between -80 and 80, and generally supports all the LINE assumptions.
+
+-   Linearity: The residuals are randomly scattered around zero in the residual plot, with no obvious curves or systematic patterns. This supports the assumption of a linear relationship between fat and calories.
+
+-   Independence: While independence cannot be confirmed solely from visual inspection, there are no signs of autocorrelation or grouping. Given the nature of the dataset (not time-series or spatial), independence is reasonably assumed.
+
+-   Normality: The histogram of residuals is approximately bell-shaped and centered around zero, suggesting that the residuals are roughly normally distributed.
+
+-   Equal Variance (Homoscedasticity): Although the spread of residuals is not perfectly uniform across the range of fitted values are on the far end mostly between 430 and 470 kcal, and a few outliers are present, there is no strong evidence of heteroscedasticity.
+
+```{r}
+#| label: simple-linearmodel-totalsugars
+#| echo: false
+#| warning: false
+cookie_food_total_sugars = lm(calories_serving ~ total_sugars, data = cookie_food)
+get_regression_table(cookie_food_total_sugars)
+total_sugars_square = summary(cookie_food_total_sugars)
+total_sugars_square$r.squared
+
+#correlation
+cookie_food |> 
+  get_correlation(formula = calories_serving ~ total_sugars)
+
+# Fit regression model and regression points
+cookie_food_total_sugars_regression_points <- get_regression_points(cookie_food_total_sugars)
+
+plot_residuals(
+  data = cookie_food_total_sugars_regression_points, 
+  title = "Residuals vs Fitted Values for Total Sugars Regression Model"
+)
+
+plot_residuals_histogram(
+  data = cookie_food_total_sugars_regression_points
+)
+```
+
+When cookies contain more total sugars, they tend to have slightly higher calorie content per serving. The simple linear regression model using total sugars content (per 100g) as the explanatory variable yields an R-squared value of 0.040, indicating that total sugars explain only about 4% of the variation in calories per serving.
+
+The slope estimate is 1.13, meaning that for each additional gram of total sugars, the number of calories per serving increases by an average of 1.13 kcal. However, the p-value is 0.236, which is not statistically significant at the conventional 0.05 level. This means there is insufficient evidence to conclude a strong linear relationship between total sugar content and calorie count in this dataset.
+
+The residuals mostly fall between -100 and 100 kcal, and the diagnostics generally support the LINE assumptions:
+
+-   Linearity: The residuals are randomly scattered around zero in the residual plot, showing no clear curvature or pattern. This suggests the linear model is appropriate.
+
+-   Independence: While independence cannot be definitively assessed from the plot alone, there are no visible signs of autocorrelation or clustering. Given that the data are not time-series or spatial, independence is reasonably assumed.
+
+-   Normality: The histogram of residuals is roughly bell-shaped and centered close to zero, indicating that the residuals are approximately normally distributed.
+
+-   Equal Variance (Homoscedasticity): Although the spread of residuals is not perfectly constant across fitted values, the variation appears reasonably between 435 and 465 kcal. A few outliers are present, but there is no strong evidence of heteroscedasticity.
+
+## Multiple Regression: Two numerical explanatory variables
+
+**Model 1**
+
+After examining simple linear regression models using individual predictor, we now extend our analysis to a multiple linear regression models using two quantitative explanatory variables: fats and carbohydrates. This allow us to assess the combined effect of both ingredients on the calories per serving, building a more accurate model that better explains the variation in calorie content across cookies.
+
+```{r}
+#| label: multiple-linearmodel-model1
+#| echo: false
+#| warning: false
+cookie_fats_carbohydrates = lm(calories_serving ~ fats + carbohydrates, data = cookie_food)
+get_regression_table(cookie_fats_carbohydrates)
+fats_carbohydrates_square = summary(cookie_fats_carbohydrates)
+fats_carbohydrates_square$r.squared
+
+# Fit regression model and regression points
+cookie_fats_carbohydrates_regression_points <- get_regression_points(cookie_fats_carbohydrates)
+
+plot_residuals(
+  data = cookie_fats_carbohydrates_regression_points, 
+  title = "Residuals vs Fitted Values for Total Sugars Regression Model"
+)
+
+plot_residuals_histogram(
+  data = cookie_fats_carbohydrates_regression_points
+)
+```
+
+The regression equation is:
+
+-   calories_serving_hat = 37.582 + 6.685 \* Fats + 4.358 \* Carbohydrates
+
+In this model, the coefficient for Fats is 6.685, meaning that for every additional gram of fat per 100 grams of cookie, the calories per serving increase by approximately 6.69 kcal, holding carbohydrates constant. The coefficient for Carbohydrates is 4.358, indicating that for every additional gram of Carbohydrates, the calories per serving increase by approximately 4.36 kcal, holding Fats constant. Also, both fats and Carbohydrates have p-values less than 0.001, showing they are statistically significant predictors of calories. The model has an R-squared values of 0.772, indicating that 77.2% of the variability in calories per serving is explained by the combined linear effects of facts and carbohydrates. This suggest a strong overall fit.
+
+The residuals mostly fall between -40 and 40 kcal, and the diagnostics generally support the LINE assumptions:
+
+-   Linearity: The residuals are randomly scattered around zero in the residual plot, showing no clear curvature or pattern. This suggests the linear model is appropriate.
+
+-   Independence: While independence cannot be definitively assessed from the plot alone, there are no visible signs of autocorrelation or clustering. Given that the data are not time-series or spatial, independence is reasonably assumed.
+
+-   Normality: The histogram of residuals is bell-shaped and centered at zero, indicating that the residuals are normally distributed.
+
+-   Equal Variance (Homoscedasticity): Although the spread of residuals is not perfectly constant across fitted values, the variation appears reasonably between 400 and 500 kcal. A few outliers are present, but there is no strong evidence of heteroscedasticity.
+
+## Multiple Regression: one numerical and one categorical explanatory variables
+
+In the next analysis, we explore how the calories per serving (100 grams) in cookies are influenced by two variables: protein content and grain type. To assess this relationship, we apply two multiple regression models: an interaction model and a parallel slopes model.
+
+## Interaction Model: Model 2
+
+This model allows both the intercepts and the slopes to vary across the levels of grain_type. The effect of protein on calories per serving is not assumed to be the same for all grain types.
+
+```{r}
+#| label: multiple-linearmodel-model2
+#| echo: false
+#| warning: false
+
+cookie_food |>
+  ggplot(aes(x= proteins, y= calories_serving, color = grain_type)) +
+  geom_point(position = "jitter", na.rm = TRUE) +
+  geom_smooth(method = "lm", se = FALSE) +
+  labs(
+    x = "Proteins per 100g (grams)",
+    y = "Calories per Serving (kcal)", 
+    title = "Relationship Between Proteins and Calories per serving",
+    color = "Grain Type"
+  )
+
+proteins_grain_interactionmodel = lm(calories_serving ~ proteins * grain_type, data= cookie_food)
+get_regression_table(proteins_grain_interactionmodel)
+
+#R-square
+interactionmodel_square = summary(proteins_grain_interactionmodel)
+interactionmodel_square$r.squared
+```
+
+The regression equation is:
+
+-   calories_serving_hat = 450.660 + (-156.727 \* Doats) + 40.750 \* Dwheat + 0.882 \* X + 15.781 \* X \* Doats + (-5.771 \* X \* Dwheat)
+
+In this model, for OATS grain type, each additional gram of protein is associated with an increase of 16.67 calories per serving (0.882 + 15.781), compared to the reference grain type. Also, for WHEAT grain type, each additional gram of protein is associated with a decrease of 4.89 calories per serving (0.882 − 5.771), compared to the reference grain type. Finally, for MIXED grain type, each additional gram of protein is associated with an increase of 0.882 calories per serving, but this effect is not statistically significant (p = 0.902).
+
+## Parallel Model: Model 3
+
+We can simplify the previous model by removing the interaction effects. The model still represents different grain type groups with different regression lines by allowing different intercepts but all the lines have the same slope: they are parallel as shown.
+
+```{r}
+#| label: multiple-linearmodel-model3
+#| echo: false
+#| warning: false
+cookie_food |>
+  ggplot(aes(x= proteins, y= calories_serving, color = grain_type)) +
+  geom_point(position = "jitter", na.rm = TRUE) +
+  geom_parallel_slopes(se = FALSE) +
+  labs(
+    x = "Proteins per 100g (grams)",
+    y = "Calories per Serving (kcal)", 
+    title = "Relationship Between Proteins and Calories per serving",
+    color = "Grain Type"
+  )
+
+proteins_grain_parallelmodel = lm(calories_serving ~ proteins + grain_type, data= cookie_food)
+get_regression_table(proteins_grain_parallelmodel)
+
+#R-square
+parallelmodel_square = summary(proteins_grain_parallelmodel)
+parallelmodel_square$r.squared
+```
+
+The regression equation is:
+
+-   calories_serving_hat = 449.612 + (-41.194 \* Doats) + 6.086 \* Dwheat + 1.086 \* X
+
+In this model, each additional gram of protein is associated with an increase of 1.09 calories per serving, regardless of grain type. Cookies made with OATS have, on average, 41.19 fewer calories per serving than cookies made with the reference grain type like MIXED, when protein content is held constant. Also, cookies made with WHEAT have, on average, 6.09 more calories per serving than the reference grain type.
+
+**Model Evaluation**
+
+In the interaction model, only one coefficient grain_type: OATS was statistically significant (p = 0.048), suggesting that cookies made with oats tend to have lower calorie content per 100 grams compared to the reference grain type. However, the interaction terms proteins:grain_typeOATS (p = 0.166) and proteins:grain_typeWHEAT (p = 0.521) were not statistically significant, indicating little evidence that the effect of protein on calorie content varies across grain types. The overall model fit was modest, with an R-squared value of 0.239, meaning the model explains about 23.9% of the variability in calories per 100 grams of cookie products.
+
+The parallel model, which excludes the interaction terms and assumes a consistent protein effect across all grain types, produced a lower R-squared value of 0.129. This means it explains only 12.9% of the variability in calorie content, suggesting a poorer fit. In this model, the protein variable was not statistically significant (p = 0.786), and none of the grain type categories were significant at the 0.05 level.
+
+Based on these results, the interaction model is preferred. Although its individual interaction terms are not significant, it still provides a better overall fit to the data as reflected by the higher R-squared value (0.239 vs. 0.129) and captures more variation in calorie content among cookie products.
+
+**Interaction Model: Fit Evaluation**
+
+```{r}
+#| label: interactionmodel-evaluation
+#| echo: false
+#| warning: false
+# Compute sum of squared residuals
+proteins_grain_regression_points <- get_regression_points(proteins_grain_interactionmodel)
+proteins_grain_regression_points |>
+  mutate(squared_residuals = residual^2) |>
+  summarize(sum_of_squared_residuals = sum(squared_residuals))
+
+plot_residuals(
+  data = proteins_grain_regression_points, 
+  title = "Residuals vs Fitted Values Interaction Regression Model"
+)
+
+plot_residuals_histogram(
+  data = proteins_grain_regression_points
+)
+```
+
+The interaction model, which includes both protein content and grain type along with their interaction, explains approximately 23.9% of the variability in calories per serving (R-squared = 0.239) in cookies. This indicates a moderate but not strong fit. The sum of squared residuals is 82,760.27, representing the total amount of variation in calorie content per 100 grams of cookie that remains unexplained by the model.
+
+Among the predictors, only the grain type "OATS" shows a statistically significant effect (p = 0.048), suggesting that cookies made primarily with oats tend to have lower calorie content compared to those made with the reference grain type. However, the interaction terms and the main effect of protein are not statistically significant, indicating that the relationship between protein and calorie content does not differ meaningfully across grain types. The relatively large residual variation and limited number of significant predictors suggest that additional variables may be necessary to better explain differences in calorie content among cookie products.
+
+## Comparison between Model 1 and Model 2
+
+```{r}
+#| label: comparison-betweenmodels
+#| echo: false
+
+cookies_variables <- data.frame(
+  Predictors = c('fats, carbohydrates', 'proteins, grain_type, and interaction terms'),
+  Rsquared = c(
+    '0.772',
+    '0.239'
+  ),
+  KeyFindings = c(
+  'Fats: Coefficient = 6.685, p < 0.001 has a significant effect, Carbohydrates: Coefficient = 4.358, p < 0.001 has a significant effect, Intercept: Not significant (but not critical)',
+  'Most terms are not significant, Only grain_type:OATS with p = 0.048, Interaction terms (proteins × grain) are not significant'
+  ),
+  Interpretation = c(
+    'This model explains 77.2% of the variance in calories_serving, and both predictors are statistically significant. This suggests that fats and carbohydrates are strong predictors of cookie calories.',
+    'This model explains only 23.9% of the variance in calories_serving. Most predictors are not statistically significant, suggesting that protein and grain type are much weaker predictors of calories compared to fats and carbohydrates.'
+  )
+)
+
+kable(cookies_variables, caption = "Model Comparition")
+```
