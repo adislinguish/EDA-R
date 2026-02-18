@@ -1,0 +1,973 @@
+---
+title: "Wine Sampling Project"
+author: "Adisley Flores Coronado"
+date: "12/9/2025"
+format: docx
+editor: visual
+---
+
+# Description
+
+This dataset aggregates detailed information on wine products sourced from the open web. It includes wines from various countries, regions, and wineries spanning a 5-year period (2017–2021). Each wine entry is described by attributes such as type, grape varieties, alcohol content, body, acidity, and food pairings.
+
+# Sources
+
+1.  Juban, Y. International Standard for the Labelling of Wines; OIV-International Organization of Vine and Wine: Paris, France, 2022; ISBN 978-2-85038-042-6. Available online: <https://www.oiv.int/what-we-do/standards.>
+2.  González-Brambila, María, Jorge E. Rodríguez-Rodríguez, Luis P. Sánchez-Fernández, Luis A. Rodríguez-Mazahua, Víctor A. Rodríguez-Mazahua, Ana Rodríguez-Mazahua, José Rodríguez-Mazahua, Carlos Rodríguez-Mazahua, and Ricardo Rodríguez-Mazahua. 2023. “A Data Mining Approach for Wine Quality Prediction Using Chemical and Sensory Features.” Big Data and Cognitive Computing 7 (1): 20. <https://doi.org/10.3390/bdcc7010020.>
+3.  Author Rogério Xavier de Azambuja. Dataset X-Wines. Google Drive. Accessed September 6, 2025. <https://drive.google.com/drive/folders/1vfkfa5deOSsNf3dN2R7xrWWgVXUqD1-k.>
+
+# Introduction
+
+The goal of this analysis is to explore key characteristics of wines using statistical inference, specifically through the construction of confidence intervals. The population of interest includes all wines that are classified by type, grape composition, body, acidity, alcohol content (ABV), and origin (country/region). This diverse population provides a rich dataset for examining patterns and relationships among wine attributes.
+
+Through this analysis, I would like to answer the following questions:
+
+1.  What proportion of red wines are Cabernet Sauvignon varietals?
+
+2.  Is there a relationship between types of blended wines and alcohol content (ABV)?
+
+3.  Which type of wines pair well with beef?
+
+4.  Which countries produce the highest wine classified as high in acidity?
+
+5.  Do wines that pair well with beef tend to have higher body scores?
+
+To investigate these questions, I will draw a **simple random sample** of 50 wines from a comprehensive wine dataset that includes detailed information on wine characteristics. This sampling method ensures that each wine has an equal chance of being selected, minimizing bias and enhancing the representativeness of the sample.
+
+Here is the summary of variables
+
+| **Name** | **Description** | **Type of Data** | **Range of Values** | **Notes** |
+|----|----|----|----|----|
+| WineID | The wine primary key identification | Nominal Arbitrary |  |  |
+| WineName | The textual wine identification presented in the label | Nominal Arbitrary |  |  |
+| Type | The type classification: Red, white or rosé for still wines, gasified sparkling or dessert for sweeter and fortified wines.  | Nominal Categorical | Red, White, Rosé, Sparkling, Dessert, Dessert/Port | Dessert/Port is a subclassification for liqueur dessert wines |
+| Elaborate | Type of blended wine | Nominal Categorical | Varietal, Assemblage | The most famous blends are also considered, such as Bordeaux red and white blend, Valpolicella blend and Portuguese red and white blend |
+| Grapes_CabernetSauvignon | If contains Cabernet Sauvignon as a grape  | Discrete | Y, N |  |
+| Harmonize_Beef | If Beef main dish pair with the wine item. | Discrete | Y, N |  |
+| ABV | The alcohol by volume (ABV) percentage. | Numeric Continuous |  | According to \[1\], the value shown on the label may vary, and a tolerance of 0.5% per 100 volume is allowed, reaching 0.8% for some wines. |
+| BodyRank | The body type classification of the wine viscosity. | Ordinal Ranked | 1, 2, 3, 4, 5 as Very light-bodied, light-bodied, medium-bodied, full-bodied, Very full-bodied |  |
+| AcidityRank | The acidity classification based on potential hydrogen (pH) score. | Ordinal Ranked | 1, 2 and 3 as Low, Medium, High |  |
+| Country | The origin country identification of the wine production (ISO-3166). | Nominal Categorical | ISO-3166, among others |  |
+| RegionName | The textual wine region identification. The appellation region name was retained when identified. | Nominal Arbitrary |  |  |
+
+```{r}
+#| results: hide
+#| warning: FALSE
+#| message: FALSE
+#| error: FALSE
+#| include: false
+#| label: libraries
+
+library(tidyverse)
+library(stringr)
+library(scales)
+library(knitr)
+library(moderndive)
+library(infer)
+library(effsize)
+```
+
+Loading data set
+
+```{r}
+#| label: load-raw-data
+#| include: false
+
+wines <- read_csv("wines_sampling_project.csv")
+
+wines <- wines |>
+  filter(Type == "Red" | Type == "White") |>
+  filter(Country == "Spain" | Country == "France")
+glimpse(wines)
+```
+
+Collected only a single small sample of 50 wines look like:
+
+```{r}
+set.seed(30)
+
+wines_n50 <- wines |> 
+  rep_sample_n(size = 50, reps = 1, replace = FALSE)
+
+wines_n50 <- wines_n50 |>
+  ungroup() |>
+  select(-replicate)
+
+wines_n50 |>
+  head(5)
+```
+
+Checking for duplicates
+
+```{r}
+wines_n50 |>
+  group_by(across(everything())) |>
+  tally() |>
+  filter(n > 1)
+```
+
+# Confidence Intervals
+
+In this step, we explore the construction and interpretation of confidence intervals for different population parameters using three distinct methods: the bootstrap percentile method, the bootstrap standard error method, and the theoretical standard error method. Each method provides a unique approach to estimating uncertainty in sample statistics and helps us understand the variability inherent in our data.
+
+The parameters we investigate include:
+
+-   The difference in population means of alcohol by volume (ABV) between types of blended wines.
+
+-   The proportion of wines that are red.
+
+-   The difference in proportions of Cabernet Sauvignon grapes between wines that pair well with beef and those that do not.
+
+For each interval, we begin with a brief exploratory analysis, including summary statistics and visualizations, followed by the construction of the confidence interval. We then discuss the appropriateness of the method used and interpret the interval in the context of the data.
+
+## The difference in population means of alcohol by volume (ABV) between types of blended wines.
+
+To investigate whether blended wines differ in alcohol content compared to other wine types, we begin by examining the summary statistics of the relevant variables. Out of the 50 wines in the sample, 34 are classified as varietal blended wines. These blended wines have an average alcohol by volume (ABV) of 13.27%, which serves as an initial estimate of their typical alcohol content.
+
+```{r}
+wines_n50 |> 
+  group_by(Elaborate) |> 
+  summarize(
+    n = n(),
+    mean_rating = mean(ABV), 
+    std_dev = sd(ABV)
+  )
+
+wines_n50 |>
+  select(ABV) |> 
+  tidy_summary()
+```
+
+To explore the alcohol content of the wines in the sample, we visualize the distribution of ABV using a histogram:
+
+```{r}
+ggplot(wines_n50, aes(x = ABV)) +
+  geom_histogram(binwidth = 0.5, color = "white", fill = "#A9502C") +
+  labs(title = "Distribution of Alcohol by Volume in Wines")
+```
+
+The histogram shows that the distribution of ABV is approximately bell-shaped and nearly symmetric, with a slight right skew. Most wines fall between 12.5% and 14% ABV, and the center of the distribution is around 13%, indicating this is the typical alcohol content for the wines in our sample.
+
+Now a bar chart of Elaborate.
+
+```{r}
+ggplot(wines_n50, aes(x = Elaborate)) +
+  geom_bar(fill = "#A9502C") +
+  labs(title = "Distribution of Type of Blended Wine")
+```
+
+The boxplot of alcohol content by wine type shows that Assemblage wines have a higher median ABV of approximately 13.7%, while varietal wines have a median of about 13%.
+
+```{r}
+ggplot(wines_n50, aes(x = Elaborate, y = ABV, fill = Elaborate)) +
+  geom_boxplot() +
+  labs(title = "ABV by Blended Wines")
+```
+
+To estimate the difference in average alcohol content between Assemblage wines and Varietal wines, we generated a bootstrap distribution of the difference in means:
+
+```{r}
+bootDistABC <- wines_n50 |> 
+  specify(formula = ABV ~ Elaborate) |> 
+  generate(reps= 1000) |> 
+  calculate(stat = "diff in means", order = c("Assemblage", "Varietal"))    
+bootDistABC
+visualize(bootDistABC)
+```
+
+This statistic represents: **mean(ABV for Assemblage) – mean(ABV for Varietal)**
+
+The resulting bootstrap histogram is approximately symmetric and centered around about 0.6%, indicating that Assemblage wines tend to have, on average, roughly 0.6 percentage points higher ABV than Varietal wines in our sample. The bell-shaped form of the distribution suggests that the bootstrap resampling procedure worked well and provides a stable estimate of the difference in population means.
+
+Now, we continue with the calculation of 95% bootstrap confidence interval for the population proportion of the difference in mean ABV for Assemblage - Varietal, using the standard error (normal) method.
+
+-   $\mu_{Assemblage}-\mu_{Varietal}$,
+
+Using this method, we find that:
+
+We are 95% confident that the true difference in mean alcohol content between Assemblage and Varietal wines lies between 0.14% and 1.03%, meaning that Assemblage wines tend to have higher ABV overall.
+
+```{r}
+set.seed(50)
+meanDiff <- wines_n50 |> 
+  specify(formula = ABV ~ Elaborate) |> 
+  calculate(stat = "diff in means", order = c("Assemblage", "Varietal"))
+meanDiff
+standard_error_ci <- bootDistABC |> 
+  get_confidence_interval(type = "se", level=.95, point_estimate = meanDiff)
+standard_error_ci 
+```
+
+Next, will be the calculation of 95% confidence interval for the population proportion of the difference in mean ABV for Assemblage - Varietal, $\mu_{Assemblage}-\mu_{Varietal}$, using the percentile method.
+
+We are 99% confident that the true difference in mean alcohol content between Assemblage and Varietal wines lies between approximately 0.04% and 1.20%, meaning that Assemblage wines tend to have higher ABV overall.
+
+This wider interval is expected due to the higher confidence level. However, both the 95% and 99% intervals consistently suggest the same conclusion: Assemblage wines typically contain more alcohol than Varietal wines.
+
+```{r}
+percentile_ci <- bootDistABC |> 
+  get_confidence_interval(type = "percentile", level=.99)
+percentile_ci 
+```
+
+To complement the bootstrap methods, we also computed a 90% confidence interval for the difference in mean alcohol content (ABV) between Assemblage and Varietal wines using the theoretical (normal-based) method.
+
+We are 90% confident that the true difference in mean alcohol content between Assemblage and Varietal wines lies between approximately 0.19% and 0.98%.
+
+The theoretical confidence interval is less trustworthy than the bootstrap interval since it is need large sample sizes in each group (n ≥ 30 per group), and Assemblage has only 16 observations, which may be too small for the normal approximation to behave well. Bootstrap methods are more robust in this situation because they do not rely on normality assumptions and can handle smaller sample sizes.
+
+```{r}
+t.test(ABV ~ Elaborate, data= wines_n50, conf.level= .90)$conf
+```
+
+## The proportion of wines that are red.
+
+Our first step will be to calculate some summary statistics. There were 36 red wines out of 50 total.
+
+```{r}
+wines_n50 |> 
+  group_by(Type) |> 
+  summarize(
+    n = n()
+  )
+```
+
+Now, we are visualizing a bar chart of wine' type.
+
+```{r}
+ggplot(wines_n50, aes(x = Type)) +
+  geom_bar(fill = "#A9502C") +
+  labs(title = "Distribution of Wine Type")
+```
+
+The analysis begins by setting a seed (set.seed(15)) to ensure that the bootstrap samples generated by R are reproducible. Then it creates the bootstrap distribution of the proportion of Red wines based on repeated sampling from the original sample of size n = 50.
+
+Visualizing this distribution produces a histogram of the bootstrap proportions. The distribution is approximately bell-shaped and symmetric, showing strong clustering of values between approximately 0.62 and 0.80. This indicates that the sample proportion of Red wines is stable across resamples and does not vary widely.
+
+Because the bootstrap distribution is roughly normal and the sample size (n = 50) is reasonably large, the Central Limit Theorem supports the use of t-based or normal-based inference methods for estimating confidence intervals or performing hypothesis tests for the population proportion of Red wines.
+
+```{r}
+set.seed(15)
+bootDistRed <- wines_n50 |>
+  specify(response= Type, success="Red") |>
+  generate(reps= 1000, type="bootstrap") |> 
+  calculate(stat="prop")
+
+bootDistRed
+visualise(bootDistRed)
+```
+
+Using the bootstrap distribution of the sample proportion of Red wines, a 95% confidence interval was constructed to estimate the true population proportion of Red wines. Based on the resampled data, we can say that: The true proportion of Red wines in the population is estimated to lie between 59.78% and 84.21% with 95% confidence.
+
+```{r}
+point_est <- wines_n50 |>
+  specify(response= Type, success="Red") |>
+  calculate(stat= "prop")
+
+standard_error_ci <- bootDistRed |> 
+  get_confidence_interval(type = "se", level=.95, point_estimate = point_est)
+
+standard_error_ci
+```
+
+Using the percentile bootstrap method, a wider confidence interval was constructed to reflect a higher level of certainty. When we increase the confidence level from 95% to 99%, the interval naturally becomes broader because we require more of the bootstrap distribution to be captured. Based on this method we can conclude thta: We are 99% confident that the true proportion of Red wine lies approximately between 54% and 86%.
+
+```{r}
+percentile_ci <- bootDistRed |> 
+  get_confidence_interval(level = 0.99, type = "percentile")
+percentile_ci
+```
+
+In addition to the bootstrap methods, a theoretical confidence interval was calculated using the prop_test() function. This method relies on the normal approximation, which is appropriate here because the sample size (n = 50) is large enough for the sampling distribution of the proportion to be approximately normal. Using a 90% confidence level, the theoretical method produced the following estimate:
+
+We are 90% confident that the true population proportion of Red wines lies between 60.63% and 81.10%.
+
+```{r}
+prop_test(wines_n50,
+  Type ~ NULL,
+  success="Red",
+  conf_level=.90,
+  correct = FALSE
+)
+```
+
+Together, both intervals (95% and 99%) provide a consistent picture that Red wines represent a large portion of the dataset, with the true population proportion almost certainly falling somewhere between the 50% and the mid-80% range. Also, the 90% interval is slightly narrower than the 95% and 99% bootstrap intervals, which is expected given its lower confidence level.
+
+## The difference in proportions of Cabernet Sauvignon grapes between wines that pair well with beef and those that do not.
+
+We now examine whether wines that pair well with beef are more likely to contain Cabernet Sauvignon grapes. To begin, we summarize the joint distribution of the two categorical variables: Grapes_CabernetSauvignon and Harmonize_Beef.
+
+```{r}
+wines_n50 |> 
+  group_by(Grapes_CabernetSauvignon, Harmonize_Beef) |> 
+  summarize(count = n(), .groups = "keep")
+```
+
+The bar chart compares beef pairing outcomes for wines that do and do not contain Cabernet Sauvignon grapes. For wines without Cabernet Sauvignon, pairing with beef is roughly evenly split between yes and no. For wines that contain Cabernet Sauvignon, all observations in the dataset pair with beef, with no instances of non‑pairing. Overall, Cabernet containing wines are much more likely to not pair with beef than wines without Cabernet.
+
+```{r}
+ggplot(wines_n50, aes(x = Grapes_CabernetSauvignon, fill= Harmonize_Beef)) +
+  geom_bar(position="dodge")+
+  labs(
+    title = "Distribution of Cabernet Sauvignon Wines by Beef Pairing",
+    x = "Contains Cabernet Sauvignon Grapes",
+    y = "Number of Wines",
+    fill = "Pairs with Beef"
+  )
+```
+
+We now calculate the bootstrap distribution for the difference in proportions of wines containing Cabernet Sauvignon grapes that pair well with beef versus those that do not.
+
+The resulting bootstrap histogram is approximately symmetric and centered around 0.38. The values are concentrated between 0.28 and 0.48. Its bell-shaped form indicates that the bootstrap resampling procedure worked effectively, providing a stable and reliable estimate of the difference in population proportions.
+
+```{r}
+set.seed(25)
+bootDistGrapeHarmonize <- wines_n50 |>
+  specify(formula = Grapes_CabernetSauvignon ~ Harmonize_Beef, success = "N") |>
+  generate(reps = 1000, type = "bootstrap") |>
+  calculate(stat = "diff in props", order = c("N", "Y"))
+
+bootDistGrapeHarmonize
+visualise(bootDistGrapeHarmonize)
+```
+
+Now, we continue with the calculation of 95% bootstrap confidence interval for the population proportion of wines containing Cabernet Sauvignon grapes that pair well with beef versus those that do not.
+
+Using the bootstrap distribution and the standard error (normal) method, we find that we are 95% confident that the true difference in proportions, $p_{HarmonizeN}-p_{HarmonizeY}$ is between 0.19 and 0.53%, meaning that wines containing Cabernet Sauvignon grapes are significantly more likely not to pair with beef than to pair with it.
+
+```{r}
+point_est <- wines_n50 |>
+  specify(formula = Grapes_CabernetSauvignon ~ Harmonize_Beef, success = "N") |>
+  calculate(stat = "diff in props", order = c("N", "Y"))
+
+standard_error_ci <- bootDistGrapeHarmonize |> 
+  get_confidence_interval(type = "se", point_estimate = point_est, level=.95)
+standard_error_ci
+```
+
+Next, we calculate the bootstrap confidence interval using the percentile method to estimate the difference in population proportions of wines containing Cabernet Sauvignon grapes that do not pair with beef versus those that do.
+
+Using the 99% confidence level, the percentile method provides an interval that reflects the distribution of the resampled differences. From the results, we are 99% confident that the true difference in proportions $p_{HarmonizeN}-p_{HarmonizeY}$ lies between 0.15 and 0.56. This interval reinforces that wines containing Cabernet Sauvignon grapes are more likely not to pair with beef than to pair with it. The percentile method confirms the stability of our estimate and complements the standard error approach.
+
+```{r}
+percentile_ci <- bootDistGrapeHarmonize |> 
+  get_confidence_interval(level = 0.99, type = "percentile")
+percentile_ci
+
+```
+
+In addition to the bootstrap methods, a theoretical confidence interval was calculated using the prop_test() function. Using a 90% confidence level, this method estimates the difference in proportions of wines containing Cabernet Sauvignon grapes that do not pair with beef versus those that do. The theoretical confidence interval indicates that are we are 90% confident that the true difference in proportions $p_{HarmonizeN}-p_{HarmonizeY}$ lies between 0.22 and 0.51.
+
+```{r}
+prop_test(wines_n50,
+  Grapes_CabernetSauvignon ~ Harmonize_Beef, 
+  success = "N",
+  conf_level=.90,
+  correct = FALSE,
+  order = c("N", "Y")
+)
+```
+
+# Hypothesis tests:
+
+Earlier in this project, we examined confidence intervals for variables such as alcohol content, body style, acidity, and beef-pairing characteristics. We now shift our focus to hypothesis testing to investigate additional aspects of wine characteristics using both theoretical and randomization methods. For each hypothesis, I begin with a brief exploratory analysis that includes visualizations and summary statistics to understand the data distribution and context. I then formally state the null and alternative hypotheses, set a significance level (α = 0.05). Finally, I interpret the results in context to determine whether there is statistical evidence to support the claims.
+
+1.  Is there a difference in acidity classifications among wines from different countries?
+2.  Do wines that pair well with beef have higher mean body scores than those that do not?
+3.  Is the proportion of red wines higher in France than in Spain?
+
+## Question: Is there a difference in acidity classifications among wines from different countries?
+
+To begin exploring this question, we first examine the distribution of acidity classifications across the countries represented in the dataset. An initial review of the data shows that **France contributes 40 wine samples**, while **Spain contributes 10 samples**
+
+```{r}
+wines_n50 |>
+  group_by(Country) |>
+  summarise(
+    sample_size = n(), 
+    mean_w = mean(AcidityRank, na.rm=TRUE), 
+    sd_w = sd(AcidityRank, na.rm=TRUE), 
+    se = sd(AcidityRank, na.rm=TRUE)/sqrt(sample_size), 
+    lower_ci = mean_w - (se * 1.96),
+    upper_ci = mean_w + (se * 1.96),
+    .groups = "drop"
+  )
+```
+
+Next, we examine how acidity classifications (1 = low, 2 = medium, 3 = high) are distributed within each country. For France, the acidity values range from approximately 2.75 to 3.00, indicating that most French wines in the sample fall within the medium-to-high acidity categories. Spain, however, only show the median on the high values.
+
+```{r}
+wines_n50 |>
+  ggplot(aes(x = Country, y = AcidityRank)) + 
+  geom_boxplot(fill = "#A9502C") +
+  labs(
+      y = "Acidity Rank", 
+      x = "Country", 
+      title = "Distribution of Wine Acidity by Country"
+  )
+```
+
+## **Hypothesis**
+
+Null (H₀): There is no difference in mean acidity classifications among wines from different countries.
+
+$Ho: \mu_{France} = \mu_{Spain}$
+
+Alternative (Ha): There is difference in mean acidity classifications among wines from different countries.
+
+$Ha: \mu_{France} \neq \mu_{Spain}$
+
+Significance Level: α = 0.05
+
+## Testing the hypothesis
+
+With a clearer picture of how acidity is represented in each country, we now begin by calculating the observed difference in mean acidity between the two countries.
+
+Using the available data, the mean acidity in France is slightly lower than in Spain, resulting in an observed difference of:
+
+MeanFrance − MeanSpain = −0.15
+
+```{r}
+obs_diff_acidity_country <- wines_n50 |> 
+  specify(AcidityRank ~ Country) |> 
+  calculate(stat = "diff in means", order = c("France", "Spain"))
+
+obs_diff_acidity_country
+```
+
+Meaning that on average, wines from France in our sample exhibit acidity levels that are 0.15 units lower than those from Spain.
+
+Generate the null distribution of $\delta$. Here we need to generate simulated values as if we lived in a world where there's no difference in acidity between France and Spain countries.
+
+```{r}
+acidity_in_null_world <- wines_n50 |> 
+  specify(AcidityRank ~ Country) |> 
+  hypothesize(null = "independence") |> 
+  generate(reps = 5000, type="permute")
+
+acidity_in_null_world
+```
+
+We now continue by calculating the differences in mean acidity between France and Spain under the null hypothesis. Under the null, we assume that country has no effect on acidity, in other words, any observed difference between France and Spain is purely due to random chance.
+
+```{r}
+acidity_diff_under_null <- acidity_in_null_world |> 
+  calculate(stat = "diff in means", order = c("France", "Spain")) 
+
+acidity_diff_under_null |> 
+  slice(1:5)
+```
+
+Visualize how the observed difference compares to the null distribution of $\delta$. The histogram of the null distribution is generated, with a vertical red line showing the observed difference in mean between France and Spain countries.
+
+```{r}
+obs_diff_acidity_country
+acidity_diff_under_null |> 
+  visualize() +
+  geom_vline(xintercept = obs_diff_acidity_country$stat, color="red")+
+  labs(
+    x = "Difference in mean acidity for France and Spain", 
+    y = "Count",
+    title = "Null distribution of differences in mean acidity for France and Spain",
+    subtitle = "Observed difference is shown in red"
+  )
+```
+
+The plot displays the null distribution of the differences in mean acidity between France and Spain. The shape of the null distribution appears roughly symmetric, centered around approximately –0.04. Most simulated differences fall within the range of about 0.25 and -0.25.
+
+To formally evaluate how unusual our observed difference of –0.15 is under the assumption of no true country effect, we calculate a p-value using the null distribution.
+
+```{r}
+acidity_diff_under_null |> 
+  get_pvalue(obs_stat = obs_diff_acidity_country, direction = "both") 
+```
+
+This means that under the assumption of the null hypothesis that there is no true difference in mean acidity between France and Spain a difference as extreme as the one we observed (–0.15) occurs more than 57% of the time. The mean acidity for France in our sample (x_hat=2.75) was lower than that of Spain (x_hat=2.90). However, this difference was not statistically significant at α=0.05(p = 0.5736). Given this, I would not reject the null hypothesis and conclude that wine acidity in France is not different from wine acidity in Spain at the population level.
+
+Calculate a confidence interval for the difference in mean acidity between France and Spain.
+
+We are 95% confident that France’s mean acidity could be up to 0.36 units lower than Spain’s, or up to 0.12 units higher, but we do not have evidence of a consistent directional difference.
+
+```{r}
+ci_diff_acidity_country <- wines_n50 |> 
+  specify(AcidityRank ~ Country) |>
+  generate(reps = 5000) |> 
+  calculate(stat = "diff in means", order = c("France", "Spain")) |> 
+  get_ci(level = 0.95)
+ci_diff_acidity_country
+```
+
+Performing t-test
+
+```{r}
+t.test(AcidityRank ~ Country, data = wines_n50, var.equal = FALSE)
+```
+
+Normality,
+
+```{r}
+wines_n50 |>
+  ggplot(aes(x= AcidityRank))+
+  geom_histogram(binwidth = 0.5)+
+  facet_wrap(~ Country)+
+  labs(
+    x="Acidity Rank", 
+    y="Number of Wines"
+  )
+```
+
+These are left skewed distribution with the majority of the values on acidity rank 3.
+
+```{r}
+wines_n50 |> 
+  group_by(Country) |> 
+  summarise(
+    "standard deviation"= sd(AcidityRank, na.rm=TRUE)
+  )
+```
+
+These are close to each, and the larger is not more than twice the smaller.
+
+```{r}
+t_test_results <- wines_n50 |>
+  t_test(
+    formula = AcidityRank ~ Country,
+    order = c("France", "Spain"),
+    alternative = "two-sided",
+  )
+t_test_results
+
+cohen.d(AcidityRank ~ Country, data = wines_n50,  paired = FALSE, alternative = "two-sided")
+```
+
+<div>
+
+I used a two-tailed independent t test to test the Null Hypothesis that there is no true difference in mean acidity between France and Spain at the population level. The mean acidity for France in our sample (x_hat=2.75) was lower than that of Spain (x_hat=2.90). The difference between means was moderate (Cohen's *d* = 0.35), and was not statically significant at α=0.05(*t* = 1.23, *df* = 19, p = 0.57). Given this, I would not reject the null hypothesis and conclude that wine acidity in France is not different from wine acidity in Spain at the population level.
+
+</div>
+
+## Question: Do wines that pair well with beef have higher mean body scores than those that do not?
+
+After examining acidity differences across countries, we now shift our focus to a wine characteristics, body, and how it relates to food pairing. In particular, we want to investigate whether wines that are recommended to pair well with beef tend to have higher mean body scores than wines that are not considered suitable for beef pairing.
+
+To begin exploring this question, we summarize the body scores for wines grouped by whether they pair well with beef (Y) or not (N). The table below provides statistics to offer an initial sense of how body differs between the two categories and help guide our choice of hypothesis test.
+
+```{r}
+wines_n50 |>
+  group_by(Harmonize_Beef) |>
+  summarise(
+    sample_size = n(), 
+    mean_w = mean(BodyRank, na.rm=TRUE), 
+    sd_w = sd(BodyRank, na.rm=TRUE), 
+    se = sd(BodyRank, na.rm=TRUE)/sqrt(sample_size), 
+    lower_ci = mean_w - (se * 1.96),
+    upper_ci = mean_w + (se * 1.96),
+    .groups = "drop"
+  )
+```
+
+Next, we examine the distribution of wine body scores based on whether the wine pairs well with beef. We observe that the median body score for wines that pair with beef and those that do not is very similar, both falling around 3.8.
+
+```{r}
+wines_n50 |>
+  ggplot(aes(x = Harmonize_Beef, y = BodyRank)) + 
+  geom_boxplot(fill = "#A9502C") +
+  labs(
+      y = "Body Rank", 
+      x = "Does Harmonize with Beef", 
+      title = "Distribution of Wine Body by its Beef Harmonization"
+  )
+```
+
+## **Hypothesis**
+
+Null (H₀): The mean body score of wines that pair with beef is less than or equal to that of wines that do not.
+
+$Ho: \mu_{BeefPairY} <= \mu_{BeefPairN}$
+
+Alternative (Ha): Wines that pair with beef have higher mean body scores.
+
+$Ha: \mu_{BeefPairY} >  \mu_{BeefPairN}$
+
+Significance Level: α = 0.05
+
+## Testing the hypothesis
+
+We now move on to formally testing whether wines that pair well with beef tend to have higher mean body scores. To do this, we begin the analysis, we calculate the observed difference in mean body scores between the two groups:
+
+Observed_difference = MeanBeefPairY − MeanBeefPairN = 0.1333
+
+```{r}
+obs_diff_body_beef <- wines_n50 |> 
+  specify(BodyRank ~ Harmonize_Beef) |> 
+  calculate(stat = "diff in means", order = c("Y", "N"))
+
+obs_diff_body_beef
+```
+
+This means that, on average, wines that pair with beef in our sample have body scores that are 0.13 points higher than wines that do not pair with beef.
+
+Next, we generate the null distribution of δ. Here, we create simulated values as if we lived in a world where there is no true difference in body scores between wines that pair with beef and those that do not.
+
+```{r}
+body_in_null_world <- wines_n50 |> 
+  specify(BodyRank ~ Harmonize_Beef) |> 
+  hypothesize(null = "independence") |> 
+  generate(reps = 5000, type="permute")
+
+body_in_null_world
+```
+
+We now continue by calculating the differences in mean body between wines that pair with beef and those that do not, under the null hypothesis. The null assumes that pairing with beef has no real effect on a wine’s body. In other words, any observed difference between the two groups is attributed entirely to random chance rather than an underlying population difference.
+
+```{r}
+body_diff_under_null <- body_in_null_world |> 
+  calculate(stat = "diff in means", order = c("Y", "N")) 
+
+body_diff_under_null |> 
+  slice(1:5)
+```
+
+Visualize how the observed difference compares to the null distribution of $\delta$. The histogram of the null distribution is generated, with a vertical red line showing the observed difference in mean body of wine that pair with beef and those that do not.
+
+```{r}
+obs_diff_body_beef
+body_diff_under_null |> 
+  visualize() +
+  geom_vline(xintercept = obs_diff_body_beef$stat, color="red")+
+  labs(
+      x = "Difference in Mean Body (Beef-Pairing Wines − Non–Beef-Pairing Wines)",
+      y = "Count",
+      title = "Null Distribution of Differences in Mean Body Scores",
+      subtitle = "Observed difference is shown in red"
+    )
+```
+
+The plot displays the null distribution of the differences in mean body score between the two groups. The shape of the null distribution appears symmetric, centered around approximately 0. Most simulated differences fall within the range of about 0.45 and -0.45. The observed difference of 0.133 is marked by the red vertical line.\
+Since the alternative hypothesis predicts that beef-pairing wines have higher body scores, the red line falls into the right tail of the null distribution showing that might be some evidence against the null hypothesis.
+
+To formally evaluate how unusual our observed difference of 0.133 is under the assumption of no true pair food effect, we calculate a p-value using the null distribution.
+
+```{r}
+body_diff_under_null |> 
+  get_pvalue(obs_stat = obs_diff_body_beef, direction = "right") 
+```
+
+This means that under the assumption of the null hypothesis that the mean body score of wines that pair with beef is less than or equal to that of wines that do not, an observed difference as large as 0.133 occurs about 29% of the time. The mean body for wine do pair with beef in our sample (x_hat=3.933333) was slightly higher than that of wines that do not pair with beef (x_hat=3.80). However, this difference was not statistically significant at α=0.05(p = 0.2888). Given this, I would not reject the null hypothesis and conclude that the mean body score of wines that pair with beef is less than or equal to that of wines that do not at the population level.
+
+Calculate a confidence interval for the difference in body score of wines that pair with beef and wines that do not.
+
+The 95% confidence interval for the difference in mean body scores between wines that pair with beef and those that do not is –0.206 to 0.469. This means we are 95% confident that the true mean body score for beef-pairing wines could be up to 0.21 units lower or up to 0.47 units higher than wines that do not pair with beef. Because the interval includes 0, it indicates that there is no evidence of a difference in mean body scores between the two groups
+
+```{r}
+ci_diff_body_beef <- wines_n50 |> 
+  specify(BodyRank ~ Harmonize_Beef) |>
+  generate(reps = 5000) |> 
+  calculate(stat = "diff in means", order = c("Y", "N")) |> 
+  get_ci(level = 0.95)
+ci_diff_body_beef
+```
+
+Performing t-test
+
+```{r}
+t.test(BodyRank ~ Harmonize_Beef, data = wines_n50, alternative = "greater")
+```
+
+Normality,
+
+```{r}
+wines_n50 |>
+  ggplot(aes(x= BodyRank))+
+  geom_histogram(binwidth = 0.5)+
+  facet_wrap(~ Harmonize_Beef)+
+  labs(
+    x="Body Wine Rank", 
+    y="Number of Wines"
+  )
+```
+
+The distribution of body scores for wines that pair with beef is left-skewed, while the distribution for wines that do not pair with beef is slightly symmetric.
+
+```{r}
+wines_n50 |> 
+  group_by(Harmonize_Beef) |> 
+  summarise(
+    "standard deviation" = sd(BodyRank, na.rm=TRUE)
+  )
+```
+
+The larger is not more than twice the smaller.
+
+```{r}
+t_test_results <- wines_n50 |>
+  t_test(
+    formula = BodyRank ~ Harmonize_Beef,
+    order = c("Y", "N"),
+    alternative = "greater",
+  )
+t_test_results
+
+cohen.d(BodyRank ~ Harmonize_Beef, data = wines_n50,  paired = FALSE)
+```
+
+<div>
+
+I used a one-tailed independent t test to test the Null Hypothesis that the mean body score of wines that pair with beef is less than or equal to that of wines that do not at the population level. The mean body for wine do pair with beef in our sample (x_hat=3.933333) was slightly higher than that of wines that do not pair with beef (x_hat=3.80). The difference between means was small (Cohen's *d* = 0.23), and was not statically significant at α=0.05(*t* = 0.75, *df* = 30, p = 0.2888). Given this, I would not reject the null hypothesis and conclude that the mean body score of wines that pair with beef is less than or equal to that of wines that do not at the population level.
+
+</div>
+
+## Question: Is the proportion of red wines higher in France than in Spain?
+
+After examining differences in acidity and body scores, we now turn our attention to wine color, specifically red wines, and how their proportion varies between countries. We are interested in determining whether France has a higher proportion of red wines compared to Spain.
+
+We begin with a brief exploratory analysis. Summary statistics, including counts and proportions of red wines for each country,
+
+```{r}
+wines_n50 |>
+  group_by(Country, Type) |>
+  summarise(
+    sample_size = n(),
+    .groups = "drop"
+  )
+```
+
+Next, we examine a bar chart of wine types by country. We observe that France has a higher overall count of wines compared to Spain. Additionally, the proportion of red wines in France appears to be higher than in Spain.
+
+```{r}
+wines_n50 |>
+  ggplot(aes(x = Type, fill = Country)) + 
+  geom_bar(position="dodge") +
+  labs(
+      y = "Number of Wine", 
+      x = "Wine Type", 
+      title = "Distribution of Wine Type by Country"
+  )
+```
+
+## **Hypothesis**
+
+Null (H₀): The proportion of red wines in France is less than or equal to the proportion of red wines in Spain.
+
+$Ho: pFrance <= pSpain$
+
+Alternative (Ha): The proportion of red wines in France is greater than in Spain.
+
+$Ha: pFrance > pSpain$
+
+Significance Level: α = 0.05
+
+## Testing the hypothesis
+
+The first step in the analysis is to calculate the observed difference in proportions of red wines between France and Spain. This observed difference will then be compared against the null distribution to assess whether it is statistically significant.
+
+```{r}
+obs_diff_type_country <- wines_n50 |> 
+  specify(Type ~ Country, success="Red") |> 
+  calculate(stat = "diff in props", order = c("France", "Spain"))
+
+obs_diff_type_country
+```
+
+This means that, on average, the proportion of red wines from France in our sample is **0.225 lower** than the proportion from Spain.
+
+To evaluate whether the observed difference in proportions of red wines between France and Spain is unusual, we generate the null distribution δ under the assumption that the null hypothesis is true.
+
+```{r}
+type_in_null_world <- wines_n50 |> 
+  specify(Type ~ Country, success="Red") |> 
+  hypothesize(null = "independence") |> 
+  generate(reps = 5000, type="permute")
+
+type_in_null_world
+```
+
+Calculate the differences in proportion of red wine in Spain and France under the null. Under the null hypothesis, the proportion of red wines in France is less than or equal to that in Spain, meaning any observed difference in proportions is due to random chance.
+
+```{r}
+type_diff_under_null <- type_in_null_world |> 
+   calculate(stat = "diff in props", order = c("France", "Spain"))
+
+type_diff_under_null |> 
+  slice(1:5)
+```
+
+Visualize how the observed difference compares to the null distribution of $\delta$
+
+```{r}
+obs_diff_type_country
+type_diff_under_null |> 
+  visualize() +
+  geom_vline(xintercept = obs_diff_type_country$stat, color="red")+
+  labs(
+    x = "Difference in porportion of Red wine between Countries", 
+    y = "Count",
+    title = "Null distribution of differences proportion on red wine between France and Spain",
+    subtitle = "Observed difference is shown in red"
+  )
+
+```
+
+The plot displays the null distribution of the differences in proportion of red between the two countries. The shape of the null distribution appears symmetric, centered around approximately 0. Most simulated differences fall within the range of about -0.40 and -0.40. The observed difference of 0.22 is marked by the red vertical line.
+
+To formally evaluate how unusual our observed difference of 0.22 is under the assumption of no true pair food effect, we calculate a p-value using the null distribution.
+
+```{r}
+type_diff_under_null |> 
+  get_pvalue(obs_stat = obs_diff_type_country, direction = "right") 
+```
+
+This means that under the assumption of the null hypothesis that the proportion of red wines in France is less than or equal to the proportion of red wines in Spain, an observed difference as large as 0.22 occurs about 97% of the time. This difference was not statistically significant at α=0.05(p = 0.98). Given this, I would not reject the null hypothesis and conclude that the proportion of red wines in France is less than or equal to the proportion of red wines in Spain at the population level.
+
+Calculate a confidence interval for the proportion of red wines in France and in Spain.
+
+We are 95% confident that the true proportion of red wines in France versus Spain -0.43 and 0.041. Because the interval includes 0, it indicates that there is no evidence of a difference proportion on scores between the two groups
+
+```{r}
+ci_diff_type_country <- wines_n50 |> 
+  specify(Type ~ Country, success="Red") |> 
+  generate(reps = 5000) |> 
+  calculate(stat = "diff in props", order = c("France", "Spain")) |>
+  get_ci(level = 0.95)
+ci_diff_type_country
+```
+
+Performing a proportion t-test
+
+```{r}
+prop_test(wines_n50,
+  Type ~ Country, 
+  success = "Red",
+  order = c("France", "Spain"),
+  alternative = "greater",
+  correct = FALSE
+)
+```
+
+There is no evidence that the proportion of red wines in France is higher than in Spain at the population level.
+
+# Inference for Regression: Predicting Alcohol by Volume (ABV) from Body Score
+
+To explore the relationship between wine body and alcohol content (ABV), we fit a simple linear regression model:
+
+ABV = b0 + b1 \* BodyRank + E
+
+ABV = 11.586 + 0.436 \* BodyRank
+
+The purpose of this analysis is to determine whether body score is a significant predictor of ABV and to quantify the strength and direction of this relationship.
+
+```{r}
+abvBody <- lm(ABV ~ BodyRank, data = wines_n50) #model
+get_regression_table(abvBody) #regression table
+summary(abvBody)
+
+wines_n50 |>
+  ggplot(aes(y = ABV, x = BodyRank)) +
+  geom_point(position = "jitter") +
+  labs(
+    x = "Wine Body", 
+    y = "Alcohol Content", 
+    title = "Alcohol Content versus Body Wine") +
+  geom_smooth(method="lm", se=0) #model
+
+residualsabvBody <- get_regression_points(abvBody)
+
+residualsabvBody |>
+  ggplot(aes(x=ABV_hat, y=residual))+
+  geom_point(position = "jitter")+
+  geom_hline(yintercept = 0, col = "blue") +
+  labs(
+    x="Predicted Alcohol Content", 
+    y="Residual", 
+    title="Residual plot for Alcohol Content versus Body Wine") #residual plot
+
+residualsabvBody |>
+  ggplot(aes(x=residual))+
+  geom_histogram(aes(y = after_stat(density)), bins = 10, fill = "lightblue", color = "black") +
+  geom_density(color = "blue", size = 1.2)
+  labs(
+    y="Count", 
+    x="Residual", 
+    title="Residuals for Alcohol Content versus Body Wine")
+  
+residualsabvBody |>
+  ggplot(aes(sample = residual)) +
+  geom_qq() +
+  geom_qq_line()
+```
+
+-   The p-value for the slope is essentially 0.02, which is far below 0.05. There is strong evidence that wine body is a significant predictor of alcohol content, the observed relationship is unlikely to have occurred by chance. The slope (0.436) indicates that, on average, for each 1 unit increase in wine body, ABV increases by about 0.436%.
+-   The 95% confidence interval for the slope of body wine is a number between (0.069, 0.802). This means we are we can say with 95% confidence that every 1-unit increase in wine body corresponds to an increase in alcohol content between 0.069% and 0.802% on average. Since the interval does not include zero, there is enough evidence to support that body is a predictor of alcohol content.
+-   The R-squared is 0.1064, meaning the model explains approximately 10.64% of the variation in ABV. This indicates a weak fit, but it does not invalidate the significance of the slope.
+-   The residual plot does not supports most of the LINE assumptions.
+    -   Residuals are roughly scattered around zero, suggesting the linearity assumption is reasonably satisfied. This suggests the relationship between body and alcohol content on wine is somehow linear.
+    -   Independence cannot be fully evaluated from the residual plot alone, but there are no visible signs of autocorrelation. Since the data were not collected over time, independence is reasonably assumed.
+    -   Residuals are approximately symmetric but show some skew, with clusters around residual values of -1 and up to 1.
+    -   Equal variance (Homoscedasticity) is violated. The residual plot shows that the spread of residuals increases as fitted alcohol content increase a pattern that resembles a trumpet shape. This suggests heteroscedasticity, meaning the variance of the residuals is not constant across levels of the fitted values.
+
+Overall, the regression analysis provides evidence that wine body is a statistically significant predictor of alcohol content. The slope is positive and meaningful, with a p-value of 0.02 and a 95% confidence interval of 0.069 to 0.802, indicating that wines with higher body scores tend to have higher ABV. Although the model explains only about 10.64% of the variation in alcohol content, suggesting a weak overall fit, the direction and significance of the relationship are still supported. The residual diagnostics show that equal variance are violated, indicating some limitations in the model’s assumptions. Despite these issues, the model remains useful for describing and predicting how wine body relates to alcohol content.
+
+# Inference for Regression: Predicting Alcohol by Volume (ABV) from Body Score and Type of blended wine.
+
+To explore the relationship between wine body, type of blended wine and alcohol content (ABV), we fit a multiple linear regression model:
+
+ABV = b0 + b01 \* DVarietal + b1 \* BodyRank + E
+
+ABV = 12.091 + (-0.553 \* DVarietal) + 0.402 \* BodyRank
+
+The purpose of this analysis is to determine whether body score and type of blended wine is a significant predictor of ABV and to quantify the strength and direction of this relationship.
+
+```{r}
+abvBody <- lm(ABV ~ BodyRank + Elaborate, data = wines_n50) #model
+get_regression_table(abvBody) #regression table
+summary(abvBody)
+
+residualsabvBody <- get_regression_points(abvBody)
+
+residualsabvBody |>
+  ggplot(aes(x=ABV_hat, y=residual))+
+  geom_point(position = "jitter")+
+  geom_hline(yintercept = 0, col = "blue") +
+  labs(
+    x="Predicted Alcohol Content", 
+    y="Residual", 
+    title="Residual plot for Alcohol Content versus Body Wine and Elaborate") #residual plot
+
+residualsabvBody |>
+  ggplot(aes(x=residual))+
+  geom_histogram(aes(y = after_stat(density)), bins = 10, fill = "lightblue", color = "black") +
+  geom_density(color = "blue", size = 1.2)
+  labs(
+    y="Count", 
+    x="Residual", 
+    title="Residuals for Alcohol Content versus Body Wine and Elaborate")
+
+```
+
+-   Yes, we should include type of blended wine as explanatory variable in the model. The type of blended wine p-value (p = 0.009) are far below 0.05, indicating strong evidence that elaborate is a significant predictor of the vole count at site.
+
+-   Yes, we should include body as explanatory variable in the model. The body p-value (p = 0.023) are far below 0.05, indicating strong evidence that body is a significant predictor of the alcohol content.
+
+-   The 95% confidence interval for the slope of body is a number between (0.057, 0.748). This means we are 95% confident that for every one unit increase in body, the alcohol content increases by between 0.057 and 0.748 units on average, holding elaborate constant. Since the interval does not include zero, there is enough evidence to suggest that body is a predictor of alcohol content.
+
+-   Holding body constant, varietal wines have about 0.55% lower ABV on average than assemblage wines. The confidence interval does not include zero, so we have strong evidence that wine type affects alcohol content. Since the effect is negative, varietal wines tend to be produced with lower alcohol levels than assemblage wines in this sample.
+
+-   22.78% of the variation in alcohol content is explained by the regression model, which includes the body wine and teh type of blended.
+
+-   The residual plot generally supports most of the LINE assumptions.
+
+    -   Linearity appears to be satisfied. The residuals are randomly scattered around zero with no clear pattern, suggesting that the relationship between the body, blended type, and alcohol content is roughly linear.
+
+    -   Independence cannot be fully evaluated from the residual plot alone, but there are no visible signs of autocorrelation. Since the data were not collected over time, independence is reasonably assumed.
+
+    -   Normality is supported. The histogram of the residuals shows a symmetric distribution centered around zero, with similar spread on both sides.
+
+    -   Equal variance (Homoscedasticity) also appears to be satisfied. The residuals show a fairly constant spread across all levels of the fitted values, suggesting that the variance of the residuals is relatively uniform.
+
+Yes, this is a good model overall. Both body and type of blended wine are highly significant predictors p \< 0.005, and the confidence interval for any of the explanatory variables on the model does not include zero. The model explains about 22.78% of the variation in alcohol content, indicating a reasonably strong fit. Therefore, this model provides a reliable and interpretable framework for predicting alcohol content using body and blend type in this wine dataset.
+
+# Conclusion:
+
+This project revealed several meaningful and surprising patterns within the wine data. Assemblage wines consistently showed higher alcohol content than varietal wines across all confidence interval methods, suggesting real differences in how these styles are produced. Red wines represented a large share of the sample, but the population proportion showed wide uncertainty. One of the most unexpected findings was that wines containing Cabernet Sauvignon grapes were more likely not to pair with beef, contradicting a common assumption in wine pairing. Meanwhile, neither acidity nor body differed significantly between countries or beef-pairing groups, indicating that these characteristics may be shaped more by winery practices or grape specific factors than by country of origin or food-pairing categorization. The regression analysis further showed that body is a statistically significant, though weak, predictor of alcohol content, meaning heavier-bodied wines tend to have slightly higher ABV.
+
+Looking ahead, the results raise several new questions worth exploring. It would be valuable to expand food-pairing analyses to include poultry, fish, spicy dishes, or vegetarian meals. Increasing the sample size or including more countries could improve the precision of the estimates and help uncover subtler patterns. Additionally, extending the regression model to incorporate grape composition, wine region, and blend type may provide a richer understanding of how multiple factors interact to shape alcohol content and other wine characteristics. Together, these next steps could lead to a more comprehensive view of the complex relationships that define wine profiles.

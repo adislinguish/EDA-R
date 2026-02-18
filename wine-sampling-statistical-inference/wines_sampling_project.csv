@@ -1,0 +1,1008 @@
+WineID,WineName,Type,Elaborate,ABV,Country,RegionName,AcidityRank,BodyRank,Grapes_CabernetSauvignon,Harmonize_Beef
+100001,Espumante Moscatel,Sparkling,Varietal,7.5,Brazil,Serra Gaúcha,3,3,N,N
+100002,Ancellotta,Red,Varietal,12,Brazil,Serra Gaúcha,2,3,N,Y
+100003,Cabernet Sauvignon,Red,Varietal,12,Brazil,Serra Gaúcha,3,4,Y,Y
+100005,Maison de Ville Cabernet-Merlot,Red,Assemblage,11,Brazil,Serra Gaúcha,2,4,Y,Y
+100007,Do Lugar Moscatel Espumantes,Sparkling,Varietal,7.5,Brazil,Serra Gaúcha,3,3,N,N
+100008,Paradoxo Cabernet Sauvignon,Red,Varietal,13.5,Brazil,Serra Gaúcha,3,4,Y,Y
+100010,Defesa Tinto,Red,Assemblage,14,Portugal,Alentejano,3,4,N,Y
+100012,Vinho Verde Branco,White,Assemblage,9,Portugal,Vinho Verde,3,1,N,N
+100013,Ruby Port,Dessert/Port,Assemblage,19.5,Portugal,Porto,3,5,N,Y
+100014,Tawny Port,Dessert/Port,Assemblage,19.5,Portugal,Porto,3,5,N,Y
+100016,Acquasantiera Tinto Seco Fino,Red,Assemblage,11,Brazil,Serra Gaúcha,1,3,Y,Y
+100017,Colheita Tardia Malvasia-Moscato,Dessert,Assemblage,12.5,Brazil,Serra Gaúcha,3,3,N,N
+100018,Cave Cabernet Sauvignon,Red,Varietal,13,Brazil,Serra Gaúcha,3,4,Y,Y
+100019,Singular Nebbiolo,Red,Varietal,14.9,Brazil,Vale dos Vinhedos,3,4,N,Y
+100021,Merlot Reserva,Red,Varietal,13.5,Brazil,Vale dos Vinhedos,1,4,N,Y
+100022,Malbec Brut Rosé,Sparkling,Varietal,11.5,Brazil,Serra Gaúcha,3,3,N,N
+100025,Espumante Método Charmat Brut,Sparkling,Assemblage,12,Brazil,Serra Gaúcha,3,3,N,N
+100046,Vista de Serra Syrah,Red,Varietal,14,Brazil,Serra Negra,3,4,N,Y
+100049,Cuvée Giuseppe Merlot-Cabernet Sauvignon,Red,Assemblage,14,Brazil,Vale dos Vinhedos,3,4,Y,Y
+100052,Reserva Tannat,Red,Varietal,12.5,Brazil,Serra Gaúcha,1,3,N,Y
+100055,Millesimé Cabernet Sauvignon,Red,Varietal,13,Brazil,Serra Gaúcha,3,4,Y,Y
+100056,Brut Prosecco,Sparkling,Varietal,11.5,Brazil,Serra Gaúcha,3,3,N,N
+100060,Reserva Tannat,Red,Varietal,14,Brazil,Campanha Gaúcha,2,5,N,Y
+100061,Moscatel,Sparkling,Varietal,8,Brazil,Serra Gaúcha,3,3,N,N
+100062,Origem Merlot,Red,Varietal,13,Brazil,Vale dos Vinhedos,2,4,N,Y
+100063,Quinta do Seival Estate Castas Portuguesas,Red,Assemblage,13,Brazil,Campanha Gaúcha,2,4,N,Y
+100064,Réserve Brut,Sparkling,Varietal,12,Brazil,Serra Gaúcha,3,3,N,N
+100067,Sur Lie Nature,Sparkling,Assemblage,12,Brazil,Serra Gaúcha,3,3,N,N
+100073,Moscatel,Sparkling,Varietal,7.5,Brazil,Serra Gaúcha,3,3,N,N
+100080,Agnus Cabernet Sauvignon,Red,Varietal,13.5,Brazil,Vale dos Vinhedos,3,4,Y,Y
+100086,Selecão Chardonnay-Viognier,White,Assemblage,12,Brazil,Campanha Gaúcha,2,3,N,N
+100088,Aquarela Moscatel Espumante,Sparkling,Assemblage,7.5,Brazil,Serra Gaúcha,2,2,N,N
+100092,Nature,Sparkling,Assemblage,12.5,Brazil,Serra Gaúcha,3,3,N,N
+100097,Terranova Espumante Moscatel,Sparkling,Varietal,7.5,Brazil,Vale do São Francisco,3,3,N,N
+100108,Colheita Tardia Malvasia Bianca,Dessert,Varietal,12.5,Brazil,Serra Gaúcha,3,2,N,N
+100114,Primeira Estrada Syrah,Red,Varietal,13.5,Brazil,Minas Gerais,3,4,N,Y
+100120,Marcus James Cabernet Sauvignon,Red,Varietal,11.5,Brazil,Serra Gaúcha,3,4,Y,Y
+100125,Riche Demi-Sec,Sparkling,Assemblage,12.5,Brazil,Serra Gaúcha,3,3,N,N
+100129,Faces Pinot Noir Rosé,Rosé,Varietal,12,Brazil,Vale dos Vinhedos,1,3,N,N
+100135,Cave Amadeu Rosé Brut,Sparkling,Varietal,12,Brazil,Serra Gaúcha,3,3,N,N
+100191,Reserva Chardonnay,White,Varietal,13,Brazil,Serra Gaúcha,2,3,N,N
+100207,Paralelo 31 Proprietor Reserva,Red,Assemblage,14,Brazil,Campanha Gaúcha,3,3,Y,Y
+100305,Brut,Sparkling,Assemblage,12,Brazil,Vale dos Vinhedos,3,3,N,N
+100523,Espumante Brut Rosé,Sparkling,Assemblage,12,Brazil,Serra Gaúcha,3,3,N,N
+100556,Marie Gabi Rosado,Rosé,Varietal,12,Brazil,Rio Grande do Sul,2,2,Y,N
+100565,Varietal Riesling Itálico,White,Varietal,12.5,Brazil,Serra Gaúcha,3,3,N,N
+100841,Licoroso Tinto,Dessert,Assemblage,18,Brazil,Serra Gaúcha,3,4,Y,Y
+101008,Campo Largo Branco Seco de Mesa,White,Varietal,10,Brazil,Serra Gaúcha,3,3,N,N
+101052,Brut Classic,Sparkling,Assemblage,12,United States,California,3,3,N,N
+101154,Veneza Cabernet Sauvignon,Red,Varietal,12,Brazil,Serra Gaúcha,3,4,Y,Y
+101213,Reservado Cabernet Sauvignon,Red,Varietal,11.5,Brazil,Serra Gaúcha,3,4,Y,Y
+101424,STORIA Grappa Merlot,Dessert,Varietal,39,Brazil,Vale dos Vinhedos,3,5,N,Y
+101539,Vecchia Grappa Moscato,Dessert,Varietal,38.5,Brazil,Serra Gaúcha,3,4,N,N
+101563,Esporão Reserva Tinto,Red,Varietal,14.5,Portugal,Alentejo,3,4,N,Y
+101566,Monte Velho Tinto,Red,Assemblage,13.5,Portugal,Alentejano,3,4,N,Y
+101567,Tinto,Red,Assemblage,13,Portugal,Lisboa,3,4,N,Y
+101570,Tinto,Red,Assemblage,13,Portugal,Douro,3,5,N,Y
+101576,Red Blend,Red,Assemblage,13.5,Portugal,Vinho de Portugal,3,4,N,Y
+101584,Flor de Crasto Tinto,Red,Assemblage,14.5,Portugal,Douro,3,5,N,Y
+101586,The Original Rosé,Rosé,Assemblage,11,Portugal,Douro,2,3,N,Y
+101592,Meandro Douro Tinto,Red,Assemblage,14,Portugal,Douro,3,5,N,Y
+101595,Tinto (Touriga Nacional-Syrah-Aragonez),Red,Assemblage,13.3,Portugal,Alentejano,3,4,N,Y
+101610,Late Bottled Vintage Port,Dessert/Port,Varietal,20,Portugal,Porto,3,5,N,Y
+101617,Cedro do Noval,Red,Assemblage,14,Portugal,Duriense,3,5,N,Y
+101632,Vinho Verde Branco,White,Assemblage,11,Portugal,Vinho Verde,3,1,N,N
+101635,Vinho Verde Loureiro-Alvarinho,White,Assemblage,11,Portugal,Minho,3,1,N,N
+101644,Meio Queijo Douro Tinto,Red,Varietal,13.5,Portugal,Douro,3,5,N,Y
+101651,Signature Tinto,Red,Assemblage,13.5,Portugal,Alentejano,3,4,Y,Y
+101660,10 Year Old Tawny Port,Dessert/Port,Assemblage,20,Portugal,Porto,3,5,N,Y
+101677,Reserva (Field Blend),Red,Assemblage,14.5,Portugal,Douro,3,5,N,Y
+101678,Touriga Nacional,Red,Varietal,14.5,Portugal,Douro,3,5,N,Y
+101693,Douro,Red,Assemblage,14.5,Portugal,Douro,3,5,N,Y
+101701,Tinto,Red,Assemblage,13.5,Portugal,Alentejano,3,4,N,Y
+101713,Alentejo Tinto,Red,Assemblage,14.5,Portugal,Alentejo,3,4,N,Y
+101783,Colheita Seleccionada Tinto,Red,Assemblage,13,Portugal,Bairrada,3,4,N,Y
+101847,Dona Antonia Porto Reserva Tawny,Dessert/Port,Assemblage,20,Portugal,Porto,3,5,N,N
+101874,Douro Tinto,Red,Assemblage,13.5,Portugal,Porto,3,5,N,Y
+101970,Vinho Verde Bruto Muralhas,Sparkling,Varietal,13,Portugal,Vinho Verde,2,3,N,Y
+102051,Vinho Verde Fonte,White,Assemblage,9.8,Portugal,Vinho Verde,3,1,N,N
+102055,Fine Ruby Port,Dessert/Port,Assemblage,19.5,Portugal,Porto,2,5,N,N
+102079,Maré Alta,White,Assemblage,10,Portugal,Vinho Verde,3,1,N,N
+102126,Tinto,Red,Assemblage,13,Portugal,Lisboa,3,4,N,Y
+102280,Vinho Verde Rosé,Rosé,Assemblage,9.5,Portugal,Vinho Verde,2,3,N,N
+102292,Rosé (Touriga Nacional-Syrah-Aragonez),Rosé,Assemblage,12.9,Portugal,Alentejano,3,3,N,Y
+102304,Heritage Ruby Port,Dessert/Port,Assemblage,19,Portugal,Porto,3,5,N,N
+102341,Fine Ruby Port,Dessert/Port,Assemblage,19,Portugal,Porto,3,4,N,N
+102392,Terras do Demo Touriga Nacional,Sparkling,Varietal,12,Portugal,Beiras,1,3,N,Y
+102448,20 Year Old Tawny Port,Dessert/Port,Assemblage,20,Portugal,Porto,3,5,N,Y
+102466,Telhas Tinto,Red,Assemblage,14,Portugal,Alentejo,3,4,N,Y
+102547,Espumante de Vinho Verde Meio Seco,Sparkling,Assemblage,11,Portugal,Vinho Verde,3,3,N,N
+102645,Terras de Felgueiras Espumante de Vinho Verde Seco Branco,Sparkling,Assemblage,11.5,Portugal,Vinho Verde,2,3,N,N
+102902,Pátria Alentejo Selection Reserva,Red,Assemblage,14.5,Portugal,Alentejo,2,4,N,Y
+102950,Douro Peccatore,Red,Assemblage,13,Portugal,Douro,3,5,N,Y
+103003,Além do Rio Branco,White,Assemblage,9.5,Portugal,Lisboa,3,3,N,N
+103070,Calda Bordaleza Tinto,Red,Assemblage,14,Portugal,Bairrada,2,4,Y,Y
+103423,Medium Dry Sherry,Dessert,Varietal,16.5,Spain,Jerez-Xérès-Sherry,3,4,N,N
+103433,Regional Tinto,Red,Assemblage,13,Portugal,Lisboa,2,4,N,Y
+103435,Lacrau Colheita Field Blend,Red,Assemblage,13.5,Portugal,Douro,2,4,N,Y
+103471,Presidential Colheita Port,Dessert/Port,Assemblage,20,Portugal,Porto,3,5,N,Y
+103474,Grand'Arte Touriga Nacional,Red,Varietal,13,Portugal,Lisboa,3,4,N,Y
+103637,Casa Burmester Touriga Nacional,Red,Varietal,13.5,Portugal,Porto,3,5,N,Y
+103667,Maria Izabel Rosé,Rosé,Assemblage,13,Portugal,Douro,3,3,N,Y
+103923,Alvarinho,White,Varietal,13.2,Portugal,Minho,3,1,N,N
+103989,Indie Xisto Tinto,Red,Varietal,12.5,Portugal,Douro,3,5,N,Y
+104000,Bairrada Reserva Da Familia,White,Assemblage,13,Portugal,Bairrada,3,2,N,N
+104005,Branco,White,Assemblage,14,Portugal,Alentejo,3,3,N,N
+104026,20 Anos Tawny Porto,Dessert/Port,Assemblage,20,Portugal,Douro,3,5,N,Y
+104580,Aragonêz Rosé,Rosé,Varietal,10.5,Portugal,Douro,3,2,N,Y
+104585,Branco,White,Assemblage,13,Portugal,Alentejano,3,3,N,N
+104616,Reserva da Família Alvarinho,White,Varietal,12,Portugal,Minho,3,1,N,N
+104706,Tiroliro Alvarinho,White,Varietal,12,Portugal,Minho,3,2,N,N
+104797,Quinta Da Gricha Vintage Port,Dessert/Port,Assemblage,19.5,Portugal,Porto,3,5,N,Y
+104821,10 Anos Tawny Porto,Dessert/Port,Assemblage,20,Portugal,Porto,3,5,N,Y
+104878,10 Year Old Tawny Porto,Dessert/Port,Assemblage,20,Portugal,Porto,3,5,N,Y
+104976,Late Bottled Vintage Porto,Dessert/Port,Assemblage,20,Portugal,Douro,2,5,N,Y
+105004,20 Years Old Tawny Porto,Dessert/Port,Assemblage,20.5,Portugal,Porto,3,5,N,Y
+105032,Diga? Branco,White,Varietal,13.5,Portugal,Bairrada,3,2,N,N
+105141,Don Fino Superior Fino Sherry,Dessert,Varietal,15,Spain,Fino Sherry,3,4,N,N
+105364,Character Medium Dry Amontillado Sherry,Dessert,Varietal,17.5,Spain,Amontillado Sherry,3,4,N,N
+105488,Touriga Nacional,Red,Varietal,13.5,Portugal,Douro,3,5,N,Y
+105585,Terras de Basto Tinto,Red,Assemblage,10.5,Portugal,Vinho Verde,2,4,N,Y
+105599,Primata Touriga Nacional,Red,Assemblage,11.2,Portugal,Douro,2,4,N,N
+105656,Private Alvarinho,White,Varietal,12.5,Portugal,Vinho Verde,3,1,N,N
+105727,Tinta Negra Rosé,Rosé,Varietal,11.5,Portugal,Madeirense,2,3,N,Y
+105748,Porto Colheita,Dessert/Port,Assemblage,20,Portugal,Porto,2,5,N,N
+105763,Porto Colheita,Dessert/Port,Assemblage,19.5,Portugal,Porto,3,5,N,Y
+105770,Colheita Porto,Dessert/Port,Assemblage,20,Portugal,Porto,3,5,N,Y
+105787,Douro Tourgia Franca,Red,Varietal,14,Portugal,Douro,3,5,N,Y
+105911,White Reserve Porto,Dessert/Port,Assemblage,19.5,Portugal,Douro,2,5,N,N
+105969,Colheita Porto,Dessert/Port,Assemblage,20,Portugal,Porto,3,5,N,Y
+106004,Touriga Franca,Red,Varietal,13,Portugal,Douro,3,5,N,Y
+106091,Danaide Vinho Verde,Red,Assemblage,10.5,Portugal,Vinho Verde,3,4,N,Y
+106468,Vinho Verde Rosé,Rosé,Assemblage,10,Portugal,Vinho Verde,3,2,N,N
+106530,Nik Weis Selection Urban Riesling,White,Varietal,9.5,Germany,Mosel,3,2,N,N
+106531,Riesling Trocken,White,Varietal,12,Germany,Pfalz,3,2,N,N
+106534,Riesling Trocken,White,Varietal,12,Germany,Rheingau,3,2,N,N
+106536,Gelblack Riesling Trocken,White,Varietal,12,Germany,Rheingau,3,2,N,N
+106537,Eins Zwei Dry Riesling,White,Varietal,12.5,Germany,Rheingau,3,2,N,N
+106540,Riesling,White,Varietal,11,Germany,Mosel,3,2,N,N
+106541,Riesling Trocken,White,Varietal,12,Germany,Nahe,3,2,N,N
+106542,Rheinhessen Riesling Feinherb,White,Varietal,11.5,Germany,Rheinhessen,3,2,N,N
+106544,Pinot Noir Rosé,Rosé,Varietal,12.5,Germany,Pfalz,2,2,N,N
+106552,Riesling Kabinett Blue Slate,White,Varietal,8,Germany,Mosel,3,2,N,N
+106553,Riesling Trocken,White,Varietal,12,Germany,Rheinhessen,3,2,N,N
+106629,Spätburgunder,Red,Varietal,13.5,Germany,Ahr,3,4,N,Y
+106635,Malterdinger Spätburgunder,Red,Varietal,13,Germany,Baden,3,4,N,Y
+106639,Pinot Noir Rosé,Rosé,Varietal,11.5,Germany,Nahe,2,3,N,N
+106668,Haus Klosterberg Pinot Noir,Red,Varietal,13.5,Germany,Mosel,3,4,N,Y
+106669,Blauer Spätburgunder Trocken,Red,Varietal,13,Germany,Pfalz,3,4,N,Y
+106681,Pinot Noir Rosè,Rosé,Varietal,12,Germany,Rheingau,3,3,N,N
+106688,Spätburgunder Tradition,Red,Varietal,13,Germany,Pfalz,3,4,N,Y
+106748,J² Gau-Odernheimer Spätburgunder,Red,Varietal,13,Germany,Rheinhessen,3,4,N,Y
+106752,Spätburgunder (Pinot Noir),Red,Varietal,12.5,Germany,Rheingau,3,4,N,Y
+106803,Spätburgunder Trocken,Red,Varietal,12,Germany,Rheingau,3,4,N,Y
+106831,Spätburgunder Trocken,Red,Varietal,14,Germany,Mayschoss,3,4,N,Y
+106867,Dornfelder Trocken,Red,Varietal,12.5,Germany,Pfalz,3,2,N,N
+106889,Clarette Rosé Trocken,Rosé,Assemblage,11.5,Germany,Pfalz,3,3,Y,Y
+107023,Ürziger Würzgarten Riesling Kabinett,White,Varietal,10.5,Germany,Mosel,3,2,N,N
+107030,Riesling Medium Sweet,Dessert,Varietal,10.5,Germany,Mosel,3,2,N,N
+107044,J² Gau-Odernheimer Riesling,White,Varietal,12.5,Germany,Rheinhessen,3,2,N,N
+107183,Brauneberger Juffer Riesling Auslese,Dessert,Varietal,7.5,Germany,Brauneberg,3,2,N,N
+107214,Black Label Nik Weis Saar Riesling,White,Varietal,11.5,Germany,Mosel,3,3,N,N
+107320,Rosé de Diel Trocken,Rosé,Varietal,12,Germany,Nahe,2,4,N,N
+107674,Lorch Riesling,White,Varietal,12,Germany,Rheingau,3,2,N,N
+107691,Forster Ungeheuer Riesling Eiswein,Dessert,Varietal,10.5,Germany,Pfalz,3,2,N,N
+107846,Malterdinger Bienenberg Weissburgunder,White,Varietal,13,Germany,Baden,3,3,N,N
+108188,Pittermännchen Riesling GG,White,Varietal,12.5,Germany,Nahe,3,2,N,N
+108242,Blue Burg Layer Schlosskapelle Kerner Spätlese,White,Varietal,9.5,Germany,Nahe,3,3,N,N
+108329,Saarburger Riesling Kabinett,White,Varietal,8,Germany,Mosel,3,2,N,N
+108360,Nieder-Hilbersheimer Riesling Eisenerz,White,Varietal,12.5,Germany,Rheinhessen,3,2,N,N
+108681,Mulheimer Helenenkloster Riesling Eiswein,Dessert,Varietal,9,Germany,Mosel,3,2,N,N
+108705,Oberrotweiler Spätburgunder Spätlese Trocken,Red,Varietal,14,Germany,Baden,1,4,N,N
+108966,Niersteiner Auflangen Riesling Spätlese,White,Varietal,11,Germany,Rheinhessen,3,2,N,N
+108974,Felix Lemberger Trocken,Red,Varietal,13,Germany,Württemberg,3,3,N,Y
+108976,Bernkasteler Badstube Riesling Spätlese,White,Varietal,8.5,Germany,Mosel,3,2,N,N
+109250,Nackenheim Rothenberg,White,Varietal,13,Germany,Rheinhessen,3,2,N,N
+109349,Urgestein Riesling (Trocken),White,Varietal,12,Germany,Rheingau,3,2,N,N
+109547,Graf Von Are Spätburgunder,Red,Varietal,11.5,Germany,Ahr,3,4,N,Y
+109705,Nashorn Trollinger-Lemberger Trocken,Red,Assemblage,13.5,Germany,Württemberg,1,2,N,Y
+109826,Trollinger-Lemberger Trocken,Red,Assemblage,13,Germany,Württemberg,2,2,N,Y
+109847,Kinheimer Rosenberg Riesling-Kabinett Trocken,White,Varietal,11.5,Germany,Mosel,3,2,N,N
+109954,Merlot Reserve Trocken,Red,Varietal,13.5,Germany,Württemberg,2,3,N,Y
+110034,Hörsteiner Abtsberg Silvaner Trocken,White,Varietal,12.5,Germany,Franken,2,3,N,N
+110109,Crescentia Assmannshäuser Höllenberg Blanc de Noirs Extra Brut,Sparkling,Varietal,12.5,Germany,Rheingau,2,2,N,N
+110334,Bermatinger Leopoldsberg B Spätburgunder,Red,Varietal,12.8,Germany,Baden,3,4,N,Y
+110680,Dorsheim Pittermannchen Riesling Spätlese,Dessert,Varietal,8,Germany,Nahe,3,2,N,N
+111328,Lorenzhöfer Riesling Beerenauslese,Dessert,Varietal,10,Germany,Mosel,3,2,N,N
+111395,Pauillac (Premier Grand Cru Classé),Red,Assemblage,13,France,Pauillac,3,4,Y,Y
+111398,Rouge,Red,Varietal,13,France,Rhone Valley,3,4,N,Y
+111415,Pauillac (Premier Grand Cru Classé),Red,Assemblage,13,France,Pauillac,3,4,Y,Y
+111417,Pauillac (Grand Cru Classé),Red,Assemblage,14.5,France,Pauillac,3,4,Y,Y
+111420,Beaujolais-Villages,Red,Varietal,12.3,France,Beaujolais-Villages,3,3,N,N
+111421,Châteauneuf-du-Pape,Red,Varietal,14.5,France,Châteauneuf-du-Pape,2,5,N,N
+111422,Pauillac (Grand Cru Classé),Red,Assemblage,12.8,France,Pauillac,3,4,Y,Y
+111429,Saint-Estèphe (Grand Cru Classé),Red,Assemblage,12.8,France,Saint-Estèphe,3,4,Y,Y
+111431,Saint-Julien (Grand Cru Classé),Red,Assemblage,14,France,Saint-Julien,3,4,Y,Y
+111433,Saint-Julien (Grand Cru Classé),Red,Assemblage,13.5,France,Saint-Julien,3,4,Y,Y
+111434,Saint-Julien (Grand Cru Classé),Red,Varietal,13,France,Saint-Julien,3,4,N,Y
+111445,Bourgogne Couvent des Jacobins,Red,Varietal,12.5,France,Bourgogne,3,2,N,Y
+111448,Brut Vintage Champagne (Extra Cuvée de Réserve),Sparkling,Varietal,12.5,France,Champagne,3,3,N,N
+111454,Rosé,Rosé,Varietal,13,France,Vin de France,3,3,N,N
+111455,Côtes-du-Rhône Blanc,White,Varietal,13,France,Côtes-du-Rhône,3,4,N,N
+111457,Châteauneuf-du-Pape,Red,Varietal,14.5,France,Châteauneuf-du-Pape,2,5,N,N
+111458,Saint-Estèphe (Grand Cru Classé),Red,Varietal,13,France,Saint-Estèphe,3,4,N,Y
+111461,Brut (R de Ruinart) Champagne,Sparkling,Assemblage,12,France,Champagne,3,3,N,N
+111466,Bourgogne Chardonnay,White,Varietal,12.5,France,Bourgogne,3,4,N,N
+111468,Blanc de Blancs Brut Champagne,Sparkling,Varietal,12.5,France,Champagne,3,3,N,N
+111471,Riesling Alsace,White,Varietal,12.5,France,Alsace,3,4,N,N
+111475,Saint-Émilion Grand Cru (Premier Grand Cru Classé),Red,Varietal,13.5,France,Saint-Émilion Grand Cru,2,4,N,Y
+111478,Sauternes (Premier Grand Cru Classé),Dessert,Assemblage,13.5,France,Sauternes,3,4,N,N
+111479,Impérial Rosé Brut Champagne,Sparkling,Varietal,12,France,Champagne,3,3,N,N
+111484,Royal Brut Champagne,Sparkling,Assemblage,12.5,France,Champagne,3,3,N,N
+111495,Pauillac (Grand Cru Classé),Red,Varietal,12.5,France,Pauillac,3,4,Y,Y
+111503,Blanc,White,Varietal,13,France,Rhone Valley,3,4,N,N
+111516,Haut-Médoc (Grand Cru Classé),Red,Varietal,13.8,France,Haut-Médoc,3,4,N,Y
+111521,Grand Vintage Brut Champagne,Sparkling,Varietal,12.5,France,Champagne,3,3,N,N
+111524,Bordeaux Supérieur,Red,Assemblage,12.5,France,Bordeaux Supérieur,3,4,Y,Y
+111538,Grand Terroir Tautavel Grenache-Syrah-Carignan,Red,Assemblage,15,France,Languedoc-Roussillon,3,4,N,Y
+111544,Dom Ruinart Blanc de Blancs Brut Champagne,Sparkling,Varietal,12.5,France,Champagne,3,3,N,N
+111558,Cuvée Réservée Châteauneuf-du-Pape Rouge,Red,Varietal,14,France,Châteauneuf-du-Pape,2,5,N,N
+111587,Haut-Médoc (Grand Cru Classé),Red,Assemblage,12.8,France,Haut-Médoc,3,4,Y,Y
+111590,Pessac-Léognan,Red,Assemblage,13,France,Pessac-Léognan,3,4,Y,Y
+111621,Pouilly-Fumé,White,Varietal,12.5,France,Pouilly-Fumé,3,4,N,N
+111624,Chablis,White,Varietal,12.5,France,Chablis,3,4,N,N
+111641,Pinot Noir,Red,Varietal,12.5,France,Languedoc-Roussillon,3,4,N,Y
+111645,Haut-Médoc,Red,Assemblage,12.5,France,Haut-Médoc,3,4,Y,Y
+111648,Sancerre Les Baronnes Blanc,White,Varietal,12.9,France,Sancerre,3,4,N,N
+111657,Esprit Méditerranée Rosé,Rosé,Assemblage,12.5,France,Méditerranée,3,4,N,N
+111667,Saint-Émilion Grand Cru (Premier Grand Cru Classé),Red,Varietal,13.5,France,Saint-Émilion Grand Cru,2,4,N,Y
+111679,Côtes De Gascogne Classic,White,Assemblage,10.5,France,Côtes de Gascogne,2,3,N,N
+111687,Emilien,Red,Varietal,13,France,Côtes de Bordeaux,3,4,N,Y
+111692,Beaujolais,Red,Varietal,12.5,France,Beaujolais,3,3,N,N
+111713,Corton-Charlemagne Grand Cru,White,Varietal,13,France,Corton-Charlemagne Grand Cru,2,4,N,N
+111715,Bourgogne Pinot Noir (Vieilles Vignes),Red,Varietal,12.5,France,Bourgogne,3,2,N,Y
+111729,Saint-Estèphe,Red,Varietal,13,France,Saint-Estèphe,3,4,N,Y
+111740,Petit Chablis,White,Varietal,12,France,Petit Chablis,3,4,N,N
+111755,Cahors Malbec,Red,Varietal,13.5,France,Cahors,3,5,N,Y
+111763,Bourgogne Chardonnay,White,Varietal,13,France,Bourgogne,3,4,N,N
+111765,Bordeaux Rouge,Red,Assemblage,12,France,Bordeaux,3,4,Y,Y
+111773,Lacoste Borie Pauillac,Red,Varietal,13,France,Pauillac,3,4,N,Y
+111792,Sancerre Rouge Les Baronnes,Red,Varietal,13,France,Sancerre,3,3,N,N
+111803,Pouilly-Fuissé,White,Varietal,13,France,Pouilly-Fuissé,2,3,N,N
+111829,Bordeaux,Red,Assemblage,13,France,Bordeaux,3,4,Y,Y
+111834,Chablis 'Champs Royaux',White,Varietal,12.8,France,Chablis,3,4,N,N
+111845,Côtes de Bourg,Red,Assemblage,14.2,France,Côtes de Bourg,3,4,N,Y
+111872,Bourgogne Pinot Noir (La Vignée),Red,Varietal,12.5,France,Bourgogne,3,2,N,Y
+111907,Malbec,Red,Varietal,13.5,Argentina,San Juan,3,5,N,Y
+111927,Rare Vintage Brut Champagne,Sparkling,Assemblage,12,France,Champagne,3,3,N,N
+111932,Margaux (Grand Cru Classé),Red,Varietal,14,France,Margaux,3,4,Y,Y
+111951,Bordeaux,Red,Assemblage,14.5,France,Bordeaux,3,4,Y,Y
+111961,Saint-Émilion Grand Cru,Red,Varietal,13.8,France,Saint-Émilion Grand Cru,2,4,N,Y
+111967,Saint-Émilion Grand Cru (Grand Cru Classé),Red,Varietal,13,France,Saint-Émilion Grand Cru,2,4,N,Y
+111973,Bourgogne Cuvée Latour,Red,Varietal,13,France,Bourgogne,3,2,N,Y
+111987,Margaux du Château Margaux,Red,Varietal,14,France,Margaux,3,4,Y,Y
+112001,Grande Réserve Sancerre Blanc,White,Varietal,13.2,France,Sancerre,3,4,N,N
+112010,Bordeaux Supérieur,Red,Assemblage,13.8,France,Bordeaux Supérieur,3,4,Y,Y
+112028,Brut Nature Silver Champagne Grand Cru 'Bouzy',Sparkling,Varietal,12,France,Champagne Grand Cru 'Bouzy',3,3,N,N
+112039,Saint-Émilion Grand Cru,Red,Varietal,14.3,France,Saint-Émilion Grand Cru,2,4,N,Y
+112084,Oenothèque Brut Champagne,Sparkling,Assemblage,12.5,France,Champagne,3,3,N,N
+112089,Graves,Red,Varietal,13.5,France,Graves,3,4,Y,Y
+112094,Margaux (Grand Cru Classé),Red,Varietal,13.5,France,Margaux,3,4,N,Y
+112125,Moulis-en-Médoc,Red,Assemblage,12.5,France,Moulis-en-Médoc,3,4,Y,Y
+112149,Bordeaux Sauvignon Blanc,White,Varietal,12.5,France,Bordeaux,3,3,N,N
+112171,Sancerre Blanc,White,Varietal,12.5,France,Sancerre,3,4,N,N
+112185,Rosé,Rosé,Varietal,13.5,France,Vin de France,3,4,N,N
+112201,Sauvignon de Seguin Bordeaux,White,Varietal,12,France,Bordeaux,3,3,N,N
+112229,Saint-Émilion Grand Cru (Grand Cru Classé),Red,Varietal,13.5,France,Saint-Émilion Grand Cru,2,4,N,Y
+112237,Saint-Émilion Grand Cru (Grand Cru Classé),Red,Assemblage,13.5,France,Saint-Émilion Grand Cru,2,4,N,Y
+112243,Saint-Émilion Grand Cru,Red,Assemblage,13,France,Saint-Émilion Grand Cru,2,4,N,Y
+112247,Fronsac,Red,Assemblage,15,France,Fronsac,2,3,N,Y
+112251,Parfums de Vigne Bourgogne Chardonnay,White,Varietal,12.8,France,Bourgogne,3,4,N,N
+112255,Bourgogne Chardonnay,White,Varietal,13,France,Bourgogne,3,4,N,N
+112341,L'Abeille de Fieuzal Pessac-Léognan,Red,Assemblage,13,France,Pessac-Léognan,3,4,Y,Y
+112353,Saint-Émilion Grand Cru,Red,Assemblage,13,France,Saint-Émilion Grand Cru,2,4,Y,Y
+112381,Margaux,Red,Varietal,12.5,France,Margaux,3,4,N,Y
+112454,Pomerol,Red,Varietal,13,France,Pomerol,2,4,N,Y
+112483,Bordeaux,Red,Assemblage,13,France,Bordeaux,3,4,Y,Y
+112511,Pomerol,Red,Varietal,13.5,France,Pomerol,2,4,N,Y
+112526,Saint-Émilion Grand Cru,Red,Assemblage,14.5,France,Saint-Émilion Grand Cru,2,4,Y,Y
+112578,Gevrey-Chambertin,Red,Varietal,13,France,Gevrey-Chambertin,3,3,N,Y
+112582,Nocturne Champagne (Sec),Sparkling,Assemblage,12.5,France,Champagne,3,3,N,N
+112592,Saint-Émilion Grand Cru,Red,Assemblage,12.8,France,Saint-Émilion Grand Cru,2,4,Y,Y
+112596,Saint-Émilion Grand Cru,Red,Assemblage,13,France,Saint-Émilion Grand Cru,2,4,N,Y
+112616,Les Cédres Châteauneuf-du-Pape,Red,Varietal,14.5,France,Châteauneuf-du-Pape,2,5,N,N
+112641,Crémant de Bourgogne Brut,Sparkling,Assemblage,12.5,France,Crémant de Bourgogne,3,2,N,N
+112664,Meursault Blanc,White,Varietal,12.9,France,Meursault,2,4,N,N
+112689,Pessac-Léognan,Red,Assemblage,12,France,Pessac-Léognan,3,4,Y,Y
+112695,Saint-Émilion Grand Cru (Grand Cru Classé),Red,Assemblage,14,France,Saint-Émilion Grand Cru,2,4,N,Y
+112711,Sancerre La Bourgeoise Blanc,White,Varietal,13.5,France,Sancerre,3,4,N,N
+112716,Les Menuts Saint-Émilion Grand Cru,Red,Assemblage,12.5,France,Saint-Émilion Grand Cru,2,4,Y,Y
+112727,Vacqueyras,Red,Assemblage,14,France,Vacqueyras,3,4,N,Y
+112732,Bourgogne Pinot Noir,Red,Varietal,12.5,France,Bourgogne,3,2,N,Y
+112756,Chardonnay Bourgogne Les Ursulines,White,Varietal,12.5,France,Bourgogne,3,4,N,N
+112777,Chablis Cellier de La Sablière,White,Varietal,12.5,France,Chablis,3,4,N,N
+112790,Châteauneuf-du-Pape,Red,Assemblage,14,France,Châteauneuf-du-Pape,2,5,N,N
+112809,Réserve Spéciale Pauillac,Red,Assemblage,12.5,France,Pauillac,3,4,Y,Y
+112830,Rosé,Rosé,Assemblage,12,France,Vin de France,2,3,N,Y
+112834,Dom Ruinart Rosé Brut Champagne,Sparkling,Varietal,12.5,France,Champagne,3,3,N,N
+112861,Menetou-Salon Morogues Blanc,White,Varietal,13.3,France,Upper Loire,3,4,N,N
+112862,Corbières,Red,Assemblage,14,France,Corbières,3,4,N,Y
+112872,Crémant de Bourgogne Brut,Sparkling,Assemblage,12,France,Crémant de Bourgogne,3,2,N,N
+112875,Vieille Vigne Gevrey-Chambertin,Red,Varietal,13,France,Gevrey-Chambertin,2,3,N,Y
+112879,Chablis,White,Varietal,12.5,France,Chablis,3,4,N,N
+112923,La Reine Des Bois Châteauneuf-du-Pape,Red,Assemblage,14.5,France,Châteauneuf-du-Pape,2,5,N,N
+112948,Francs-Côtes de Bordeaux,Red,Varietal,14.5,France,Francs-Côtes de Bordeaux,3,4,N,Y
+112950,Meursault Clos de la Barre,White,Varietal,13,France,Meursault,2,4,N,N
+112963,Sauvignon Blanc Bordeaux,White,Varietal,12,France,Bordeaux,3,3,N,N
+112987,Gevrey-Chambertin,Red,Varietal,13,France,Gevrey-Chambertin,3,3,N,Y
+113011,Bourgogne Chardonnay,White,Varietal,13,France,Bourgogne,3,4,N,N
+113050,Mercurey Premier Cru 'Clos Tonnerre',Red,Varietal,12.5,France,Mercurey,3,2,N,Y
+113095,Morgon,Red,Varietal,12.5,France,Morgon,3,3,N,N
+113101,Viognier Secret de Famille,White,Assemblage,12.5,France,Rhone Valley,3,4,N,N
+113116,Caroline Graves,White,Assemblage,13.5,France,Graves,3,3,N,N
+113142,Bourgogne Pinot Noir,Red,Varietal,12,France,Bourgogne,3,2,N,Y
+113154,Bourgogne Gamay,Red,Varietal,13,France,Bourgogne,3,2,N,Y
+113191,Caillou Blanc,White,Assemblage,13.7,France,Bordeaux,3,3,N,N
+113193,Listrac-Médoc,Red,Assemblage,13.5,France,Listrac-Médoc,3,4,Y,Y
+113211,Beaujolais Gamay,Red,Varietal,13,France,Beaujolais,3,3,N,N
+113226,Les Monts Damnés Sancerre,White,Varietal,12,France,Sancerre,3,4,N,N
+113240,Chambolle-Musigny,Red,Varietal,12.5,France,Chambolle-Musigny,3,3,N,Y
+113265,Saint-Émilion Grand Cru,Red,Assemblage,12,France,Saint-Émilion Grand Cru,2,4,Y,Y
+113284,La Reserve d'Angludet,Red,Varietal,13,France,Margaux,3,4,Y,Y
+113288,Brut Champagne,Sparkling,Assemblage,12.5,France,Champagne,3,3,N,N
+113321,V.O. Version Originale Blanc de Blancs Extra Brut Champagne Grand Cru,Sparkling,Varietal,12,France,Champagne,3,3,N,N
+113332,Royal Brut Champagne Grand Cru,Sparkling,Assemblage,12.5,France,Champagne,3,3,N,N
+113344,Pure Extra Brut Champagne,Sparkling,Assemblage,12.5,France,Champagne,3,3,N,N
+113421,Chablis,White,Varietal,12.5,France,Chablis,3,4,N,N
+113452,Les Boucauds Sancerre Blanc,White,Varietal,13,France,Sancerre,3,4,N,N
+113462,Bourgogne Aligoté,White,Varietal,13,France,Bourgogne Aligoté,3,4,N,N
+113489,Blanc de Blancs Brut Champagne Grand Cru 'Chouilly',Sparkling,Varietal,12,France,Champagne,3,3,N,N
+113600,Blanc de Blancs Brut Champagne,Sparkling,Varietal,12,France,Champagne,3,3,N,N
+113638,Grande Réserve Côtes de Provence Rosé,Rosé,Assemblage,12.5,France,Côtes de Provence,3,4,N,N
+113690,Crémant d'Alsace Cuvée Julien Brut,Sparkling,Assemblage,12.5,France,Crémant d'Alsace,3,2,N,N
+113695,Sauternes (Grand Cru Classé),Dessert,Assemblage,14,France,Sauternes,3,4,N,N
+113730,Pommard Premier Cru 'Grand Clos des Épenots',Red,Varietal,13,France,Pommard,2,3,N,Y
+113754,Tempranillo,Red,Varietal,13.5,Spain,Castilla,2,4,N,Y
+113811,Crémant de Loire Brut,Sparkling,Assemblage,12,France,Crémant de Loire,3,2,N,N
+113913,Blanc de Blancs Extra Brut Champagne Grand Cru 'Le Mesnil-sur-Oger',Sparkling,Varietal,12,France,Champagne Grand Cru 'Le Mesnil-sur-Oger',3,3,N,N
+113916,Crémant de Loire Brut,Sparkling,Assemblage,12.5,France,Crémant de Loire,3,2,N,N
+114025,Rosé,Rosé,Assemblage,12.5,France,Vin de France,2,3,N,Y
+114265,Côtes de Provence Rosé,Rosé,Assemblage,13.5,France,Côtes de Provence,3,4,Y,N
+114325,Côtes de Provence Rosé,Rosé,Varietal,13,France,Côtes de Provence,3,4,N,N
+114606,Blanc de Blancs Millésime Prestige Brut Champagne Grand Cru,Sparkling,Varietal,12.5,France,Champagne,3,3,N,N
+114717,Coteaux d'Aix-en-Provence Rosé,Rosé,Assemblage,13,France,Provence,2,2,N,N
+114932,Organic Monastrell,Red,Varietal,13.5,Spain,Jumilla,3,5,N,Y
+114973,Sancerre Les Baronnes Rosé,Rosé,Varietal,13.5,France,Sancerre,2,3,N,N
+115171,Pessac-Léognan,Red,Assemblage,13,France,Pessac-Léognan,3,4,Y,Y
+115267,Brut (Blanc de Blancs),Sparkling,Varietal,10.5,France,Vin de France,2,2,N,N
+115365,Les Folies de la Marquetterie Champagne,Sparkling,Assemblage,12.5,France,Champagne,3,3,N,N
+115628,Grande Reserve Brut Champagne Premier Cru,Sparkling,Assemblage,12.5,France,Champagne,3,3,N,N
+115984,Comtesse Marie de France Brut Millésime Champagne Grand Cru 'Bouzy',Sparkling,Assemblage,12.5,France,Champagne Grand Cru 'Bouzy',3,3,N,N
+116149,Grande Réserve Brut Champagne,Sparkling,Assemblage,11,France,Champagne,3,3,N,N
+116213,Grande Cuvée Brut Rosé,Sparkling,Assemblage,11.5,France,Vin de France,2,3,N,Y
+116266,Blason de France Champagne,Sparkling,Assemblage,12,France,Champagne,3,3,N,N
+116418,Château Chemin Royal Moulis-en-Médoc,Red,Assemblage,13.8,France,Moulis-en-Médoc,3,4,Y,Y
+116893,Grande Cuvée Blanc de Blancs Brut,Sparkling,Varietal,11.5,France,Vin de France,2,3,N,N
+116995,Cuvée des Grands Vintages Brut Champagne Grand Cru 'Ambonnay',Sparkling,Assemblage,12,France,Champagne Grand Cru 'Ambonnay',3,3,N,N
+117009,Santenay Rouge,Red,Varietal,13,France,Santenay,3,2,N,Y
+118457,Fleurie La Madone,Red,Varietal,13,France,Fleurie,3,2,N,Y
+118927,Nuits-St-Georges Les Plateaux,Red,Varietal,13,France,Nuits-Saint-Georges,3,3,N,Y
+119803,Cinsault-Grenache Rosé,Rosé,Assemblage,12,France,Vin de France,3,3,N,N
+120737,Les Dessous des Dentelles,Red,Assemblage,14.3,France,Gigondas,2,4,N,Y
+122630,Sine Nomine,Red,Assemblage,15,Spain,Priorat,3,4,Y,Y
+125387,Libre Edición Especial,Red,Varietal,14,Spain,Vino de España,3,5,N,Y
+125678,Les Fuées Chambolle-Musigny 1er Cru,Red,Varietal,13,France,Chambolle-Musigny,3,4,N,Y
+126285,Lou Mansengou,Dessert,Varietal,12,France,Jurançon,3,3,N,N
+126510,Cabardès Rosé,Rosé,Assemblage,13,France,Cabardès,3,3,N,N
+127658,Marc d'Alsace Riesling,Dessert,Varietal,48,France,Alsace,2,3,N,N
+128544,Chablis 1er Cru 'Montmains',White,Varietal,12.5,France,Chablis 1er Cru 'Montmains',3,3,N,N
+131656,Bobal Tierra de Castilla,Red,Varietal,13.5,Spain,Castilla,3,4,N,Y
+131787,Alegria de Hérencia del Padrí Priorat,Red,Assemblage,15,Spain,Priorat,3,4,Y,Y
+132977,Bandol Cuvée Spéciale La Louffe,Red,Assemblage,14,France,Bandol,2,4,N,Y
+133447,Meursault 1er Cru 'La Pièce Sous Le Bois',White,Varietal,13.5,France,Meursault 1er Cru 'La pièce sous le Bois',2,4,N,N
+135859,Barbaresco,Red,Varietal,14,Italy,Barbaresco,3,4,N,Y
+135860,Brunello di Montalcino,Red,Varietal,14.5,Italy,Brunello di Montalcino,3,5,N,Y
+135861,Pinot Grigio Valdadige,White,Varietal,12.5,Italy,Valdadige,3,3,N,N
+135867,Le Difese,Red,Assemblage,13,Italy,Toscana,2,3,Y,Y
+135871,Barolo Marcenasco,Red,Varietal,14,Italy,Barolo,3,5,N,Y
+135885,Barolo (Tradizione),Red,Varietal,14,Italy,Barolo,3,5,N,Y
+135893,12 e Mezzo Primitivo del Salento,Red,Varietal,12.5,Italy,Salento,3,4,N,Y
+135922,Rosso,Red,Varietal,12.5,Italy,Toscana,2,3,N,Y
+135962,Tupungato Passo Doble Malbec-Corvina,Red,Assemblage,14.5,Argentina,Tupungato,3,4,N,Y
+135982,Brunello di Montalcino,Red,Varietal,14,Italy,Brunello di Montalcino,3,5,N,Y
+136054,Perlé,Sparkling,Varietal,12.5,Italy,Trento,2,3,N,N
+136136,Kurni Marche,Red,Varietal,15,Italy,Marche,3,3,N,Y
+136180,Prosecco,Sparkling,Varietal,11,Italy,Prosecco,3,1,N,N
+136233,Toscana,Red,Assemblage,12.5,Italy,Toscana,2,3,N,Y
+136246,Pinot Grigio Alto Adige,White,Varietal,12.5,Italy,Südtirol-Alto Adige,3,3,N,N
+136522,Barbera d'Alba Superiore,Red,Varietal,13,Italy,Barbera d'Alba,3,3,N,N
+136646,Valpolicella Classico Superiore,Red,Assemblage,14,Italy,Valpolicella Classico,3,2,N,Y
+136668,Rosso di Valtellina,Red,Varietal,13.2,Italy,Valtellina,3,5,N,Y
+136825,Gaia & Rey Langhe,White,Varietal,14,Italy,Langhe,3,3,N,N
+136932,Chianti Riserva,Red,Assemblage,12.5,Italy,Chianti,3,3,Y,Y
+136982,Prosecco,Sparkling,Varietal,11.5,Italy,Prosecco,3,1,N,N
+137010,Brunello di Montalcino,Red,Varietal,14.1,Italy,Brunello di Montalcino,3,5,N,Y
+137015,Valpolicella Ripasso Superiore,Red,Assemblage,13.5,Italy,Valpolicella Ripasso,3,4,N,Y
+137060,Susumaniello,Red,Varietal,13.5,Italy,Salento,3,4,N,Y
+137062,Gavi,White,Varietal,12,Italy,Gavi,3,2,N,N
+137103,Pinot Grigio,White,Varietal,13,Italy,Friuli-Venezia Giulia,3,3,N,N
+137143,Brunello di Montalcino,Red,Varietal,14.5,Italy,Brunello di Montalcino,3,5,N,Y
+137224,Brunello di Montalcino,Red,Varietal,14.2,Italy,Brunello di Montalcino,3,5,N,Y
+137457,Serra Dei Turchi Barolo,Red,Varietal,14.5,Italy,Barolo,3,4,N,Y
+137763,Barbera,Red,Varietal,13,Italy,Piemonte,3,3,N,N
+137893,Graticciaia,Red,Varietal,14.5,Italy,Puglia,3,4,N,Y
+137905,Chianti Colli Senesi,Red,Assemblage,12.5,Italy,Chianti Colli Senesi,3,3,N,Y
+137907,Valdobbiadene Prosecco Superiore Extra Dry,Sparkling,Varietal,11,Italy,Conegliano-Valdobbiadene Prosecco,3,1,N,N
+137981,Lambrusco dell'Emilia Rosso,Sparkling,Varietal,8,Italy,Emilia-Romagna,2,3,N,N
+138040,Chianti,Red,Varietal,12,Italy,Chianti,3,3,N,Y
+138069,Amarone della Valpolicella,Red,Assemblage,16.5,Italy,Amarone della Valpolicella,3,5,N,Y
+138071,Toscana Casamatta Bianco,White,Varietal,12,Italy,Toscana,3,3,N,N
+138096,Domiziano Negroamaro del Salento,Red,Varietal,12.5,Italy,Puglia,3,4,N,Y
+138128,Angelin Langhe Nebbiolo,Red,Varietal,13.5,Italy,Langhe,3,3,N,Y
+138299,Rosato,Rosé,Assemblage,12,Italy,Piemonte,2,2,N,N
+138409,Arborina Barolo,Red,Varietal,14.5,Italy,Piemonte,3,5,N,Y
+138475,Duemani Cabernet Franc,Red,Varietal,14.5,Italy,Costa Toscana,2,3,N,Y
+138479,Winemaker's Collection Montepulciano d'Abruzzo,Red,Varietal,13,Italy,Montepulciano d'Abruzzo,3,3,N,Y
+138538,Piodilei Chardonnay,White,Varietal,14,Italy,Langhe,3,3,N,N
+138622,Ricarico Prestige Cuvée,Red,Assemblage,14.5,Italy,Puglia,2,4,N,Y
+138625,Nicolon Barbera d'Alba,Red,Varietal,14.5,Italy,Barbera d'Alba,3,3,N,N
+138765,Langhe Nebbiolo,Red,Varietal,14,Italy,Langhe,3,4,N,Y
+138829,Vin Santo del Chianti Classico,Dessert,Assemblage,15,Italy,Vin Santo del Chianti Classico,3,3,N,Y
+139162,Organico Sangiovese,Red,Varietal,13,Italy,Rubicone,3,3,N,Y
+139210,Al Poggio Chardonnay di Toscana,White,Varietal,13,Italy,Toscana,3,3,N,N
+139340,Moncalvina Moscato d'Asti 'Canelli',Sparkling,Varietal,5,Italy,Moscato d'Asti,3,2,N,N
+139384,Barolo Arborina,Red,Varietal,14.2,Italy,Barolo,3,5,N,Y
+139388,Gabbiano Pinot Grigio,White,Varietal,12,Italy,Delle Venezie,2,3,N,N
+139618,Chianti Colli Senesi,Red,Varietal,12,Italy,Chianti Colli Senesi,3,3,N,Y
+139693,Zinfandel,Red,Varietal,14,Italy,Puglia,2,4,N,Y
+139770,Pinot Noir,Red,Varietal,12,Italy,Delle Venezie,3,3,N,Y
+139913,Valpolicella Ripasso,Red,Assemblage,13.5,Italy,Valpolicella Ripasso,3,4,N,Y
+140010,Rosso di Montalcino,Red,Varietal,14,Italy,Rosso di Montalcino,2,3,N,Y
+140114,La Primavera in Rosa Rosé Italia,Rosé,Assemblage,13,Italy,Vino d'Italia,2,3,N,Y
+140140,Barolo,Red,Varietal,14,Italy,Barolo,3,5,N,Y
+140147,Orvieto Classico,White,Assemblage,12.5,Italy,Orvieto,3,3,N,N
+140262,Müller Thurgau Alto Adige,White,Varietal,13,Italy,Südtirol-Alto Adige,2,3,N,N
+140273,Vigneto Bellavista Chianti Classico,Red,Assemblage,13,Italy,Toscana,3,3,N,Y
+140410,Collection Merlot,Red,Varietal,12.5,Italy,Trentino,3,4,N,Y
+140422,Greco di Tufo,White,Varietal,13,Italy,Greco di Tufo,3,3,N,N
+140694,Lodai Maremma Toscana,Red,Varietal,13.5,Italy,Maremma Toscana,2,3,Y,Y
+140773,Moscato d'Asti,Sparkling,Varietal,5.5,Italy,Moscato d'Asti,3,2,N,N
+140817,Barbera d'Asti,Red,Varietal,12.5,Italy,Barbera d'Asti,3,3,N,N
+140819,Cannubi San Lorenzo-Ravera Barolo,Red,Varietal,14.5,Italy,Barolo,3,5,N,Y
+140831,Barbera d’Alba Pilade,Red,Varietal,14,Italy,Barbera d'Alba,3,3,N,N
+140962,Riserva Prêt-A-Porter,Red,Assemblage,15.5,Italy,Amarone della Valpolicella,2,5,N,Y
+141176,Etna Santo Spirito Bianco,White,Varietal,13.2,Italy,Etna,3,3,N,N
+141193,Brachetto d'Acqui,Sparkling,Varietal,6,Italy,Brachetto d'Acqui,3,3,N,N
+141236,Messiio Maremma Toscana,Red,Assemblage,13.5,Italy,Maremma Toscana,2,3,Y,Y
+141426,Lagrein,Red,Varietal,13,Italy,Südtirol-Alto Adige,3,4,N,Y
+141462,Toscana Gratius,Red,Varietal,13.5,Italy,Toscana,2,3,N,Y
+141586,Nobbio Barbera d'Asti,Red,Varietal,15,Italy,Barbera d'Asti,3,3,N,N
+141799,Barolo Vigneto Cannubi,Red,Varietal,14,Italy,Barolo,3,5,N,Y
+141805,Perlé Nero,Sparkling,Varietal,12.5,Italy,Trento,2,3,N,N
+141829,Langhe Rosato,Rosé,Assemblage,12.5,Italy,Langhe,2,3,N,Y
+141869,101 Moscato d'Asti,Sparkling,Varietal,5.5,Italy,Moscato d'Asti,3,2,N,N
+141879,Barbera D'Alba,Red,Varietal,14,Italy,Barbera d'Alba,3,3,N,N
+141987,Toscana Il Volano,Red,Assemblage,13.5,Italy,Toscana,2,3,N,Y
+142170,Torgaio Toscana,Red,Assemblage,13,Italy,Toscana,2,3,N,Y
+142211,Primitivo Di Manduria,Red,Varietal,14,Italy,Primitivo di Manduria,3,4,N,Y
+142639,Dolcetto d'Alba,Red,Varietal,13.5,Italy,Dolcetto d'Alba,3,4,N,Y
+142692,Cerequio Barolo,Red,Varietal,13.7,Italy,Barolo,3,5,N,Y
+142747,Gavi di Gavi,White,Varietal,12.5,Italy,Gavi,3,2,N,N
+142875,Vin Santo del Chianti Classico S. Niccolò,Dessert,Assemblage,16,Italy,Vin Santo del Chianti Classico,3,3,N,Y
+142957,D'Annona Barbera d'Asti Superiore,Red,Varietal,13,Italy,Barbera d'Asti,3,3,N,N
+142975,Chianti,Red,Varietal,12,Italy,Chianti,3,3,N,Y
+143050,Gran Maestro Amarone della Valpolicella,Red,Assemblage,15,Italy,Amarone della Valpolicella,3,5,N,Y
+143080,Amarone della Valpolicella Classico,Red,Assemblage,15.8,Italy,Amarone della Valpolicella Classico,3,5,N,Y
+143130,Costa Russi Grappa di Nebbiolo,Dessert,Varietal,45,Italy,Grappa di Barbaresco,3,5,N,Y
+143158,Dolcetto D'Alba,Red,Varietal,13.5,Italy,Dolcetto d'Alba,3,4,N,Y
+143169,Chianti Classico,Red,Varietal,12.5,Italy,Chianti Classico,3,3,N,Y
+143191,Vitali Trebbiano d'Abruzzo,White,Varietal,12.7,Italy,Abruzzo,3,3,N,N
+143222,Dulcis Moscato d'Asti,Dessert,Varietal,5.5,Italy,Moscato d'Asti,2,2,N,N
+143287,Orvieto,White,Varietal,12.5,Italy,Orvieto,3,3,N,N
+143348,Malvasia Nera,Red,Varietal,12,Italy,Salento,3,4,N,Y
+143618,Chianti Classico Riserva,Red,Varietal,13,Italy,Chianti Classico,3,3,N,Y
+143800,Narin Barbaresco,Red,Varietal,14.5,Italy,Barbaresco,3,4,N,Y
+143806,Solatio Moscato d'Asti,White,Varietal,5,Italy,Asti,2,2,N,N
+143949,Gran Reserva,Red,Varietal,13,Spain,Valdepeñas,3,4,Y,Y
+143965,Barolo Bussia,Red,Varietal,14,Italy,Barolo,3,5,N,Y
+144009,Sarrocco Dolcetto d'Alba,Red,Varietal,12.5,Italy,Dolcetto d'Alba,3,4,N,Y
+144081,Barbera d'Alba,Red,Varietal,15,Italy,Barbera d'Alba,2,3,N,N
+144083,Traminer,White,Varietal,12.5,Italy,Friuli-Venezia Giulia,3,3,N,N
+144337,Tre Soli Tre Grappa Invecchiata,Dessert,Varietal,43,Italy,Piemonte,3,4,N,Y
+144468,San Bastian Barbera d'Asti,Red,Varietal,14,Italy,Barbera d'Asti,3,3,N,N
+144632,Recioto della Valpolicella Classico,Dessert,Varietal,12.5,Italy,Recioto della Valpolicella Classico,3,3,Y,Y
+144668,Bricco Francesco Rocche dell'Annunziata Barolo,Red,Varietal,14.2,Italy,Barolo,3,5,N,Y
+144734,Naunda Barbera d'Alba Superiore,Red,Varietal,14.5,Italy,Barbera d'Alba,3,3,N,N
+144931,Langhe Rosso Ultimi Grappoli,Red,Assemblage,16,Italy,Langhe,3,4,N,Y
+145359,Tre Torri Carignano del Sulcis,Rosé,Varietal,13,Italy,Carignano del Sulcis,3,3,N,Y
+146235,Cortese Piemonte,White,Varietal,11.5,Italy,Piemonte,3,3,N,N
+146904,Pinot Grigio,White,Varietal,12,Italy,Friuli-Venezia Giulia,3,3,N,N
+146941,Friulano,White,Varietal,13,Italy,Friuli-Venezia Giulia,3,3,N,N
+147123,Belcaro Vin Santo del Chianti Classico,Dessert,Assemblage,15.5,Italy,Vin Santo del Chianti Classico,3,3,N,Y
+147453,Bardolino Classico,Red,Assemblage,12.5,Italy,Bardolino Classico,2,4,N,N
+147976,Pinot Grigio,White,Varietal,12,Italy,Veneto,3,3,N,N
+148270,Blu Prosecco Extra Dry,Sparkling,Varietal,12.5,Italy,Prosecco,3,1,N,N
+148530,Fiano di Avellino,White,Varietal,13,Italy,Fiano di Avellino,3,3,N,N
+148642,Malvasia,White,Varietal,14,Italy,Collio,3,3,N,N
+149121,Müller Thurgau Valle d'Aosta,White,Varietal,12.5,Italy,Valle d'Aosta,3,2,N,N
+149375,Langhe Chardonnay,White,Varietal,12.5,Italy,Langhe,3,3,N,N
+149407,Langhe Chardonnay,White,Varietal,13,Italy,Langhe,2,3,N,N
+149550,Barolo Riserva,Red,Varietal,14.5,Italy,Barolo,3,4,N,Y
+149765,Barolo,Red,Varietal,14,Italy,Barolo,3,4,N,Y
+150384,Cerequio Barolo,Red,Varietal,14,Italy,Barolo,3,4,N,Y
+150820,Fiano del Salento,White,Varietal,12.5,Italy,Salento,3,3,N,N
+151255,Talento Trento Brut,Sparkling,Varietal,12.6,Italy,Trento,2,3,N,N
+151328,Fragolino,Sparkling,Varietal,8,Italy,Emilia-Romagna,3,2,N,Y
+151878,Grappa Riserva Botti da Sherry,Dessert,Varietal,44,Italy,Piemonte,3,5,N,Y
+152976,Rive di Refrontolo Valdobbiadene Prosecco Superiore Brut Nature,Sparkling,Varietal,11.5,Italy,Conegliano-Valdobbiadene Prosecco Superiore Rive,3,1,N,N
+153536,Grappa di Amarone della Valpolicella,Dessert,Assemblage,43,Italy,Valpolicella,3,4,N,N
+153611,Manzoni Moscato Spumante,Sparkling,Assemblage,11.5,Italy,Veneto,3,2,N,N
+153810,Grappa Cru Monovitigno Picolit,Dessert,Varietal,50,Italy,Friuli-Venezia Giulia,3,3,N,N
+154979,Fior di Vigna Dolce Rosso,Dessert,Varietal,4,Italy,Langhe,1,4,N,N
+155174,The Merchant's Rosé,Rosé,Varietal,11.5,Spain,Cariñena,3,4,N,Y
+155183,Kit's Coty Bacchus,White,Varietal,13,United Kingdom,Kent,2,3,N,N
+155249,Garnacha Rosé,Rosé,Varietal,13,Spain,Campo de Borja,3,4,N,Y
+155266,Tempranillo-Garnacha Rosé,Rosé,Assemblage,11.5,Spain,Vino de España,2,4,N,Y
+155308,Rioja Gran Reserva 904,Red,Varietal,13.2,Spain,Rioja,3,4,N,Y
+155334,Camins del Priorat,Red,Varietal,14.5,Spain,Priorat,3,4,N,Y
+155339,Gran Coronas Reserva Cabernet Sauvignon,Red,Assemblage,14,Spain,Penedès,3,4,Y,Y
+155350,Crianza,Red,Assemblage,14,Spain,Rioja,3,4,N,Y
+155353,Pétalos,Red,Varietal,14,Spain,Bierzo,3,3,N,N
+155368,Cosecha,Red,Varietal,15,Spain,Ribera del Duero,3,5,N,Y
+155375,Cava Gran Reserva Brut Nature Reserva de la Familia,Sparkling,Assemblage,12,Spain,Penedès,3,2,N,N
+155438,Priorat,Red,Assemblage,14.5,Spain,Priorat,3,4,Y,Y
+155443,Cava Clasico Brut,Sparkling,Assemblage,11.5,Spain,Cava,3,2,N,N
+155565,Cava Brut,Sparkling,Varietal,11.5,Spain,Cava,3,2,N,N
+155618,Muga Rosado,Rosé,Varietal,13.5,Spain,Rioja,2,4,N,Y
+155623,Tempranillo,Red,Varietal,12.5,Spain,Valdepeñas,2,4,N,Y
+155628,Don PX Gran Reserva,Dessert,Varietal,17,Spain,Montilla-Moriles,1,4,N,N
+155647,Rioja Rosado,Rosé,Assemblage,13.5,Spain,Rioja,1,4,N,Y
+155674,Rioja Reserva,Red,Varietal,12.5,Spain,Rioja,3,4,N,Y
+155807,Rioja Rosado,Rosé,Varietal,13,Spain,Rioja,3,3,N,Y
+156277,Rioja Tempranillo,Red,Varietal,13.5,Spain,Rioja,3,4,N,Y
+156732,Rioja Gran Reserva,Red,Varietal,12.8,Spain,Rioja,3,4,N,Y
+157189,Crianza,Red,Varietal,13.5,Spain,Rioja,3,4,N,Y
+157220,Carrasviñas Rueda Verdejo,White,Varietal,13,Spain,Rueda,3,3,N,N
+157307,Chianti,Red,Varietal,12.5,Italy,Chianti,3,3,N,Y
+157620,Christina Ribera del Duero,Red,Varietal,14.5,Spain,Ribera del Duero,3,5,N,Y
+157643,Tempranillo Rosé,Rosé,Varietal,14,Spain,Rioja,2,3,N,Y
+157974,Rioja Old Vines Tempranillo,Red,Varietal,12.5,Spain,Rioja,3,4,N,Y
+158087,Rosado,Rosé,Varietal,11.5,Spain,Castilla,2,4,N,Y
+158353,Rioja Reserva,Red,Varietal,14,Spain,Rioja,3,4,N,Y
+158374,Reserva,Red,Assemblage,13.5,Spain,Rioja,3,4,N,Y
+158901,Blanco,White,Assemblage,11,Spain,Valdepeñas,2,2,N,N
+159125,Tempranillo Reserva,Red,Varietal,14,Spain,Rioja,3,4,N,Y
+159275,Pedro Ximénez Murillo Selección del Centenario,Dessert,Varietal,17,Spain,Jerez-Xérès-Sherry,2,4,N,N
+159758,A Galet Rosado,Rosé,Varietal,12.5,Spain,Rioja,2,2,N,Y
+159763,W Traminer,White,Varietal,13,Ukraine,Zakarpattia (Закарпатська),2,3,N,N
+160065,Reserva Tinto,Red,Assemblage,13.5,Portugal,Douro,3,4,N,Y
+160271,Rare Cream Sherry Superior (Solera Reserva),Dessert/Port,Varietal,20,Spain,Cream Sherry,3,4,N,N
+160277,Fino Eléctrico 3 Fases,Dessert,Varietal,15,Spain,Montilla-Moriles,2,4,N,N
+160710,Cabernet Sauvignon Rosado,Rosé,Varietal,12.5,Spain,Navarra,2,2,Y,Y
+161471,Oloroso V.O.R.S,Dessert/Port,Varietal,21,Spain,Jerez-Xérès-Sherry,3,4,N,N
+162391,La Tinaja de Aranzazu,White,Varietal,13,Spain,Rías Baixas,2,3,N,N
+162417,Unplugged Rkatsiteli Orange,White,Varietal,13.5,Ukraine,Crimeia (Крим),3,3,N,N
+162455,Muscat White South Coast (Мускат Белый Южнобережный),Dessert,Varietal,16,Ukraine,Crimeia (Крим),3,3,N,N
+162456,Grande Reserve Cabernet-Merlot,Red,Assemblage,14,Ukraine,Odessa (Одеса),2,3,Y,Y
+162457,Reserve Saperavi,Red,Varietal,13,Ukraine,Odessa (Одеса),1,3,N,N
+162467,Uppa Red Pinot Noir,Red,Varietal,14,Ukraine,Crimeia (Крим),2,2,N,N
+162497,Cabernet Sauvignon,Red,Varietal,14.5,Chile,Puente Alto,3,4,Y,Y
+162502,Montes Alpha Cabernet Sauvignon,Red,Varietal,14,Chile,Colchagua Valley,3,4,Y,Y
+162505,Reservado Carmenère,Red,Varietal,12.5,Chile,Santiago,3,4,N,Y
+162506,Carmenère,Red,Varietal,14,Chile,Central Valley (CL),3,4,N,Y
+162507,Coyam,Red,Assemblage,14,Chile,Colchagua Valley,3,4,Y,Y
+162514,Adobe Carmenère (Reserva),Red,Varietal,13.7,Chile,Colchagua Valley,3,4,N,Y
+162519,Reserva Cabernet Sauvignon (Classic),Red,Varietal,14,Chile,Colchagua Valley,3,4,Y,Y
+162525,Carmenère,Red,Varietal,14.5,Chile,Colchagua Valley,3,4,N,Y
+162530,Cabernet Sauvignon,Red,Varietal,14.5,Chile,Colchagua Valley,3,4,Y,Y
+162611,Clasico Carmenère,Red,Varietal,13,Chile,Maipo Valley,3,4,N,Y
+162684,Carmenère,Red,Varietal,14,Chile,Colchagua Valley,3,4,N,Y
+162721,Espiritu de Apalta,Red,Varietal,13.5,Chile,Colchagua Valley,3,3,Y,Y
+162738,Merlot (U),Red,Varietal,12.5,Chile,Rapel Valley,3,4,N,Y
+162743,Cabernet Sauvignon,Red,Varietal,13.8,Chile,Maule Valley,3,4,Y,Y
+162748,Carmenère,Red,Varietal,12.9,Chile,Central Valley (CL),3,4,N,Y
+162756,Hemisferio Reserva Carmenère,Red,Varietal,13,Chile,Central Valley (CL),3,4,N,Y
+162764,Carmenère,Red,Varietal,13,Chile,Central Valley (CL),3,4,N,Y
+162824,Etnia Sauvignon Blanc,White,Varietal,13,Chile,Central Valley (CL),3,3,N,N
+162841,Orzada Carignan,Red,Varietal,15,Chile,Central Valley (CL),2,4,N,Y
+162894,Carmenérè,Red,Varietal,13,Chile,Central Valley (CL),3,4,N,Y
+162912,Sauvignon Blanc,White,Varietal,13,Chile,Colchagua Valley,3,3,N,N
+162948,Cabernet Sauvignon,Red,Varietal,13.5,Chile,Central Valley (CL),3,4,Y,Y
+163025,Cabernet Sauvignon,Red,Varietal,13.4,Chile,Central Valley (CL),3,4,Y,Y
+163039,Carmenère,Red,Varietal,13.5,Chile,Central Valley (CL),3,4,N,Y
+163101,Las Mulas Reserva Sauvignon Blanc,White,Varietal,13,Chile,Central Valley (CL),3,3,N,N
+163162,Reserva Cabernet Sauvignon,Red,Varietal,12.5,Chile,Colchagua Valley,3,4,Y,Y
+163177,Wetland Reserva Carmenère,Red,Varietal,13,Chile,Central Valley (CL),3,4,N,Y
+163305,Semi Sweet Cabernet Sauvignon,Red,Varietal,12,Chile,Central Valley (CL),3,4,Y,Y
+163306,Tradition Réserve Cabernet Sauvignon,Red,Varietal,13.5,Chile,Cachapoal Valley,3,4,Y,Y
+163315,Sauvignon Blanc,White,Varietal,13,Chile,Central Valley (CL),3,3,N,N
+163332,Reserva de Pueblo,Red,Varietal,12,Chile,Central Valley (CL),1,3,N,Y
+163343,Santa Digna Estelado Sparkling Rosé,Sparkling,Varietal,12,Chile,Central Valley (CL),2,4,N,Y
+163359,Carmenere,Red,Varietal,13,Chile,Central Valley (CL),3,4,N,Y
+163365,Dias de Verano Reserva Muscat,White,Varietal,12,Chile,Central Valley (CL),2,3,N,N
+163383,Carmenere,Red,Varietal,12.5,Chile,Central Valley (CL),3,4,N,Y
+163388,Nimbus Estate Sauvignon Blanc,White,Varietal,12.5,Chile,Casablanca Valley,3,3,N,N
+163465,Tradition Réserve Carmenère,Red,Varietal,13.5,Chile,Cachapoal Valley,3,4,N,Y
+163490,La Joya Reserve Cabernet Sauvignon,Red,Varietal,14,Chile,Colchagua Valley,3,4,Y,Y
+163493,Carmenère Gran Reserva,Red,Varietal,14.5,Chile,Elqui Valley,3,4,N,Y
+163544,Merlot,Red,Varietal,13,Chile,Central Valley (CL),3,4,N,Y
+163557,Origen Gran Reserva Carmenère,Red,Varietal,14.2,Chile,Maipo Valley,3,4,N,Y
+163633,Shiraz,Red,Varietal,12.5,Chile,Central Valley (CL),3,4,N,Y
+163659,Rosé,Rosé,Assemblage,13.5,Chile,Colchagua Valley,2,3,Y,Y
+163663,Syrah,Red,Varietal,13.5,Chile,Colchagua Valley,3,4,N,Y
+163695,Cordillera Reserva Especial Chardonnay,White,Varietal,14,Chile,Central Valley (CL),3,4,N,N
+163835,Estate Reserva Chardonnay,White,Varietal,13.5,Chile,Maipo Valley,3,4,N,N
+163839,Gran Reserva Pinot Noir,Red,Varietal,13.2,Chile,Central Valley (CL),3,3,N,Y
+163842,Merlot,Red,Varietal,13.5,Chile,Rapel Valley,3,4,N,Y
+163876,El Espiritu de Cachapoal Brut,Sparkling,Varietal,13,Chile,Cachapoal Valley,3,2,N,N
+163877,Carmenère,Red,Varietal,13,Chile,Maule Valley,3,4,N,Y
+163888,Hemisferio Reserva Sauvignon Blanc,White,Varietal,12.5,Chile,Central Valley (CL),3,3,N,N
+163965,Reserva Merlot,Red,Varietal,12.5,Chile,Colchagua Valley,3,4,N,Y
+164005,La Joya Reserve Carmenère,Red,Varietal,14,Chile,Colchagua Valley,3,4,N,Y
+164220,Late Harvest Moscatel,Dessert,Varietal,12,Chile,Limarí Valley,3,3,N,N
+164250,Guardian Reserva Chardonnay,White,Varietal,12.5,Chile,Casablanca Valley,3,4,N,N
+164257,Sauvignon Blanc,White,Varietal,13,Chile,Central Valley (CL),3,3,N,N
+164279,Montes Alpha Special Cuvée Sauvignon Blanc,White,Varietal,13.5,Chile,Leyda Valley,3,3,N,N
+164440,Cinsault Rosé,Rosé,Varietal,12,Chile,Central Valley (CL),2,3,N,N
+164489,Gran Reserva Sauvignon Blanc,White,Varietal,12.5,Chile,Curico Valley,3,3,N,N
+164598,Etnia Rosé,Rosé,Assemblage,13,Chile,Central Valley (CL),3,3,Y,Y
+164604,Cellar Selection Sauvignon Blanc,White,Varietal,13.5,Chile,Rapel Valley,3,3,N,N
+164927,Rayuela Reserva Malbec Rosé,Rosé,Varietal,12,Chile,Colchagua Valley,2,2,N,Y
+164945,Late Harvest Sauvignon Blanc,Dessert,Varietal,12.5,Chile,Casablanca Valley,3,3,N,N
+164987,Merlot Rosé,Rosé,Varietal,12,Chile,Central Valley (CL),2,4,N,Y
+165143,Cabernet Franc,Red,Varietal,14.3,Chile,Maule Valley,2,3,N,Y
+165555,Cabernet Sauvignon Rosé,Rosé,Varietal,13,Chile,Colchagua Valley,2,3,Y,Y
+165674,Estelado Brut Rosé,Sparkling,Varietal,12,Chile,Central Valley (CL),2,3,N,N
+166040,Fina Reserva Syrah-Cabernet Sauvignon Rosé,Rosé,Assemblage,12,Chile,Colchagua Valley,3,3,Y,Y
+166134,Cabernet Sauvignon Rosé,Rosé,Varietal,12,Chile,Rapel Valley,2,3,Y,Y
+167079,Reserva Cabernet Franc,Red,Varietal,14,Uruguay,Maldonado,2,3,N,Y
+167114,Tannat,Red,Varietal,12.2,Uruguay,Canelones,3,4,N,Y
+167124,Puerto Carmelo Tannat,Red,Varietal,12.5,Uruguay,Carmelo,3,4,N,Y
+167154,Reserve Tannat,Red,Varietal,14.5,Uruguay,Canelones,3,4,N,Y
+167186,Tannat,Red,Varietal,12.5,Uruguay,Juanico,3,4,N,Y
+167190,Reserve Cabernet Sauvignon,Red,Varietal,12.5,Uruguay,Juanico,3,5,Y,Y
+167263,Cabernet Sauvignon,Red,Varietal,13,Uruguay,San José,3,4,Y,Y
+167265,Purus Tannat Roble,Red,Varietal,12.3,Uruguay,Canelones,3,4,N,Y
+167418,Malbec,Red,Varietal,13.5,Argentina,Mendoza,3,5,N,Y
+167419,Malbec,Red,Varietal,13.5,Argentina,Mendoza,3,5,N,Y
+167425,Malbec,Red,Varietal,13.9,Argentina,Mendoza,3,5,N,Y
+167429,Malbec,Red,Varietal,14.5,Argentina,Mendoza,3,5,N,Y
+167431,Trumpeter Malbec,Red,Varietal,13.7,Argentina,Mendoza,3,5,N,Y
+167433,De Sangre Lujan de Cuyo Malbec,Red,Varietal,14,Argentina,Lujan de Cuyo,3,5,N,Y
+167439,High Altitude Vineyards Malbec,Red,Varietal,13.5,Argentina,Mendoza,3,5,N,Y
+167440,Oak Cask Malbec,Red,Varietal,14,Argentina,Mendoza,3,5,N,Y
+167443,Cabernet Franc,Red,Varietal,13.9,Argentina,Mendoza,2,3,N,Y
+167445,Malbec,Red,Varietal,14.5,Argentina,Mendoza,3,5,N,Y
+167446,Golden Reserve Malbec,Red,Varietal,14.5,Argentina,Lujan de Cuyo,3,5,N,Y
+167449,Malbec,Red,Varietal,13.5,Argentina,Mendoza,3,5,N,Y
+167450,Benjamin Malbec,Red,Varietal,12.5,Argentina,Mendoza,3,5,N,Y
+167458,Cocodrilo Red Blend,Red,Assemblage,14.5,Argentina,Mendoza,3,4,Y,Y
+167460,Reserva Malbec,Red,Varietal,14.1,Argentina,Mendoza,3,5,N,Y
+167462,Chardonnay,White,Varietal,14,Argentina,Mendoza,3,4,N,N
+167463,Altos del Plata Malbec,Red,Varietal,14,Argentina,Mendoza,3,5,N,Y
+167464,Los Cardos Malbec,Red,Varietal,14.5,Argentina,Mendoza,3,4,N,Y
+167470,Malbec (Clásico),Red,Varietal,13.7,Argentina,Mendoza,3,5,N,Y
+167475,Don David Reserve Malbec,Red,Varietal,14,Argentina,Cafayate Valley,3,5,N,Y
+167487,UNO Malbec,Red,Varietal,13.9,Argentina,Mendoza,3,5,N,Y
+167530,Chardonnay,White,Varietal,13.5,Argentina,Mendoza,3,4,N,N
+167592,Alma Mora Cabernet Sauvignon,Red,Varietal,13.5,Argentina,San Juan,3,4,Y,Y
+167614,Red Blend,Red,Assemblage,13.5,Argentina,Mendoza,2,4,N,Y
+167634,Rosé of Malbec,Rosé,Varietal,13.8,Argentina,Mendoza,2,4,N,Y
+167767,Finca Los Nobles Field Blend Malbec-Verdot,Red,Assemblage,14.5,Argentina,Lujan de Cuyo,3,4,N,Y
+167810,Reserva Malbec,Red,Varietal,14,Argentina,Mendoza,3,5,N,Y
+167869,Rosé de Malbec,Rosé,Varietal,13.8,Argentina,Mendoza,1,3,N,Y
+168002,Malbec,Red,Varietal,13.5,Argentina,Mendoza,3,5,N,Y
+168128,Brut Rosé,Sparkling,Assemblage,12,Argentina,Mendoza,2,4,N,Y
+168170,Malbec Rosé,Rosé,Varietal,13.5,Argentina,Mendoza,1,3,N,Y
+168182,Gran Malbec,Red,Varietal,15,Argentina,Lujan de Cuyo,2,5,N,Y
+168186,Las Moras Chardonnay,White,Varietal,13.3,Argentina,San Juan,3,4,N,N
+168273,A Rosé Is A Rosé Is A Rosé,Rosé,Assemblage,12.2,Argentina,Lujan de Cuyo,2,3,N,N
+168279,Extra Brut,Sparkling,Assemblage,12.2,Argentina,Mendoza,2,3,N,N
+168284,Cuvée Réserve Brut,Sparkling,Assemblage,12.3,Argentina,San Rafael,2,3,N,N
+168457,Extra Brut Cuvée Spéciale Baron B,Sparkling,Assemblage,12.5,Argentina,Mendoza,2,3,N,N
+168694,Deseado,Sparkling,Varietal,9.8,Argentina,Patagonia,2,3,N,N
+168827,Extra Brut Pinot Noir-Chardonnay,Sparkling,Assemblage,12.5,Argentina,Patagonia,2,4,N,Y
+168898,Brut Rosé,Sparkling,Varietal,9.5,Argentina,Mendoza,2,3,N,N
+168970,Sauvignon Blanc,White,Varietal,12.5,Argentina,Tupungato,3,3,N,N
+169260,Malbec Rosé,Rosé,Varietal,12.5,Argentina,Tupungato,2,3,N,Y
+169311,Cuvée Nature,Sparkling,Assemblage,12.5,Argentina,Uco Valley,3,4,N,N
+169314,Don Nicanor Chardonnay-Viognier,White,Assemblage,14.1,Argentina,Mendoza,2,3,N,N
+169379,Misterio Chardonnay,White,Varietal,13,Argentina,Mendoza,3,4,N,N
+169417,Chenin-Chardonnay Roca,White,Assemblage,11.9,Argentina,San Rafael,2,3,N,N
+169463,Reserva Chardonnay,White,Varietal,13.5,Argentina,Mendoza,3,4,N,N
+170599,Late Harvest Viognier,Dessert,Varietal,11.5,Argentina,San Juan,1,3,N,N
+170982,The Chocolate Block,Red,Assemblage,14.9,South Africa,Franschhoek,2,4,Y,N
+170983,Rubicon,Red,Varietal,14.4,South Africa,Stellenbosch,3,4,Y,Y
+170984,Kadette Cape Blend,Red,Assemblage,14,South Africa,Stellenbosch,3,4,Y,Y
+171001,Life from Stone Sauvignon Blanc,White,Varietal,12.5,South Africa,Robertson,3,2,N,N
+171003,Shiraz-Merlot Special Reserve,Red,Assemblage,15,South Africa,Western Cape,2,3,N,Y
+171062,21 Gables Chenin Blanc,White,Varietal,14.6,South Africa,Stellenbosch,3,4,N,N
+171246,Sauvignon Blanc Reserve Collection Elgin,White,Varietal,13.9,South Africa,Elgin,3,2,N,N
+171256,Proprietor's Blend,Red,Assemblage,14.5,South Africa,Stellenbosch,2,4,Y,Y
+171266,Frans Malan Cape Blend,Red,Assemblage,14.5,South Africa,Stellenbosch,3,4,Y,Y
+171317,Cabernet Franc Rosé,Rosé,Varietal,13,South Africa,Stellenbosch,2,3,N,Y
+171369,Danger Point Colombard-Chardonnay,White,Assemblage,12.9,South Africa,Western Cape,2,3,N,N
+171399,Sauvignon Blanc,White,Varietal,12.5,South Africa,Robertson,3,2,N,N
+171438,Unwooded Pinot Noir,Red,Varietal,12.5,South Africa,Franschhoek,3,3,N,Y
+171488,Pinotage Rosé Special Reserve,Rosé,Varietal,14,South Africa,Western Cape,2,3,N,N
+171552,Neil's Pick Colombar,White,Varietal,12,South Africa,Robertson,2,3,N,N
+171639,First Sighting Sauvignon Blanc,White,Varietal,13,South Africa,Cape Agulhas,3,2,N,N
+171675,Chenin Blanc,White,Varietal,12.5,South Africa,Paarl,3,4,N,N
+171934,Pierre Jourdan Brut,Sparkling,Assemblage,12,South Africa,Franschhoek,2,3,N,N
+172038,Gewürztraminer,White,Varietal,11.8,South Africa,Stellenbosch,2,3,N,N
+172065,Noble Late Harvest,Dessert,Assemblage,10,South Africa,Stellenbosch,3,3,Y,Y
+172117,Cabernet Sauvignon-Shiraz,Red,Assemblage,13,South Africa,Western Cape,3,4,Y,Y
+172209,Bush Vine Pinotage,Red,Varietal,14.6,South Africa,Swartland,3,4,N,Y
+172220,Cabernet Sauvignon-Merlot,Red,Assemblage,13.5,South Africa,Stellenbosch,3,4,Y,Y
+172833,Special Late Harvest Gewürztraminer,Dessert,Varietal,12,South Africa,Robertson,3,4,N,N
+172861,Blush Syrah-Viognier,Rosé,Assemblage,13,South Africa,Slanghoek,3,3,N,Y
+173112,Rosé,Rosé,Assemblage,11,South Africa,Cape Agulhas,2,3,Y,Y
+173232,Winemaker's Collection Blanc de Noir,Rosé,Varietal,12.5,South Africa,Swartland,2,3,N,N
+173289,Pinotage Rosé,Rosé,Varietal,12.5,South Africa,Western Cape,2,4,N,N
+173331,Unwooded Chardonnay,White,Varietal,13.3,South Africa,Western Cape,2,3,N,N
+173413,Pinotage Rosé,Rosé,Varietal,15,South Africa,Stellenbosch,2,4,N,N
+173765,Viognier Noble Late Harvest,Dessert,Varietal,10.2,South Africa,Breede River Valley,1,3,N,N
+174121,White Muscadel Jerepigo,Dessert,Varietal,17,South Africa,Calitzdorp,3,4,N,Y
+174177,Koonunga Hill Shiraz-Cabernet,Red,Assemblage,14,Australia,South Australia,3,5,Y,Y
+174184,Grange,Red,Varietal,14.5,Australia,South Australia,3,5,N,Y
+174248,Art Series Chardonnay,White,Varietal,13.5,Australia,Margaret River,3,4,N,N
+174274,Cabernet Sauvignon-Shiraz,Red,Assemblage,13.5,Australia,South Australia,2,5,Y,Y
+174323,Mill Cellars Shiraz,Red,Varietal,13,Australia,South Eastern Australia,3,5,N,Y
+174330,Red Blend (Shiraz-Cabernet Sauvignon),Red,Assemblage,15,Australia,South Eastern Australia,3,5,Y,Y
+174333,The Factor,Red,Varietal,14,Australia,Barossa Valley,3,5,N,Y
+174372,Jammy Red Roo,Red,Varietal,12,Australia,South Eastern Australia,3,5,Y,Y
+174403,Polish Hill Riesling,White,Varietal,12.5,Australia,Clare Valley,3,2,N,N
+174466,Sauvignon Blanc,White,Varietal,10.5,Australia,South Australia,3,3,N,N
+174509,Cabernet Sauvignon,Red,Varietal,14,Australia,Coonawarra,3,4,Y,Y
+174544,Abednego Shiraz-Grenache-Mourvedre,Red,Assemblage,14.5,Australia,Barossa Valley,3,4,N,Y
+174545,E & E Black Pepper Shiraz,Red,Varietal,13.7,Australia,Barossa Valley,3,5,N,Y
+174568,Wallcliffe Sauvignon Blanc-Sémillon,White,Assemblage,12.5,Australia,Margaret River,3,3,N,N
+174586,Sauvignon Blanc-Sémillon,White,Assemblage,13.5,Australia,Margaret River,3,4,N,N
+174651,Hand Picked Shiraz-Viognier,Red,Assemblage,13.5,Australia,South Australia,3,4,N,Y
+174682,Wilyabrup Valley Cabernet Sauvignon-Merlot,Red,Assemblage,13.5,Australia,Margaret River,3,4,Y,Y
+174689,Applejack Vineyard Pinot Noir,Red,Varietal,13,Australia,Yarra Valley,3,3,N,Y
+174800,Single Vineyard Shiraz,Red,Varietal,14.2,Australia,Heathcote,3,5,N,Y
+174867,Shiraz,Red,Varietal,15,Australia,Coonawarra,3,5,N,Y
+174901,Rocky Gully Riesling,White,Varietal,13,Australia,Frankland River,3,2,N,N
+174906,Reserve Shiraz,Red,Varietal,14,Australia,South Eastern Australia,3,5,N,Y
+175454,The Visionary Cabernet Sauvignon,Red,Varietal,14.5,Australia,Clare Valley,2,4,Y,Y
+175514,Cabernet Sauvignon,Red,Varietal,14.5,Australia,McLaren Vale,3,4,Y,Y
+175540,Chardonnay,White,Varietal,14,Australia,Margaret River,3,4,N,N
+175542,Ferrous Pinot Noir,Red,Varietal,13.5,Australia,Mornington Peninsula,3,3,N,Y
+175550,Estate Cabernet Sauvignon,Red,Varietal,13.9,Australia,South West Australia,3,4,Y,Y
+175682,Riesling,White,Varietal,12.5,Australia,Clare Valley,3,2,N,N
+175684,Verdelho,White,Varietal,13,Australia,Hunter Valley,2,2,N,N
+175701,Dry Red No. 3,Red,Assemblage,13,Australia,Yarra Valley,2,4,N,Y
+175704,Sauvignon Blanc,White,Varietal,12.5,Australia,Pemberton,3,3,N,N
+175754,Rocky Gully Cabernets,Red,Assemblage,14.5,Australia,Frankland River,3,4,Y,Y
+175814,Bin 343 Cabernet Sauvignon-Shiraz,Red,Assemblage,13,Australia,South Australia,3,5,Y,Y
+175840,Australia Felix Sagrantino,Red,Varietal,14,Australia,Swan Hill,2,4,N,Y
+175908,Haven Pinot Noir,Red,Varietal,13.5,Australia,Mornington Peninsula,2,3,N,Y
+176059,Shiraz Rosé,Rosé,Varietal,13.5,Australia,South Eastern Australia,2,4,N,Y
+176060,Australia Felix Chardonnay-Viognier,White,Assemblage,13.5,Australia,Swan Hill,2,1,N,N
+176112,Harvest Diary Reserve Sémillon-Chardonnay,White,Assemblage,12.5,Australia,New South Wales,2,3,N,N
+176135,Burnside Vineyard Chardonnay,White,Varietal,13.5,Australia,Margaret River,3,4,N,N
+176205,Pinot Grigio,White,Varietal,12,Australia,South Eastern Australia,3,3,N,N
+176251,Cane Cut,White,Varietal,11,Australia,Margaret River,3,3,N,N
+176262,Lenswood Vineyard Chardonnay,White,Varietal,13.5,Australia,Adelaide Hills,3,4,N,N
+176380,Faultline Chardonnay,White,Varietal,13,Australia,Mornington Peninsula,3,4,N,N
+176430,Marsanne-Roussanne,White,Assemblage,13.2,Australia,Yarra Valley,2,4,N,N
+176591,Chardonnay,White,Varietal,13.5,Australia,Margaret River,3,4,N,N
+177418,The Riddle Shiraz Rosé,Rosé,Varietal,11,Australia,South Australia,1,2,N,Y
+178374,Shiraz Rosé,Rosé,Varietal,12,Australia,McLaren Vale,2,4,N,Y
+178378,Blackwood Park Botrytis Riesling,Dessert,Varietal,10.5,Australia,Central Victoria,3,2,N,N
+179012,Cabernet Sauvignon,Red,Varietal,14.8,United States,Napa Valley,2,5,Y,Y
+179016,ARTEMIS Cabernet Sauvignon,Red,Varietal,14.5,United States,Napa Valley,2,4,Y,Y
+179021,Cabernet Sauvignon,Red,Varietal,13.5,United States,California,3,4,Y,Y
+179024,Cabernet Sauvignon Aged in Bourbon Barrels,Red,Varietal,14.5,United States,California,3,4,Y,Y
+179027,Sonoma Coast Pinot Noir,Red,Varietal,14,United States,Sonoma Coast,3,3,N,Y
+179034,Old Vine Zinfandel,Red,Varietal,14.5,United States,Lodi,3,5,N,Y
+179039,Riesling,White,Varietal,12.5,United States,Columbia Valley,3,2,N,N
+179040,Knights Valley Cabernet Sauvignon,Red,Varietal,14.5,United States,Knights Valley,3,4,Y,Y
+179043,Special Selection Cabernet Sauvignon,Red,Varietal,14.5,United States,Napa Valley,2,5,Y,Y
+179044,Vintner's Reserve Chardonnay,White,Varietal,13.5,United States,California,3,4,N,N
+179047,Cabernet Sauvignon,Red,Varietal,15,United States,Paso Robles,3,4,Y,Y
+179050,Red,Red,Assemblage,13.5,United States,California,3,4,Y,Y
+179053,Cabernet Sauvignon,Red,Varietal,13.5,United States,Columbia Valley,3,4,Y,Y
+179054,Cabernet Sauvignon,Red,Varietal,13.8,United States,Alexander Valley,3,4,Y,Y
+179058,Cabernet Sauvignon,Red,Varietal,14.5,United States,Napa Valley,2,5,Y,Y
+179059,Cabernet Sauvignon,Red,Varietal,14.2,United States,Napa Valley,2,5,Y,Y
+179060,Midnight Dark Red Blend,Red,Assemblage,13.7,United States,California,3,4,Y,Y
+179061,Insignia,Red,Varietal,14.5,United States,Napa Valley,2,4,N,Y
+179063,Essential Red,Red,Varietal,13.5,United States,California,3,4,N,Y
+179069,Napa Valley Merlot,Red,Varietal,14.5,United States,Napa Valley,3,4,N,Y
+179080,Napa Valley Cabernet Sauvignon,Red,Varietal,14.5,United States,Napa Valley,2,5,Y,Y
+179084,Pinot Noir Santa Barbara County,Red,Varietal,13.5,United States,Santa Barbara County,3,3,N,Y
+179131,Dominus (Christian Moueix),Red,Varietal,14.5,United States,Yountville,2,4,N,Y
+179266,Pinot Noir,Red,Varietal,13.9,United States,California,3,3,N,Y
+179386,Pinot Noir,Red,Varietal,13.5,United States,Willamette Valley,3,3,N,Y
+179397,White Zinfandel,Rosé,Varietal,10,United States,California,2,3,N,N
+179508,White Zinfandel,Rosé,Varietal,9.5,United States,California,2,3,N,N
+179545,Rutherford Cabernet Sauvignon,Red,Varietal,13.5,United States,Rutherford,2,5,Y,Y
+179634,Cabernet Sauvignon,Red,Varietal,14.7,United States,Oakville,2,5,Y,Y
+179667,Sauvignon Blanc,White,Varietal,13.2,United States,North Coast,3,3,N,N
+179690,Brut,Sparkling,Assemblage,12.4,United States,Anderson Valley,3,3,N,N
+179705,Pinot Noir,Red,Varietal,14,United States,Eola-Amity Hills,3,3,N,Y
+179805,Estate Cabernet Sauvignon,Red,Varietal,15.3,United States,Stags Leap District,2,5,Y,Y
+179855,Cabernet Sauvignon,Red,Varietal,13.5,United States,Napa Valley,2,5,Y,Y
+179958,Estate Pinot Noir,Red,Varietal,13.5,United States,Willamette Valley,2,3,N,Y
+180028,Prosecco,Sparkling,Varietal,11,Italy,Prosecco,3,1,N,N
+180037,Red Blend,Red,Assemblage,14.6,United States,California,3,4,N,Y
+180083,Cabernet Sauvignon,Red,Varietal,14.5,United States,Napa Valley,2,5,Y,Y
+180089,Estate Grown Pinot Noir,Red,Varietal,13.9,United States,Los Carneros,3,3,N,Y
+180152,Rosé,Rosé,Varietal,13.9,United States,Monterey County,2,3,N,N
+180233,California Champagne Brut,Sparkling,Assemblage,9.5,United States,California,3,3,N,N
+180260,Cabernet Sauvignon,Red,Varietal,15.2,United States,Napa Valley,2,5,Y,Y
+180268,Old Vine Zinfandel,Red,Varietal,13.6,United States,Lodi,2,5,N,Y
+180275,Heritage Reserve Chardonnay,White,Varietal,13.5,United States,California,3,4,N,N
+180300,Old Vine Zinfandel,Red,Varietal,15.5,United States,Napa Valley,2,5,N,Y
+180330,IX Estate Red,Red,Assemblage,15.1,United States,Napa Valley,2,4,Y,Y
+180360,Chardonnay,White,Varietal,13.5,United States,California,3,4,N,N
+180405,Hot to Trot White Blend,White,Assemblage,13,United States,Washington,3,2,N,N
+180681,L'Ermitage Brut,Sparkling,Assemblage,12,United States,Anderson Valley,3,3,N,N
+180707,Cabernet Sauvignon,Red,Varietal,13.2,United States,Arroyo Seco,3,4,Y,Y
+180712,Dry Creek Valley Zinfandel,Dessert,Varietal,14.2,United States,Dry Creek Valley,2,5,N,Y
+180750,Brut Vintage,Sparkling,Assemblage,12.5,United States,Willamette Valley,3,4,N,N
+180799,Nighthawk Black Red Blend,Red,Assemblage,13.5,United States,California,3,4,Y,Y
+180923,Quartet Brut,Sparkling,Assemblage,12,United States,Anderson Valley,3,3,N,N
+181062,Tawny Porto 10 Year Old,Dessert/Port,Assemblage,20,Portugal,Douro,3,5,N,Y
+181199,Lauréne Pinot Noir,Red,Varietal,14,United States,Dundee Hills,3,3,N,Y
+181203,Pinot Noir,Red,Varietal,14.5,United States,Russian River Valley,3,3,N,Y
+181280,Red Blend,Red,Assemblage,14.8,United States,Napa Valley,2,4,Y,Y
+181447,Chardonnay,White,Varietal,13.5,United States,California,3,4,N,N
+181492,L'Esprit Des Pavots,Red,Assemblage,15,United States,Knights Valley,3,4,Y,Y
+181495,Pinot Grigio,White,Varietal,12.9,United States,California,3,3,N,N
+181762,Estate Red Blend,Red,Assemblage,14.7,United States,Happy Canyon of Santa Barbara,3,4,Y,Y
+182081,Cabernet Sauvignon,Red,Varietal,14.5,United States,Napa Valley,2,5,Y,Y
+182169,Fortis Cabernet Sauvignon,Red,Varietal,14.6,United States,Napa Valley,2,5,Y,Y
+182277,Reserve Chardonnay,White,Varietal,13.9,United States,California,3,4,N,N
+182294,Rubicon,Red,Varietal,14.1,United States,Rutherford,3,4,Y,Y
+182386,Private Collection Chardonnay,White,Varietal,12.5,United States,Central Coast,3,4,N,N
+182711,Solari,Red,Varietal,14.3,United States,Napa Valley,2,5,Y,Y
+182743,Darwin Red,Red,Assemblage,12.5,United States,Napa Valley,3,4,Y,Y
+182850,Cuvée A Amrita,White,Assemblage,13.1,United States,Willamette Valley,3,3,N,N
+183184,Cabernet Sauvignon,Red,Varietal,14.5,United States,Napa Valley,2,5,Y,Y
+183229,Reserve Cabernet Sauvignon,Red,Varietal,14.5,United States,Alexander Valley,3,4,Y,Y
+183289,Whole Cluster Rosé of Pinot Noir,Rosé,Varietal,13.5,United States,Willamette Valley,2,3,N,N
+183379,Tychson Hill Vineyard Cabernet Sauvignon,Red,Varietal,14.9,United States,Napa Valley,2,5,Y,Y
+183463,Dry Rosé,Rosé,Assemblage,11.5,United States,California,2,4,Y,N
+183479,Estate Cuvée Pinot Noir,Red,Varietal,13.6,United States,Willamette Valley,3,3,N,Y
+183620,Cuvée A Pinot Noir,Red,Varietal,13.8,United States,Willamette Valley,3,3,N,Y
+183771,Pinot Noir,Red,Varietal,13,United States,Los Carneros,3,3,N,Y
+183952,Cabernet Franc,Red,Varietal,14.3,United States,Napa Valley,3,3,N,Y
+184116,AME Cabernet Sauvignon,Red,Varietal,14.8,United States,Napa Valley,2,5,Y,Y
+184122,Cabernet Sauvignon,Red,Varietal,13.4,United States,Columbia Gorge Washington,2,4,Y,Y
+184423,Anderson Valley Rosé of Pinot Noir,Rosé,Varietal,13.2,United States,Anderson Valley,2,3,N,N
+184452,Cabernet Sauvignon,Red,Varietal,15.4,United States,Napa Valley,2,5,Y,Y
+184497,Moscato,White,Varietal,10,United States,Amador County,3,4,N,N
+184532,Chardonnay,White,Varietal,12.8,United States,California,3,4,N,N
+184540,Cabernet Sauvignon,Red,Varietal,12,United States,Napa Valley,2,5,Y,Y
+184541,State Lane Vineyard Merlot,Red,Varietal,12,United States,Napa Valley,3,4,N,Y
+184600,Rapscallion Zinfandel,Red,Varietal,15.5,United States,Paso Robles,3,5,N,Y
+184631,Aquarius Ranch Vineyard Chardonnay,White,Varietal,14.5,United States,Russian River Valley,3,4,N,N
+184678,Blanc de Blancs,Sparkling,Varietal,12.9,United States,Sonoma County,3,3,N,N
+184745,Cabernet Sauvignon,Red,Varietal,14.3,United States,Napa Valley,2,5,Y,Y
+184814,Four Sons Fraternity,Red,Assemblage,14.5,United States,Napa Valley,3,4,Y,Y
+184822,Pinot Noir,Red,Varietal,13.8,United States,Willamette Valley,3,3,N,Y
+184870,Dry Riesling,White,Varietal,12,United States,Finger Lakes,3,3,N,N
+185009,Emmaline Ann Vineyard Pinot Noir,Red,Varietal,12.5,United States,Sonoma Coast,3,3,N,Y
+185198,Dry Riesling,White,Varietal,11,United States,Wisconsin,3,3,N,N
+185244,Merlot,Red,Varietal,12.5,United States,California,3,4,N,Y
+185248,Estate Chardonnay,White,Varietal,12.5,United States,Eola-Amity Hills,3,4,N,N
+185481,Coyote Canyon Reserve Syrah,Red,Varietal,15.5,United States,Horse Heaven Hills,2,4,N,Y
+185744,White Riesling,White,Varietal,10,United States,Wisconsin,3,3,N,N
+185866,Rosé of Pinot Noir,Rosé,Varietal,13.4,United States,Willamette Valley,3,3,N,N
+185917,Vintage Reserve Chardonnay,White,Varietal,13,United States,California,3,4,N,N
+186079,Nana's Rosé,Rosé,Assemblage,12.1,United States,Virginia,2,3,Y,Y
+186159,Port,Dessert/Port,Varietal,18.2,United States,Sonoma Valley,2,5,N,Y
+186843,Pinot Noir,Red,Varietal,14.1,United States,Lodi,2,3,N,Y
+187359,Cabernet Sauvignon,Red,Varietal,14.7,United States,Mount Veeder,2,5,Y,Y
+187681,Barrel Select Fumé Blanc,White,Varietal,12,United States,New Mexico,3,3,N,N
+187963,Papa Paulo Private Reserve Port,Dessert,Varietal,18.5,United States,Texas,2,4,N,N
+188120,Triple Cream Sherry,Dessert,Varietal,18,United States,Cucamonga Valley,3,5,N,N
+188472,Pedroni Vineyard Cabernet Franc,Red,Varietal,14.6,United States,Sonoma County,2,3,N,Y
+189080,Diamante Spumante,Sparkling,Varietal,11.5,United States,Temecula Valley,3,3,N,N
+189939,Fortunate Sun Late Harvest Chenin Blanc,Dessert,Varietal,9.5,United States,Red Mountain,3,3,N,N
+190485,Late Harvest Sauvignon Blanc,Dessert,Varietal,12.9,United States,Los Carneros,3,3,N,N
+190621,Premiere Napa Valley Cabernet Sauvignon,Red,Varietal,14.8,United States,Mount Veeder,3,5,Y,Y
+191270,Rosé of Pinot Noir,Rosé,Varietal,12.1,United States,Willamette Valley,2,2,N,N
+192337,Semi-Dry Riesling,White,Varietal,9.3,Canada,Niagara Peninsula,3,2,N,N
+192341,Odyssey Meritage,Red,Varietal,13.5,Canada,Okanagan Valley,3,4,N,Y
+192356,Chardonnay Unfiltered,White,Varietal,12.3,Canada,Ontario,3,4,N,N
+192359,Riesling-Gewürztraminer,White,Assemblage,11.5,Canada,Niagara Peninsula,2,3,N,N
+192385,Growers Blend Pinot Noir,Red,Varietal,13,Canada,Niagara Peninsula,3,3,N,Y
+192413,Meritage,Red,Assemblage,13,Canada,Niagara Peninsula,3,4,Y,Y
+192489,Quarry Road Vineyard Pinot Noir,Red,Varietal,12.5,Canada,Vinemount Ridge,3,3,N,Y
+192497,Small Lot Chardonnay,White,Varietal,13,Canada,Beamsville Bench,3,4,N,N
+192503,Reserve Syrah,Red,Varietal,13.5,Canada,Niagara Peninsula,3,4,N,Y
+192515,Private Reserve Riesling,White,Varietal,11,Canada,Niagara Peninsula,3,2,N,N
+192560,Vidal Special Select Late Harvest,Dessert,Varietal,11,Canada,Niagara Peninsula,3,2,N,N
+192584,Reserve Cabernet Franc,Red,Varietal,14.5,Canada,Niagara Peninsula,3,3,N,Y
+192597,Select Lot Collection Merlot,Red,Varietal,14,Canada,Okanagan Valley,3,4,N,Y
+192645,Riesling Icewine,Dessert,Varietal,9.5,Canada,Okanagan Valley,3,4,N,N
+192666,Riesling Icewine,White,Varietal,10,Canada,Niagara Peninsula,3,4,N,N
+192711,Indian Summer Select Late Harvest Riesling,Dessert,Varietal,12.5,Canada,Niagara Peninsula,3,2,N,N
+192749,Vidal Icewine,Dessert,Varietal,13,Canada,Niagara Lakeshore,3,4,N,N
+192782,Triomphe Cabernet Franc Rosé,Rosé,Varietal,12,Canada,Niagara Peninsula,2,3,N,Y
+193031,Pinot Noir,Red,Varietal,14.1,Canada,Okanagan Valley,3,3,N,Y
+193172,Chenin Blanc Cosecha Tardía,Dessert,Varietal,10,Mexico,Valle de Guadalupe,3,4,N,N
+193203,Don Luis Viognier,White,Varietal,13,Mexico,Valle de Guadalupe,2,4,N,N
+193214,Calixa Syrah,Red,Varietal,14,Mexico,Valle de Guadalupe,3,4,N,Y
+193263,Jaak,Rosé,Assemblage,13,Mexico,Valle de Guadalupe,2,4,N,Y
+193347,Cabernet Sauvignon Rosé,Rosé,Varietal,13,Mexico,Valle de Guadalupe,3,4,Y,Y
+193349,Crianza Tinto,Red,Assemblage,12.5,Mexico,Querétaro,3,2,N,Y
+193352,Atempo Rosé,Rosé,Assemblage,12.5,Mexico,Querétaro,2,3,N,Y
+193371,Sang Bleu Rosado,Rosé,Varietal,12.5,Mexico,Ensenada,3,4,N,N
+193478,Rouge (Gaston Hochar),Red,Varietal,14,Lebanon,Bekaa Valley,2,4,Y,Y
+193482,Sauvignon Blanc,White,Varietal,13.1,New Zealand,Marlborough,3,2,N,N
+193483,Private Bin Sauvignon Blanc,White,Varietal,12.5,New Zealand,Marlborough,3,2,N,N
+193484,Sauvignon Blanc,White,Varietal,13,New Zealand,Marlborough,3,2,N,N
+193485,Sauvignon Blanc,White,Varietal,12.5,New Zealand,Marlborough,3,2,N,N
+193486,Sauvignon Blanc,White,Varietal,13,New Zealand,Marlborough,3,2,N,N
+193487,Sauvignon Blanc,White,Varietal,13,New Zealand,Marlborough,3,2,N,N
+193488,Pinot Noir,Red,Varietal,12.5,New Zealand,Marlborough,2,3,N,Y
+193489,Regional Collection Marlborough Sauvignon Blanc,White,Varietal,12.5,New Zealand,Marlborough,3,2,N,N
+193494,Sauvignon Blanc,White,Varietal,13.5,New Zealand,Marlborough,3,2,N,N
+193499,Sauvignon Blanc,White,Varietal,12.5,New Zealand,Marlborough,3,2,N,N
+193530,Sauvignon Blanc,White,Varietal,12,New Zealand,Marlborough,3,2,N,N
+193552,Burgenland Red,Red,Assemblage,12.5,Austria,Burgenland,2,3,N,N
+193580,Domaene Gobelsburg Grüner Veltliner,White,Varietal,12.5,Austria,Kamptal,3,3,N,N
+193598,Assyrtiko,White,Assemblage,13.2,Greece,Santorini,3,3,N,N
+193699,Classic Cabernet Sauvignon,Red,Varietal,13.2,Israel,Galilee,3,4,Y,Y
+193719,Retsina of Attica,White,Varietal,12,Greece,Peloponnesos,2,2,N,N
+193731,Paranga White,White,Assemblage,12.5,Greece,Macedonia,3,3,N,N
+193764,Reserve Cabernet Sauvignon,Red,Varietal,13,Russia,Taman Peninsula (Таманский полуостров),3,4,Y,Y
+193765,Molodoe (Молодое),Red,Varietal,12,Russia,Taman Peninsula (Таманский полуостров),3,3,N,N
+193775,Chateau Porto Carras,Red,Assemblage,14,Greece,Slopes of Meliton,2,3,Y,Y
+193783,Reserve Cabernet,Red,Varietal,13,Russia,Taman Peninsula (Таманский полуостров),3,4,Y,Y
+193835,Santorini Assyrtiko,White,Varietal,13.5,Greece,Santorini,3,3,N,N
+193855,Vicar's Choice Sauvignon Blanc Bubbles,Sparkling,Varietal,12.5,New Zealand,Marlborough,3,4,N,N
+193856,Красностоп Золотовский (Krasnostop Zolotovskiy),Red,Varietal,14,Russia,Don Valley (Долина Дона),3,3,N,Y
+193910,Lightly Sparkling-Sauvignon Blanc,Sparkling,Varietal,12.5,New Zealand,Marlborough,3,4,N,N
+193914,Sparkling Cuvée Brut,Sparkling,Varietal,12.5,New Zealand,Marlborough,2,3,N,N
+193941,Shiraz,Red,Varietal,14,Russia,Anapa (Анапа),3,3,N,Y
+194093,Federspiel Grüner Veltliner,White,Varietal,12,Austria,Wachau,3,3,N,N
+194113,Rouge,Red,Assemblage,14,Lebanon,Bekaa Valley,2,4,Y,Y
+194117,Kotsifali,Red,Varietal,13,Greece,Crete,2,4,N,Y
+194299,Egri Bikavér Bulls Blood,Red,Varietal,12,Hungary,Eger,3,4,Y,Y
+194341,Cuvée De Printemps,Red,Assemblage,12,Lebanon,Bekaa Valley,1,3,N,Y
+194479,Santorini,White,Varietal,13,Greece,Santorini,3,3,N,N
+194594,Tokaji Aszú 3 Puttonyos,Dessert,Varietal,13.5,Hungary,Tokaj,3,3,N,N
+194674,Aszú 6 Puttonyos,Dessert,Varietal,10,Hungary,Tokaj,3,3,N,N
+194769,Tokaji Aszú 3 Puttonyos,Dessert,Varietal,10,Hungary,Tokaj,3,3,N,N
+194776,Santorini,White,Assemblage,13.2,Greece,Santorini,3,3,N,N
+194820,Vin de Crete Red,Red,Assemblage,12.5,Greece,Crete,2,3,N,Y
+194848,Kokoro,Red,Assemblage,13.8,New Zealand,Waiheke Island,3,3,Y,Y
+194946,Tiwha Pinot Noir,Red,Varietal,13.1,New Zealand,Central Otago,3,3,N,Y
+195049,Gravel Pit Merlot-Malbec,Red,Assemblage,13.9,New Zealand,Hawke's Bay,3,3,N,Y
+195069,Elspeth Syrah,Red,Varietal,14,New Zealand,Gimblett Gravels,3,4,N,Y
+195170,Bendigo Vineyard Pinot Noir,Red,Varietal,14,New Zealand,Central Otago,3,3,N,Y
+195262,Les Bretèches Rosé,Rosé,Varietal,14,Lebanon,Bekaa Valley,2,2,N,N
+195263,Cellar Selection Syrah,Red,Varietal,14.5,New Zealand,Auckland,3,4,N,Y
+195300,Zweigelt,Red,Varietal,12.5,Austria,Niederösterreich,3,3,N,Y
+195407,Earth Smoke Pinot Noir,Red,Varietal,13.2,New Zealand,Canterbury,3,3,N,Y
+195459,Woodthorpe Vineyard Syrah,Red,Varietal,13.5,New Zealand,Hawke's Bay,3,4,N,Y
+195476,Cuvée Alexander Rose de Pinot Extra Brut,Sparkling,Varietal,12.5,Russia,Taman Peninsula (Таманский полуостров),3,3,Y,N
+195548,Syrah,Red,Varietal,13.2,New Zealand,Hawke's Bay,3,4,N,Y
+195560,Syrah,Red,Varietal,13,Malta,Malta,3,4,N,Y
+195607,Úrágya Tokaji Furmint,White,Varietal,14,Hungary,Tokaj,3,3,N,N
+195646,Special Reserve Brut Cuvée,Sparkling,Assemblage,12,New Zealand,North Island,2,3,N,N
+195679,Manastir,Red,Varietal,13,Turkey,Southeastern Anatolia,3,4,N,Y
+195821,Maximum Grüner Veltliner,White,Varietal,14,Austria,Kamptal,3,3,N,N
+195831,Kormilitsa Red,Red,Assemblage,14.1,Greece,Chalkidiki,2,4,Y,Y
+195869,Zweigelt Classic,Red,Varietal,13,Austria,Niederösterreich,3,4,N,Y
+195882,Merlot,Red,Varietal,13,Malta,Malta,2,3,N,Y
+195939,Late Harvest Sémillon,Dessert,Varietal,9.5,New Zealand,Hawke's Bay,3,3,N,N
+195958,Merlot-Cabernet Franc,Red,Assemblage,14,New Zealand,Hawke's Bay,3,3,N,Y
+196087,Gemischter Satz,White,Assemblage,12.5,Austria,Burgenland,3,2,N,N
+196091,Tokaji Muscat Lunel Aszu 6 Puttonyos,Dessert,Varietal,11.4,Hungary,Tokaj,3,3,N,N
+196197,Riesling Wagramterrassen,White,Varietal,13.4,Austria,Wagram,3,3,N,N
+196249,Chardonnay,White,Varietal,13.5,Austria,Neusiedlersee,3,4,N,N
+196255,Gelber Muskateller,White,Varietal,11.5,Austria,Steiermark,2,3,N,N
+196273,Merlot,Red,Varietal,12.5,Malta,Malta,2,3,N,Y
+196313,Chardonnay,White,Varietal,12.5,Malta,Malta,2,3,N,N
+196323,Sauvignon Blanc,White,Varietal,14.5,Slovenia,Goriška Brda,3,3,N,N
+196531,Tokaji Aszú 6 Puttonyos,Dessert,Varietal,10,Hungary,Tokaj,3,3,N,N
+196602,Zweigeltrebe,Red,Varietal,13,Czech Republic,Morava,2,3,N,N
+196626,Syrah,Red,Varietal,14,Greece,Continental Greece,2,3,N,Y
+196663,Maximum Reserve Grüner Veltliner,White,Varietal,14,Austria,Kamptal,3,3,N,N
+196687,Pošip,White,Varietal,13,Croatia,Dalmatian Coast,3,3,N,N
+196710,The Soloist Pinot Rosé,Rosé,Varietal,13.5,New Zealand,Central Otago,2,2,N,N
+196718,Select Rosé Brut,Sparkling,Assemblage,12.5,Russia,Taman Peninsula (Таманский полуостров),3,3,N,N
+196838,Kallisto,White,Assemblage,13,Greece,Ilia,3,4,N,N
+196894,Merlot,Red,Varietal,14.5,Greece,Krania,2,3,N,Y
+196920,Cabernet Sauvignon Rosé,Rosé,Varietal,13.5,Moldova,Moldova Viniculture,2,4,Y,Y
+196946,Villányi Pinot Noir,Red,Varietal,14,Hungary,Villány,2,2,N,N
+196988,Cabernet Sauvignon Rosé,Rosé,Varietal,11.5,Czech Republic,Morava,2,3,Y,Y
+197511,Single Vineyard Pinot Rosé,Rosé,Varietal,13.2,New Zealand,Gisborne,2,2,N,N
+197580,Grenache Rosé,Rosé,Varietal,12.5,Malta,Malta,2,3,N,Y
+197673,St. Laurent Reserve,Red,Varietal,13.2,Austria,Niederösterreich,2,4,N,Y
+197701,Sauvignon Blanc,White,Varietal,12,Austria,Steiermark,3,2,N,N
+197934,Riesling Reserve Stratzinger Sunogeln 1ÖTW,White,Varietal,13.2,Austria,Niederösterreich,3,3,N,N
+198014,Limited Edition Barrel Fermented Chardonnay,White,Varietal,14,Romania,Transylvania,2,4,N,N
+198061,Petite Arvine,White,Varietal,13,Switzerland,Valais,2,3,N,N
+198088,Cellar Selection Cabernet Franc Rosé,Rosé,Varietal,13,New Zealand,Hawke's Bay,3,4,N,Y
+198090,Pinot Noir,Red,Varietal,11.5,Romania,Murfatlar,2,2,N,N
+198479,Vieilles Vignes Chasselas,White,Varietal,12,Switzerland,Neuchâtel,2,2,N,N
+198580,The Falcon Pinot Gris,White,Varietal,13,New Zealand,Marlborough,3,3,N,N
+198885,Chasselas,White,Varietal,12,Switzerland,Bielersee,2,2,N,N
+199204,Late Harvest Riesling,Dessert,Varietal,11.8,New Zealand,Martinborough,3,2,N,N
+199306,Sweet Beak Late Harvest Riesling,Dessert,Varietal,9.5,New Zealand,Marlborough,3,2,N,N
+199360,Grüner Veltliner Alte Reben,White,Varietal,13.5,Austria,Wagram,3,3,N,N
+199408,Petite Arvine,White,Varietal,13.5,Switzerland,Valais,3,3,N,N
+199481,St. Laurent Reserve,Red,Varietal,14,Austria,Mittelburgenland,3,3,N,Y
+199533,Mariengarten Chardonnay,White,Varietal,12.2,Austria,Südsteiermark,3,4,N,N
+199885,Grüner Veltliner Federspiel Ried Kreuzberg,White,Varietal,12.2,Austria,Wachau,3,3,N,N
+200139,Drama Queen Rosé,Rosé,Varietal,13,New Zealand,North Island,2,4,N,Y
